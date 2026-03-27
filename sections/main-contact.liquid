@@ -9,40 +9,40 @@
     <div class="contact-layout">
       <!-- Left Column: Form -->
       <div>
-        <h2 style="font-family: var(--font-heading); color: var(--color-primary); letter-spacing: 0.05em; margin-top:0; margin-bottom: 24px;">Kirim Pesan</h2>
+        <h2 style="font-family: var(--font-heading); color: var(--color-primary); letter-spacing: 0.05em; margin-top:0; margin-bottom: 24px;">Send a Message</h2>
         {%- form 'contact', class: 'contact-form' -%}
           {%- if form.posted_successfully? -%}
-            <div class="card" style="padding:16px; margin-bottom:24px; background: rgba(0, 255, 0, 0.1); color: #4ade80; border: 1px solid #4ade80;">Terima kasih. Pesan Anda telah terkirim via Email.</div>
+            <div class="card" style="padding:16px; margin-bottom:24px; background: rgba(0, 255, 0, 0.1); color: #4ade80; border: 1px solid #4ade80;">Thank you. Your message has been sent successfully.</div>
           {%- endif -%}
           {%- if form.errors -%}
             <div class="card" style="padding:16px; margin-bottom:24px; background: rgba(255, 0, 0, 0.1); color: #f87171; border: 1px solid #f87171;">{{ form.errors | default_errors }}</div>
           {%- endif -%}
           <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
             <div class="field">
-              <label for="ContactFormName" style="font-size:14px; font-weight:700; margin-bottom:4px;">Nama Lengkap</label>
-              <input id="ContactFormName" name="contact[name]" type="text" placeholder="Masukkan nama Anda" value="{{ form.name }}" required>
+              <label for="ContactFormName" style="font-size:14px; font-weight:700; margin-bottom:4px;">Full Name</label>
+              <input id="ContactFormName" name="contact[name]" type="text" placeholder="Enter your name" value="{{ form.name }}" required>
             </div>
             <div class="field">
-              <label for="ContactFormEmail" style="font-size:14px; font-weight:700; margin-bottom:4px;">Email</label>
-              <input id="ContactFormEmail" name="contact[email]" type="email" placeholder="Masukkan email Anda" value="{{ form.email }}" required>
+              <label for="ContactFormEmail" style="font-size:14px; font-weight:700; margin-bottom:4px;">Email Address</label>
+              <input id="ContactFormEmail" name="contact[email]" type="email" placeholder="Enter your email" value="{{ form.email }}" required>
             </div>
             <div class="field" style="grid-column: 1 / -1;">
-              <label for="ContactFormSubject" style="font-size:14px; font-weight:700; margin-bottom:4px;">Subjek</label>
-              <input id="ContactFormSubject" name="contact[subject]" type="text" placeholder="Tentang apa pesan Anda?">
+              <label for="ContactFormSubject" style="font-size:14px; font-weight:700; margin-bottom:4px;">Subject</label>
+              <input id="ContactFormSubject" name="contact[subject]" type="text" placeholder="What is this regarding?">
             </div>
             <div class="field" style="grid-column: 1 / -1;">
-              <label for="ContactFormBody" style="font-size:14px; font-weight:700; margin-bottom:4px;">Pesan</label>
-              <textarea id="ContactFormBody" name="contact[body]" placeholder="Tuliskan pesan Anda di sini..." required>{{ form.body }}</textarea>
+              <label for="ContactFormBody" style="font-size:14px; font-weight:700; margin-bottom:4px;">Message</label>
+              <textarea id="ContactFormBody" name="contact[body]" placeholder="Write your message here..." required>{{ form.body }}</textarea>
             </div>
             <div style="grid-column: 1 / -1; margin-top: 8px;">
               <button type="button" onclick="sendToWhatsApp()" style="width:100%; display:flex; align-items:center; justify-content:center; gap:8px; font-size:16px; font-family: var(--font-body); font-weight:700; padding:16px; background:var(--color-accent); color:#000; border:none; border-radius:12px; cursor:pointer; transition: transform 0.2s;">
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg> 
-                Kirim via WhatsApp
+                Send via WhatsApp
               </button>
-              <div style="text-align:center; margin: 16px 0; color: rgba(255,255,255,0.4); font-size:12px;">ATAU</div>
+              <div style="text-align:center; margin: 16px 0; color: rgba(255,255,255,0.4); font-size:12px;">OR</div>
               <button type="submit" style="width:100%; display:flex; align-items:center; justify-content:center; gap:8px; font-size:15px; font-weight:700; font-family:var(--font-body); padding:14px; background:rgba(255,255,255,0.05); color:var(--color-primary); border:1px solid rgba(255,255,255,0.2); border-radius:12px; cursor:pointer; transition: background 0.2s;">
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                Kirim via Email Sistem
+                Send via Email
               </button>
             </div>
           </div>
@@ -51,7 +51,7 @@
 
       <!-- Right Column: Info Cards -->
       <div>
-        <h2 style="font-family: var(--font-heading); color: var(--color-primary); letter-spacing: 0.05em; margin-top:0; margin-bottom: 24px;">Informasi Kontak</h2>
+        <h2 style="font-family: var(--font-heading); color: var(--color-primary); letter-spacing: 0.05em; margin-top:0; margin-bottom: 24px;">Contact Information</h2>
 
         <div class="card" style="padding: 24px; margin-bottom: 24px; display: grid; gap: 24px;">
           <!-- WhatsApp -->
@@ -80,7 +80,7 @@
               <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/></svg>
             </div>
             <div>
-              <div style="font-weight:700;">Jam Operasional</div>
+              <div style="font-weight:700;">Business Hours</div>
               <div style="color: rgba(255,255,255,0.6); font-size:14px;">{{ settings.business_hours }}</div>
             </div>
           </div>
@@ -90,16 +90,16 @@
               <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
             </div>
             <div>
-              <div style="font-weight:700;">Lokasi</div>
+              <div style="font-weight:700;">Location</div>
               <div style="color: rgba(255,255,255,0.6); font-size:14px;">Indonesia</div>
             </div>
           </div>
         </div>
 
         <div class="card" style="padding: 24px;">
-          <h3 style="margin-top:0; font-family: var(--font-body); font-weight: 700;">Pesanan Grosir</h3>
-          <p style="color: rgba(255,255,255,0.6); font-size:14px; line-height:1.6;">Ingin melengkapi seluruh kantor atau sekolah Anda? Kami menawarkan harga khusus untuk pesanan dalam jumlah besar.</p>
-          <a href="#" style="display:inline-block; text-align:center; text-decoration:none; width:100%; border:1px solid var(--color-primary); background:transparent; color:var(--color-primary); font-weight:700; padding:14px; border-radius:12px; margin-top:8px;">Unduh Katalog (PDF)</a>
+          <h3 style="margin-top:0; font-family: var(--font-body); font-weight: 700;">Bulk Orders</h3>
+          <p style="color: rgba(255,255,255,0.6); font-size:14px; line-height:1.6;">Looking to supply your entire office or school? We offer special pricing for high-volume orders.</p>
+          <a href="#" style="display:inline-block; text-align:center; text-decoration:none; width:100%; border:1px solid var(--color-primary); background:transparent; color:var(--color-primary); font-weight:700; padding:14px; border-radius:12px; margin-top:8px;">Download Catalog (PDF)</a>
         </div>
       </div>
     </div>
@@ -113,7 +113,7 @@
     const subject = document.getElementById('ContactFormSubject').value || 'Tanya info';
     const body = document.getElementById('ContactFormBody').value;
     
-    let text = `Halo, web Montana! 👋\n\nNama: ${name}\nEmail: ${email}\nSubjek: ${subject}\n\n${body}`;
+    let text = `Hello Montana! 👋\n\nName: ${name}\nEmail: ${email}\nSubject: ${subject}\n\n${body}`;
     const encodedText = encodeURIComponent(text);
     const waNumber = "{{ settings.whatsapp_number }}";
     
