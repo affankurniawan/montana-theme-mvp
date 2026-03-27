@@ -9,10 +9,10 @@
           {%- else -%}
             {%- assign downcase_title = block.settings.title | downcase -%}
             {%- assign fallback_img = 'notebook.png' -%}
-            {%- if downcase_title contains 'school' -%}{%- assign fallback_img = 'school-category.png' -%}
-            {%- elsif downcase_title contains 'office' -%}{%- assign fallback_img = 'office-category.png' -%}
-            {%- elsif downcase_title contains 'home' -%}{%- assign fallback_img = 'pen-set.png' -%}
-            {%- elsif downcase_title contains 'business' -%}{%- assign fallback_img = 'produk-terbaru.png' -%}
+            {%- if downcase_title contains 'school' -%}{%- assign fallback_img = 'cat-school.png' -%}
+            {%- elsif downcase_title contains 'office' -%}{%- assign fallback_img = 'cat-office.png' -%}
+            {%- elsif downcase_title contains 'home' -%}{%- assign fallback_img = 'cat-home.png' -%}
+            {%- elsif downcase_title contains 'business' -%}{%- assign fallback_img = 'cat-business.png' -%}
             {%- elsif downcase_title contains 'smart value' -%}{%- assign fallback_img = 'why-montana.png' -%}
             {%- elsif downcase_title contains 'built to last' -%}{%- assign fallback_img = 'produk-terbaru.png' -%}
             {%- elsif downcase_title contains 'everyday' -%}{%- assign fallback_img = 'pen-set.png' -%}
