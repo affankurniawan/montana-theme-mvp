@@ -1,12 +1,12 @@
 <section class="section section--spacious">
   <div class="page-width">
-    {%- render 'section-heading', eyebrow: section.settings.eyebrow, title: section.settings.heading, text: section.settings.text -%}
+    {%- render 'section-heading', eyebrow: section.settings.eyebrow, title: section.settings.heading, text: section.settings.text, alignment: 'center' -%}
     <div class="grid grid--3">
       {%- for block in section.blocks -%}
-        <article class="testimonial-card" {{ block.shopify_attributes }}>
-          <p>“{{ block.settings.quote }}”</p>
-          <strong>{{ block.settings.name }}</strong>
-          <div style="color:rgba(23,23,23,.68);">{{ block.settings.meta }}</div>
+        <article class="testimonial-card" style="text-align: center;" {{ block.shopify_attributes }}>
+          <p style="font-style: italic; font-size: 1.1rem; line-height: 1.6; margin-bottom: 24px;">“{{ block.settings.quote }}”</p>
+          <strong style="color: var(--color-accent); font-family: var(--font-heading); font-size: 1.25rem; letter-spacing: 0.05em; display: block;">{{ block.settings.name }}</strong>
+          <div style="color:rgba(255,255,255,.68); margin-top: 4px; font-size: 0.9rem;">{{ block.settings.meta }}</div>
         </article>
       {%- endfor -%}
     </div>

@@ -1,6 +1,6 @@
 <section class="section section--spacious surface">
   <div class="page-width">
-    {%- render 'section-heading', eyebrow: section.settings.eyebrow, title: section.settings.heading, text: section.settings.text -%}
+    {%- render 'section-heading', eyebrow: section.settings.eyebrow, title: section.settings.heading, text: section.settings.text, alignment: 'center' -%}
     {%- assign blog = blogs[section.settings.blog] -%}
     <div class="grid grid--3">
       {%- if blog != blank and blog.articles_count > 0 -%}
