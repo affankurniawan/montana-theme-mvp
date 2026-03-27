@@ -1,0 +1,40 @@
+<article class="article-card custom-article-card" style="display:flex; flex-direction:column; background:var(--color-surface); border-radius:12px; overflow:hidden; border: 1px solid rgba(255,255,255,0.05); transition: transform 0.3s ease; height: 100%;">
+  <div class="article-card__image-wrapper" style="position:relative; width:100%; padding-top:65%; background:#2a2a2a;">
+    {%- if article and article.image -%}
+      <img src="{{ article.image | image_url: width: 600 }}" alt="{{ article.title }}" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;" loading="lazy">
+    {%- else -%}
+      <img src="{{ 'notebook.png' | asset_url }}" alt="Placeholder" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;" loading="lazy">
+    {%- endif -%}
+    
+    {%- assign current_tag = placeholder_tag | default: "Artikel" -%}
+    {%- if article and article.tags.size > 0 -%}{%- assign current_tag = article.tags.first -%}{%- endif -%}
+    <span class="article-card__tag" style="position:absolute; top:16px; left:16px; background:var(--color-accent); color:#000; padding:6px 14px; font-weight:800; font-size:0.75rem; border-radius:8px; text-transform:uppercase; letter-spacing:0.05em;">
+      {{ current_tag }}
+    </span>
+  </div>
+  <div class="article-card__content" style="padding:24px; display:flex; flex-direction:column; flex-grow:1; background: #fff; color: #333;">
+    <div class="article-card__meta" style="color:#888; font-size:0.85rem; margin-bottom:12px; display:flex; gap:8px; align-items:center; font-weight:500;">
+      {%- assign pub_date = article.published_at | date: "%d %b %Y" | default: placeholder_date -%}
+      <span>{{ pub_date }}</span>
+      <span style="display:inline-block; width:3px; height:3px; border-radius:50%; background:#aaa;"></span>
+      <span>{{ placeholder_read | default: "5 menit" }}</span>
+    </div>
+    
+    <h3 style="margin:0 0 12px; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:1.25rem; font-weight:700; line-height:1.4; color:#111;">
+      <a href="{{ article.url | default: '#' }}" style="text-decoration:none; color:inherit;">{{ article.title | default: placeholder_title }}</a>
+    </h3>
+    
+    <p style="color:#666; font-size:0.95rem; line-height:1.6; margin:0 0 24px; flex-grow:1;">
+      {%- if article -%}
+        {{ article.excerpt_or_content | strip_html | truncate: 140 }}
+      {%- else -%}
+        {{ placeholder_excerpt }}
+      {%- endif -%}
+    </p>
+    
+    <a href="{{ article.url | default: '#' }}" style="display:inline-flex; align-items:center; gap:8px; font-weight:700; letter-spacing:0.02em; color:#111; text-decoration:none; font-size:0.9rem; margin-top:auto;">
+      Baca Selengkapnya
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</article>

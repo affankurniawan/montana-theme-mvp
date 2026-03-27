@@ -2,12 +2,9 @@
   {%- render 'section-heading', eyebrow: 'Blog', title: blog.title, text: 'Use practical and searchable content to make Montana useful, not just transactional.' -%}
   <div class="grid grid--3">
     {%- for article in blog.articles -%}
-      <article class="article-card">
-        <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
-        <p>{{ article.excerpt_or_content | strip_html | truncate: 140 }}</p>
-      </article>
+      {%- render 'article-card', article: article -%}
     {%- else -%}
-      <article class="article-card"><h3>No articles yet</h3><p>Create posts for study smarter, work smarter, family essentials, product care, and brand impact.</p></article>
+      {%- render 'article-card', placeholder_title: "Belum ada artikel", placeholder_tag: "INFO", placeholder_date: "Hari ini", placeholder_read: "2 menit", placeholder_excerpt: "Nantikan artikel tips dan trik menarik serta panduan sekolah dari Montana." -%}
     {%- endfor -%}
   </div>
 </section>

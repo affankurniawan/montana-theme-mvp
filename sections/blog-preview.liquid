@@ -5,18 +5,12 @@
     <div class="grid grid--3">
       {%- if blog != blank and blog.articles_count > 0 -%}
         {%- for article in blog.articles limit: section.settings.posts_to_show -%}
-          <article class="article-card">
-            <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
-            <p>{{ article.excerpt_or_content | strip_html | truncate: 120 }}</p>
-          </article>
+          {%- render 'article-card', article: article -%}
         {%- endfor -%}
       {%- else -%}
-        {%- for i in (1..3) -%}
-          <article class="article-card">
-            <h3>Article placeholder {{ i }}</h3>
-            <p>Use this block for study tips, office productivity, family essentials, or product care.</p>
-          </article>
-        {%- endfor -%}
+        {%- render 'article-card', placeholder_title: "5 Tips Memilih Alat Tulis Kantor yang Awet dan Ergonomis", placeholder_tag: "TIPS & TRIK", placeholder_date: "17 Mar 2026", placeholder_read: "5 menit", placeholder_excerpt: "Meningkatkan produktivitas kerja dengan kenyamanan optimal, dari pemilihan pulpen hingga perlengkapan pendukung." -%}
+        {%- render 'article-card', placeholder_title: "Perjalanan Panjang Mengembangkan Lem Batang Bebas Residu", placeholder_tag: "INOVASI", placeholder_date: "12 Mar 2026", placeholder_read: "7 menit", placeholder_excerpt: "Menilik di balik layar laboratorium Montana dalam menciptakan formula lem batang ramah lingkungan dan berdaya rekat tinggi." -%}
+        {%- render 'article-card', placeholder_title: "Panduan Grosir Alat Tulis: Menghemat Anggaran Sekolah", placeholder_tag: "PANDUAN", placeholder_date: "05 Mar 2026", placeholder_read: "6 menit", placeholder_excerpt: "Cara cerdas institusi pendidikan mengelola pengadaan alat tulis tanpa mengorbankan kualitas bagi peserta didiknya." -%}
       {%- endif -%}
     </div>
   </div>
