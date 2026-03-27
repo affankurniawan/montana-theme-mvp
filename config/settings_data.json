@@ -1,12 +1,12 @@
 {
   "current": {
     "brand_tagline": "Be Smart with Montana",
-    "color_primary": "#171717",
-    "color_accent": "#FFC928",
-    "color_secondary": "#E24A3B",
-    "color_support": "#246BFD",
-    "color_background": "#FFFFFF",
-    "color_surface": "#F7F7F5",
+    "color_primary": "#ffffff",
+    "color_accent": "#ffd800",
+    "color_secondary": "#eb0000",
+    "color_support": "#00b2ff",
+    "color_background": "#000000",
+    "color_surface": "#111111",
     "whatsapp_number": "6281234567890",
     "contact_email": "hello@example.com",
     "business_hours": "Mon - Fri, 09:00 - 18:00"
