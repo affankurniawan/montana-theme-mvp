@@ -3,7 +3,8 @@
     {%- if article and article.image -%}
       <img src="{{ article.image | image_url: width: 600 }}" alt="{{ article.title }}" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;" loading="lazy">
     {%- else -%}
-      <img src="{{ 'notebook.png' | asset_url }}" alt="Placeholder" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;" loading="lazy">
+      {%- assign fallback_img = placeholder_image | default: 'notebook.png' -%}
+      <img src="{{ fallback_img | asset_url }}" alt="Placeholder" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;" loading="lazy">
     {%- endif -%}
     
     {%- assign current_tag = placeholder_tag | default: "Artikel" -%}
