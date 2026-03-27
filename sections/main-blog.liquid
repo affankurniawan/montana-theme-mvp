@@ -1,5 +1,5 @@
 <section class="main-blog">
-  {%- render 'section-heading', eyebrow: 'Blog', title: blog.title, text: '' -%}
+  {%- render 'section-heading', eyebrow: 'Blog', title: blog.title, alignment: 'center' -%}
   <div class="grid grid--3">
     {%- for article in blog.articles -%}
       {%- render 'article-card', article: article -%}

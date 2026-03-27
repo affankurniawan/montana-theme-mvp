@@ -1,7 +1,8 @@
 {%- if eyebrow != blank or title != blank or text != blank -%}
-  <div class="section-heading">
-    {%- if eyebrow != blank -%}<span class="eyebrow">{{ eyebrow }}</span>{%- endif -%}
-    {%- if title != blank -%}<h2>{{ title }}</h2>{%- endif -%}
-    {%- if text != blank -%}<p>{{ text }}</p>{%- endif -%}
-  </div>
+{%- assign align = alignment | default: 'left' -%}
+<div class="section-heading" style="text-align: {{ align }};">
+  {%- if eyebrow != blank -%}<span class="eyebrow" style="display:inline-block; margin-bottom:8px;">{{ eyebrow }}</span>{%- endif -%}
+  {%- if title != blank -%}<h2 style="margin:0;">{{ title }}</h2>{%- endif -%}
+  {%- if text != blank -%}<p style="margin-top:12px;">{{ text }}</p>{%- endif -%}
+</div>
 {%- endif -%}
