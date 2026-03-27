@@ -3,7 +3,7 @@
     {%- if product.featured_image != blank -%}
       {{ product.featured_image | image_url: width: 640 | image_tag: widths: '320,480,640', loading: 'lazy', alt: product.title }}
     {%- else -%}
-      <div class="placeholder-box" style="background:#f0f0f0; color:#171717; min-height:100%;">Product image</div>
+      <img src="{{ 'pen-set.png' | asset_url }}" alt="{{ product.title | default: 'Montana Product' }}" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
     {%- endif -%}
   </a>
   <div class="product-card__content">
