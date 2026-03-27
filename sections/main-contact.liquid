@@ -1,36 +1,115 @@
 <section class="section section--spacious">
+  <style>
+    .contact-layout { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: start; margin-top: 32px; }
+    @media (max-width: 989px) { .contact-layout { grid-template-columns: 1fr; gap: 32px; } }
+  </style>
   <div class="page-width">
-    {%- render 'section-heading', eyebrow: 'Contact', title: page.title, text: 'Use this page for retail questions, partnerships, and bulk inquiries.' -%}
-    {%- form 'contact', class: 'contact-form grid grid--2' -%}
-      {%- if form.posted_successfully? -%}
-        <div class="card" style="padding:20px; grid-column:1/-1;">Thanks. Your message has been sent.</div>
-      {%- endif -%}
-      {%- if form.errors -%}
-        <div class="card" style="padding:20px; grid-column:1/-1;">{{ form.errors | default_errors }}</div>
-      {%- endif -%}
-      <div class="field">
-        <label for="ContactFormName">Name</label>
-        <input id="ContactFormName" name="contact[name]" type="text" value="{{ form.name }}">
+    {%- render 'section-heading', eyebrow: 'Contact Us', title: page.title, text: 'Use this page for retail questions, partnerships, and bulk inquiries.' -%}
+    
+    <div class="contact-layout">
+      <!-- Left Column: Form -->
+      <div>
+        <h2 style="font-family: var(--font-heading); color: var(--color-primary); letter-spacing: 0.05em; margin-top:0; margin-bottom: 24px;">Kirim Pesan</h2>
+        {%- form 'contact', class: 'contact-form' -%}
+          {%- if form.posted_successfully? -%}
+            <div class="card" style="padding:16px; margin-bottom:24px; background: rgba(0, 255, 0, 0.1); color: #4ade80; border: 1px solid #4ade80;">Terima kasih. Pesan Anda telah terkirim via Email.</div>
+          {%- endif -%}
+          {%- if form.errors -%}
+            <div class="card" style="padding:16px; margin-bottom:24px; background: rgba(255, 0, 0, 0.1); color: #f87171; border: 1px solid #f87171;">{{ form.errors | default_errors }}</div>
+          {%- endif -%}
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+            <div class="field">
+              <label for="ContactFormName" style="font-size:14px; font-weight:700; margin-bottom:4px;">Nama Lengkap</label>
+              <input id="ContactFormName" name="contact[name]" type="text" placeholder="Masukkan nama Anda" value="{{ form.name }}" required>
+            </div>
+            <div class="field">
+              <label for="ContactFormEmail" style="font-size:14px; font-weight:700; margin-bottom:4px;">Email</label>
+              <input id="ContactFormEmail" name="contact[email]" type="email" placeholder="Masukkan email Anda" value="{{ form.email }}" required>
+            </div>
+            <div class="field" style="grid-column: 1 / -1;">
+              <label for="ContactFormSubject" style="font-size:14px; font-weight:700; margin-bottom:4px;">Subjek</label>
+              <input id="ContactFormSubject" name="contact[subject]" type="text" placeholder="Tentang apa pesan Anda?">
+            </div>
+            <div class="field" style="grid-column: 1 / -1;">
+              <label for="ContactFormBody" style="font-size:14px; font-weight:700; margin-bottom:4px;">Pesan</label>
+              <textarea id="ContactFormBody" name="contact[body]" placeholder="Tuliskan pesan Anda di sini..." required>{{ form.body }}</textarea>
+            </div>
+            <div style="grid-column: 1 / -1; margin-top: 8px;">
+              <button type="button" onclick="sendToWhatsApp()" style="width:100%; font-size:16px; font-family: var(--font-body); font-weight:700; padding:16px; background:var(--color-accent); color:#000; border:none; border-radius:12px; cursor:pointer; transition: transform 0.2s;">
+                <span style="margin-right:8px;">💬</span> Kirim via WhatsApp
+              </button>
+              <div style="text-align:center; margin: 16px 0; color: rgba(255,255,255,0.4); font-size:12px;">ATAU</div>
+              <button type="submit" style="width:100%; font-size:14px; font-weight:700; font-family:var(--font-body); padding:12px; background:transparent; color:var(--color-primary); border:1px solid var(--glass-border); border-radius:12px; cursor:pointer;">
+                Kirim via Email Sistem
+              </button>
+            </div>
+          </div>
+        {%- endform -%}
       </div>
-      <div class="field">
-        <label for="ContactFormEmail">Email</label>
-        <input id="ContactFormEmail" name="contact[email]" type="email" value="{{ form.email }}">
+
+      <!-- Right Column: Info Cards -->
+      <div>
+        <h2 style="font-family: var(--font-heading); color: var(--color-primary); letter-spacing: 0.05em; margin-top:0; margin-bottom: 24px;">Informasi Kontak</h2>
+
+        <div class="card" style="padding: 24px; margin-bottom: 24px; display: grid; gap: 24px;">
+          <!-- WhatsApp -->
+          <div style="display:flex; gap:16px; align-items:center;">
+            <div style="background: rgba(255, 216, 0, 0.15); width:48px; height:48px; border-radius:50%; display:grid; place-items:center; font-size: 20px;">💬</div>
+            <div>
+              <div style="font-weight:700;">WhatsApp</div>
+              <div style="color: rgba(255,255,255,0.6); font-size:14px;">+{{ settings.whatsapp_number }}</div>
+            </div>
+          </div>
+          <!-- Email -->
+          <div style="display:flex; gap:16px; align-items:center;">
+            <div style="background: rgba(255, 216, 0, 0.15); width:48px; height:48px; border-radius:50%; display:grid; place-items:center; font-size: 20px;">✉️</div>
+            <div>
+              <div style="font-weight:700;">Email</div>
+              <div style="color: rgba(255,255,255,0.6); font-size:14px;">{{ settings.contact_email }}</div>
+            </div>
+          </div>
+          <!-- Hours -->
+          <div style="display:flex; gap:16px; align-items:center;">
+            <div style="background: rgba(255, 216, 0, 0.15); width:48px; height:48px; border-radius:50%; display:grid; place-items:center; font-size: 20px;">🕒</div>
+            <div>
+              <div style="font-weight:700;">Jam Operasional</div>
+              <div style="color: rgba(255,255,255,0.6); font-size:14px;">{{ settings.business_hours }}</div>
+            </div>
+          </div>
+          <!-- Location -->
+          <div style="display:flex; gap:16px; align-items:center;">
+            <div style="background: rgba(255, 216, 0, 0.15); width:48px; height:48px; border-radius:50%; display:grid; place-items:center; font-size: 20px;">📍</div>
+            <div>
+              <div style="font-weight:700;">Lokasi</div>
+              <div style="color: rgba(255,255,255,0.6); font-size:14px;">Indonesia</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="padding: 24px;">
+          <h3 style="margin-top:0; font-family: var(--font-body); font-weight: 700;">Pesanan Grosir</h3>
+          <p style="color: rgba(255,255,255,0.6); font-size:14px; line-height:1.6;">Ingin melengkapi seluruh kantor atau sekolah Anda? Kami menawarkan harga khusus untuk pesanan dalam jumlah besar.</p>
+          <a href="#" style="display:inline-block; text-align:center; text-decoration:none; width:100%; border:1px solid var(--color-primary); background:transparent; color:var(--color-primary); font-weight:700; padding:14px; border-radius:12px; margin-top:8px;">Unduh Katalog (PDF)</a>
+        </div>
       </div>
-      <div class="field" style="grid-column:1/-1;">
-        <label for="ContactFormPhone">Phone</label>
-        <input id="ContactFormPhone" name="contact[phone]" type="tel" value="{{ form.phone }}">
-      </div>
-      <div class="field" style="grid-column:1/-1;">
-        <label for="ContactFormBody">Message</label>
-        <textarea id="ContactFormBody" name="contact[body]">{{ form.body }}</textarea>
-      </div>
-      <div style="grid-column:1/-1; display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
-        <button class="button button--accent" type="submit">Send inquiry</button>
-        <a class="button button--secondary" href="https://wa.me/{{ settings.whatsapp_number }}" target="_blank" rel="noopener">WhatsApp</a>
-      </div>
-    {%- endform -%}
+    </div>
   </div>
 </section>
+
+<script>
+  function sendToWhatsApp() {
+    const name = document.getElementById('ContactFormName').value;
+    const email = document.getElementById('ContactFormEmail').value;
+    const subject = document.getElementById('ContactFormSubject').value || 'Tanya info';
+    const body = document.getElementById('ContactFormBody').value;
+    
+    let text = `Halo, web Montana! 👋\n\nNama: ${name}\nEmail: ${email}\nSubjek: ${subject}\n\n${body}`;
+    const encodedText = encodeURIComponent(text);
+    const waNumber = "{{ settings.whatsapp_number }}";
+    
+    window.open(`https://wa.me/${waNumber}?text=${encodedText}`, '_blank');
+  }
+</script>
 
 {% schema %}
 {
