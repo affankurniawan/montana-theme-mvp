@@ -11,7 +11,7 @@
       <a href="/collections/all" {% if current_path contains '/collections' or current_path contains '/products' %}style="{{ active_style }}"{% endif %}>Product</a>
       <a href="/blogs/news" {% if current_path contains '/blogs' or current_path contains '/articles' %}style="{{ active_style }}"{% endif %}>Blog</a>
       <a href="/pages/about-us?view=about-us" {% if current_path == '/pages/about-us' %}style="{{ active_style }}"{% endif %}>About Us</a>
-      <a href="/pages/contact" {% if current_path == '/pages/contact' %}style="{{ active_style }}"{% endif %}>Contact Us</a>
+      <a href="/pages/contact-us?view=contact" {% if current_path == '/pages/contact-us' %}style="{{ active_style }}"{% endif %}>Contact Us</a>
     </nav>
 
     <div style="display:flex; gap:12px; align-items:center;">
