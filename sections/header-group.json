@@ -13,7 +13,7 @@
       "type": "site-header",
       "settings": {
         "menu": "main-menu",
-        "show_search": true,
+        "show_search": false,
         "cta_label": "Shop now",
         "cta_link": "/collections/all"
       }
