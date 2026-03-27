@@ -6,8 +6,8 @@
         <div class="icon-card" style="text-align:center; padding:24px; display:flex; flex-direction:column; align-items:center; justify-content:center; cursor:pointer;" onclick="window.open('{{ block.settings.link }}', '_blank')" {{ block.shopify_attributes }}>
           {%- assign downcase_title = block.settings.title | downcase -%}
           {%- assign fallback_img = '' -%}
-          {%- if downcase_title contains 'shopee' -%}{%- assign fallback_img = 'logo-shopee-color.png' -%}
-          {%- elsif downcase_title contains 'tokopedia' -%}{%- assign fallback_img = 'logo-tokopedia-color.png' -%}
+          {%- if downcase_title contains 'shopee' -%}{%- assign fallback_img = 'logo-shopee.png' -%}
+          {%- elsif downcase_title contains 'tokopedia' -%}{%- assign fallback_img = 'logo-tokopedia.png' -%}
           {%- elsif downcase_title contains 'lazada' -%}{%- assign fallback_img = 'logo-lazada.png' -%}
           {%- elsif downcase_title contains 'tiktok' -%}{%- assign fallback_img = 'logo-tiktok.png' -%}
           {%- endif -%}
