@@ -3,7 +3,7 @@
     {%- render 'section-heading', eyebrow: section.settings.eyebrow, title: section.settings.heading, text: section.settings.text, alignment: 'center' -%}
     <div class="grid grid--4" style="gap:24px;">
       {%- for block in section.blocks -%}
-        <div class="icon-card marketplace-card" onclick="window.open('{{ block.settings.link }}', '_blank')" {{ block.shopify_attributes }}>
+        <div class="icon-card" style="text-align:center; padding:24px; display:flex; flex-direction:column; align-items:center; justify-content:center; cursor:pointer; transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);" onclick="window.open('{{ block.settings.link }}', '_blank')" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 15px 30px rgba(0,0,0,0.5)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';" {{ block.shopify_attributes }}>
           {%- assign downcase_title = block.settings.title | downcase -%}
           {%- assign fallback_img = '' -%}
           {%- if downcase_title contains 'shopee' -%}{%- assign fallback_img = 'logo-shopee.png' -%}
@@ -13,9 +13,9 @@
           {%- endif -%}
           
           {%- if block.settings.image != blank -%}
-            <img src="{{ block.settings.image | image_url: width: 160 }}" alt="{{ block.settings.title }}" loading="lazy">
+            <img src="{{ block.settings.image | image_url: width: 160 }}" alt="{{ block.settings.title }}" style="height:64px; width:auto; margin-bottom:16px; object-fit:contain;" loading="lazy">
           {%- elsif fallback_img != '' -%}
-            <img src="{{ fallback_img | asset_url }}" alt="{{ block.settings.title }}" loading="lazy">
+            <img src="{{ fallback_img | asset_url }}" alt="{{ block.settings.title }}" style="height:64px; width:auto; margin-bottom:16px; object-fit:contain;" loading="lazy">
           {%- endif -%}
           <h3 style="margin:0; font-size:1.25rem;">{{ block.settings.title }}</h3>
         </div>
@@ -23,29 +23,6 @@
     </div>
   </div>
 </section>
-
-<style>
-  .marketplace-card {
-    text-align: center; padding: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  .marketplace-card img {
-    height: 64px; width: auto; margin-bottom: 16px; object-fit: contain; transition: filter 0.3s ease;
-  }
-  .marketplace-card h3 {
-    margin: 0; font-size: 1.25rem; transition: color 0.3s ease;
-  }
-  .marketplace-card:hover { 
-    transform: translateY(-8px); 
-    background: var(--color-accent); 
-    color: var(--color-background); 
-    border-color: var(--color-accent); 
-    box-shadow: 0 15px 30px rgba(255,216,0,0.2); 
-  }
-  .marketplace-card:hover img {
-    filter: brightness(0);
-  }
-</style>
 
 {% schema %}
 {
