@@ -1,0 +1,8 @@
+{
+  "sections": {
+    "main": {"type": "main-contact"},
+    "cards": {"type": "contact-cards"},
+    "faq": {"type": "faq-accordion", "blocks": {"f1": {"type": "faq", "settings": {"question": "Do you support bulk orders?", "answer": "Yes. Use this page or WhatsApp for bulk orders, partnerships, and stock inquiries."}}, "f2": {"type": "faq", "settings": {"question": "Can I ask about products first?", "answer": "Yes. Make WhatsApp support visible so questions do not block purchase intent."}}}, "block_order": ["f1", "f2"]}
+  },
+  "order": ["main", "cards", "faq"]
+}

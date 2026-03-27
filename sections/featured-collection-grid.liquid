@@ -1,0 +1,39 @@
+<section class="section section--spacious">
+  <div class="page-width">
+    {%- render 'section-heading', eyebrow: section.settings.eyebrow, title: section.settings.heading, text: section.settings.text -%}
+    {%- assign collection = collections[section.settings.collection] -%}
+    <div class="product-grid">
+      {%- if collection != blank and collection.products_count > 0 -%}
+        {%- for product in collection.products limit: section.settings.products_to_show -%}
+          {%- render 'product-card', product: product -%}
+        {%- endfor -%}
+      {%- else -%}
+        {%- for i in (1..4) -%}
+          <article class="card product-card">
+            <div class="product-card__media"><div class="placeholder-box" style="background:#f0f0f0; color:#171717;">Featured product</div></div>
+            <div class="product-card__content">
+              <span class="badge">Best seller</span>
+              <h3>Placeholder product {{ i }}</h3>
+              <div class="price">Rp 0</div>
+              <p>Replace with your real Shopify products after import.</p>
+            </div>
+          </article>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured collection grid",
+  "settings": [
+    {"type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Best sellers"},
+    {"type": "text", "id": "heading", "label": "Heading", "default": "Featured essentials"},
+    {"type": "textarea", "id": "text", "label": "Text", "default": "Show practical products that prove Montana quality fast."},
+    {"type": "collection", "id": "collection", "label": "Collection"},
+    {"type": "range", "id": "products_to_show", "min": 2, "max": 8, "step": 1, "label": "Products to show", "default": 4}
+  ],
+  "presets": [{"name": "Featured collection grid"}]
+}
+{% endschema %}

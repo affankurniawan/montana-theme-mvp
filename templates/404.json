@@ -1,0 +1,6 @@
+{
+  "sections": {
+    "main": {"type": "rich-text-cta", "settings": {"eyebrow": "404", "heading": "Page not found", "text": "Guide customers back to product discovery quickly.", "button_label": "Go to product", "button_link": "/collections/all", "surface": false, "use_accent": true}}
+  },
+  "order": ["main"]
+}

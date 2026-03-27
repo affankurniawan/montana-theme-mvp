@@ -1,0 +1,37 @@
+<section class="section section--spacious">
+  <div class="page-width">
+    {%- render 'section-heading', eyebrow: 'Search', title: 'Search Montana', text: 'Help customers find products, articles, and useful content quickly.' -%}
+    <form action="{{ routes.search_url }}" method="get" role="search" class="contact-form" style="margin-bottom:24px;">
+      <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search products or articles">
+    </form>
+
+    {%- if search.performed -%}
+      <p>{{ search.results_count }} result(s) for “{{ search.terms }}”.</p>
+      <div class="grid grid--3">
+        {%- for item in search.results -%}
+          <article class="article-card">
+            <h3><a href="{{ item.url }}">{{ item.title | default: item.product.title }}</a></h3>
+            <p>
+              {%- if item.object_type == 'product' -%}
+                {{ item.description | strip_html | truncate: 120 }}
+              {%- elsif item.object_type == 'article' -%}
+                {{ item.excerpt_or_content | strip_html | truncate: 120 }}
+              {%- else -%}
+                {{ item.content | strip_html | truncate: 120 }}
+              {%- endif -%}
+            </p>
+          </article>
+        {%- else -%}
+          <article class="article-card"><h3>No results found</h3><p>Try a broader keyword.</p></article>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main search",
+  "settings": []
+}
+{% endschema %}

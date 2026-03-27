@@ -1,0 +1,27 @@
+<section class="section">
+  <div class="page-width">
+    <div class="value-strip">
+      {%- for block in section.blocks -%}
+        <div class="value-strip__item" {{ block.shopify_attributes }}>{{ block.settings.title }}</div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Value strip",
+  "blocks": [
+    {"type": "item", "name": "Item", "settings": [{"type": "text", "id": "title", "label": "Title", "default": "Durable"}]}
+  ],
+  "presets": [{
+    "name": "Value strip",
+    "blocks": [
+      {"type": "item", "settings": {"title": "Durable"}},
+      {"type": "item", "settings": {"title": "Affordable"}},
+      {"type": "item", "settings": {"title": "Practical"}},
+      {"type": "item", "settings": {"title": "Everyday-ready"}}
+    ]
+  }]
+}
+{% endschema %}

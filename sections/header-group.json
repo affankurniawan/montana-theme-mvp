@@ -1,0 +1,23 @@
+{
+  "name": "Header group",
+  "type": "header",
+  "sections": {
+    "announcement": {
+      "type": "announcement-bar",
+      "settings": {
+        "text": "Durable essentials at smart prices.",
+        "link": "/collections/all"
+      }
+    },
+    "header": {
+      "type": "site-header",
+      "settings": {
+        "menu": "main-menu",
+        "show_search": true,
+        "cta_label": "Shop now",
+        "cta_link": "/collections/all"
+      }
+    }
+  },
+  "order": ["announcement", "header"]
+}

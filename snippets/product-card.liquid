@@ -1,0 +1,15 @@
+<article class="card product-card">
+  <a href="{{ product.url }}" class="product-card__media">
+    {%- if product.featured_image != blank -%}
+      {{ product.featured_image | image_url: width: 640 | image_tag: widths: '320,480,640', loading: 'lazy', alt: product.title }}
+    {%- else -%}
+      <div class="placeholder-box" style="background:#f0f0f0; color:#171717; min-height:100%;">Product image</div>
+    {%- endif -%}
+  </a>
+  <div class="product-card__content">
+    {%- if product.tags contains 'promo' -%}<span class="badge">Promo</span>{%- endif -%}
+    <h3><a href="{{ product.url }}">{{ product.title }}</a></h3>
+    <div class="price">{{ product.price | money }}</div>
+    <p>{{ product.description | strip_html | truncate: 90 }}</p>
+  </div>
+</article>

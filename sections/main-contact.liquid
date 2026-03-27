@@ -1,0 +1,40 @@
+<section class="section section--spacious">
+  <div class="page-width">
+    {%- render 'section-heading', eyebrow: 'Contact', title: page.title, text: 'Use this page for retail questions, partnerships, and bulk inquiries.' -%}
+    {%- form 'contact', class: 'contact-form grid grid--2' -%}
+      {%- if form.posted_successfully? -%}
+        <div class="card" style="padding:20px; grid-column:1/-1;">Thanks. Your message has been sent.</div>
+      {%- endif -%}
+      {%- if form.errors -%}
+        <div class="card" style="padding:20px; grid-column:1/-1;">{{ form.errors | default_errors }}</div>
+      {%- endif -%}
+      <div class="field">
+        <label for="ContactFormName">Name</label>
+        <input id="ContactFormName" name="contact[name]" type="text" value="{{ form.name }}">
+      </div>
+      <div class="field">
+        <label for="ContactFormEmail">Email</label>
+        <input id="ContactFormEmail" name="contact[email]" type="email" value="{{ form.email }}">
+      </div>
+      <div class="field" style="grid-column:1/-1;">
+        <label for="ContactFormPhone">Phone</label>
+        <input id="ContactFormPhone" name="contact[phone]" type="tel" value="{{ form.phone }}">
+      </div>
+      <div class="field" style="grid-column:1/-1;">
+        <label for="ContactFormBody">Message</label>
+        <textarea id="ContactFormBody" name="contact[body]">{{ form.body }}</textarea>
+      </div>
+      <div style="grid-column:1/-1; display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+        <button class="button button--accent" type="submit">Send inquiry</button>
+        <a class="button button--secondary" href="https://wa.me/{{ settings.whatsapp_number }}" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    {%- endform -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main contact",
+  "settings": []
+}
+{% endschema %}

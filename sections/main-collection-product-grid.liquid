@@ -1,0 +1,35 @@
+<section class="main-collection">
+  <div class="breadcrumbs"><a href="/">Home</a> / {{ collection.title }}</div>
+  {%- render 'section-heading', eyebrow: 'Product hub', title: collection.title, text: collection.description | strip_html | truncate: 180 -%}
+
+  <div class="grid grid--4" style="margin-bottom:24px;">
+    <div class="proof-card"><h3>Category filter</h3><p>Use Shopify Search & Discovery for product type filtering.</p></div>
+    <div class="proof-card"><h3>Shop by need</h3><p>School, office, home, and business collection logic can be layered with tags.</p></div>
+    <div class="proof-card"><h3>Sorting</h3><p>Use the native collection sorting options in Shopify.</p></div>
+    <div class="proof-card"><h3>Promo tags</h3><p>Apply tags like promo or new to create quick visual proof.</p></div>
+  </div>
+
+  <div class="product-grid">
+    {%- for product in collection.products -%}
+      {%- render 'product-card', product: product -%}
+    {%- else -%}
+      {%- for i in (1..8) -%}
+        <article class="card product-card">
+          <div class="product-card__media"><div class="placeholder-box" style="background:#f0f0f0; color:#171717;">Collection item</div></div>
+          <div class="product-card__content">
+            <h3>Placeholder product {{ i }}</h3>
+            <div class="price">Rp 0</div>
+            <p>Add your Shopify products after theme import.</p>
+          </div>
+        </article>
+      {%- endfor -%}
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main collection product grid",
+  "settings": []
+}
+{% endschema %}

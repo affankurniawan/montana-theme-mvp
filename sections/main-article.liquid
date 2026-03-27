@@ -1,0 +1,23 @@
+<section class="article-template">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="{{ blog.url }}">{{ blog.title }}</a> / {{ article.title }}</div>
+  <div class="richtext">
+    <span class="eyebrow">Article</span>
+    <h1>{{ article.title }}</h1>
+    <p>{{ article.published_at | date: '%d %b %Y' }} · {{ article.author }}</p>
+    {%- if article.image != blank -%}
+      <div style="margin:24px 0;">{{ article.image | image_url: width: 1400 | image_tag: widths: '700,1000,1400', loading: 'eager', alt: article.title }}</div>
+    {%- endif -%}
+    <div class="rte">{{ article.content }}</div>
+    <div style="margin-top:32px; display:flex; gap:12px; flex-wrap:wrap;">
+      <a href="{{ routes.all_products_collection_url }}" class="button button--accent">Shop products</a>
+      <button type="button" class="button button--secondary" data-copy-link>Copy link</button>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main article",
+  "settings": []
+}
+{% endschema %}

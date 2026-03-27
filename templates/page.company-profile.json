@@ -1,0 +1,7 @@
+{
+  "sections": {
+    "intro": {"type": "rich-text-cta", "settings": {"eyebrow": "Company profile", "heading": "A practical essentials brand with a bigger educational ambition.", "text": "Use this page to present the brand in a shareable, partnership-friendly format.", "button_label": "Contact us", "button_link": "/pages/contact-us", "surface": false, "use_accent": true}},
+    "showcase": {"type": "icon-cards", "settings": {"eyebrow": "Why partner", "heading": "Present the product range and brand logic clearly", "text": "Use this page for stockist, distributor, partnership, or wholesale conversations."}, "blocks": {"s1": {"type": "card", "settings": {"title": "Smart value", "text": "Durable quality at accessible prices."}}, "s2": {"type": "card", "settings": {"title": "Clear categories", "text": "Pens, markers, scissors, tissue, bundles, and new arrivals."}}, "s3": {"type": "card", "settings": {"title": "Brand story", "text": "Purpose-led, but still product-first."}}, "s4": {"type": "card", "settings": {"title": "Future-ready", "text": "Designed to expand with bundles, content, and richer proof."}}}, "block_order": ["s1", "s2", "s3", "s4"]}
+  },
+  "order": ["intro", "showcase"]
+}

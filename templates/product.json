@@ -1,0 +1,7 @@
+{
+  "sections": {
+    "main": {"type": "main-product"},
+    "faq": {"type": "faq-accordion", "blocks": {"f1": {"type": "faq", "settings": {"question": "Do variants sync with Shopify?", "answer": "This theme is built around Shopify-native product and variant structure. Keep Big Seller as the sync layer, not the UI source of truth."}}, "f2": {"type": "faq", "settings": {"question": "Can customers ask product questions?", "answer": "Yes. Keep WhatsApp and Contact Us highly visible on product detail pages."}}}, "block_order": ["f1", "f2"]}
+  },
+  "order": ["main", "faq"]
+}

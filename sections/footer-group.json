@@ -1,0 +1,15 @@
+{
+  "name": "Footer group",
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "site-footer",
+      "settings": {
+        "menu": "footer",
+        "footer_heading": "Better tools for a smarter generation.",
+        "footer_text": "Use this section for policy pages, contact links, and quick trust-building information."
+      }
+    }
+  },
+  "order": ["footer"]
+}

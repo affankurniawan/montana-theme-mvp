@@ -1,0 +1,44 @@
+<header class="header">
+  <div class="page-width header__inner">
+    <a href="{{ routes.root_url }}" class="header__logo">
+      {%- if settings.logo != blank -%}
+        {{ settings.logo | image_url: width: 220 | image_tag: alt: shop.name, loading: 'eager', widths: '110,220' }}
+      {%- else -%}
+        <strong>{{ shop.name | default: 'Montana' }}</strong>
+      {%- endif -%}
+    </a>
+
+    <nav class="nav" aria-label="Primary navigation">
+      {%- for link in linklists[section.settings.menu].links -%}
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      {%- else -%}
+        <a href="/">Home</a>
+        <a href="/collections/all">Product</a>
+        <a href="/blogs/news">Blog</a>
+        <a href="/pages/about-us">About Us</a>
+        <a href="/pages/contact-us">Contact Us</a>
+      {%- endfor -%}
+    </nav>
+
+    <div style="display:flex; gap:12px; align-items:center;">
+      {%- if section.settings.show_search -%}
+        <a href="{{ routes.search_url }}">Search</a>
+      {%- endif -%}
+      {%- if section.settings.cta_label != blank -%}
+        <a href="{{ section.settings.cta_link | default: routes.all_products_collection_url }}" class="button button--accent">{{ section.settings.cta_label }}</a>
+      {%- endif -%}
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Site header",
+  "settings": [
+    {"type": "link_list", "id": "menu", "label": "Menu"},
+    {"type": "checkbox", "id": "show_search", "label": "Show search link", "default": true},
+    {"type": "text", "id": "cta_label", "label": "CTA label", "default": "Shop now"},
+    {"type": "url", "id": "cta_link", "label": "CTA link"}
+  ]
+}
+{% endschema %}

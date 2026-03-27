@@ -1,0 +1,7 @@
+{%- if eyebrow != blank or title != blank or text != blank -%}
+  <div class="section-heading">
+    {%- if eyebrow != blank -%}<span class="eyebrow">{{ eyebrow }}</span>{%- endif -%}
+    {%- if title != blank -%}<h2>{{ title }}</h2>{%- endif -%}
+    {%- if text != blank -%}<p>{{ text }}</p>{%- endif -%}
+  </div>
+{%- endif -%}

@@ -1,0 +1,44 @@
+<section class="section section--spacious">
+  <div class="page-width">
+    {%- render 'section-heading', eyebrow: section.settings.eyebrow, title: section.settings.heading, text: section.settings.text -%}
+    <div class="grid grid--3">
+      {%- for block in section.blocks -%}
+        <article class="testimonial-card" {{ block.shopify_attributes }}>
+          <p>“{{ block.settings.quote }}”</p>
+          <strong>{{ block.settings.name }}</strong>
+          <div style="color:rgba(23,23,23,.68);">{{ block.settings.meta }}</div>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonials grid",
+  "settings": [
+    {"type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Social proof"},
+    {"type": "text", "id": "heading", "label": "Heading", "default": "Trusted for daily use"},
+    {"type": "textarea", "id": "text", "label": "Text", "default": "Prioritize testimonials that mention durability, usefulness, and worth-for-money."}
+  ],
+  "blocks": [
+    {
+      "type": "quote",
+      "name": "Quote",
+      "settings": [
+        {"type": "textarea", "id": "quote", "label": "Quote", "default": "Feels durable and worth the price."},
+        {"type": "text", "id": "name", "label": "Name", "default": "Customer name"},
+        {"type": "text", "id": "meta", "label": "Meta", "default": "Student"}
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Testimonials grid",
+    "blocks": [
+      {"type": "quote", "settings": {"quote": "Feels durable and worth the price.", "name": "Alya", "meta": "Student"}},
+      {"type": "quote", "settings": {"quote": "Simple, neat, and dependable for daily office use.", "name": "Raka", "meta": "Office worker"}},
+      {"type": "quote", "settings": {"quote": "Good quality without overspending.", "name": "Nina", "meta": "Parent"}}
+    ]
+  }]
+}
+{% endschema %}

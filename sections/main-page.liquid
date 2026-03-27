@@ -1,0 +1,13 @@
+<section class="section template-page">
+  <div class="page-width">
+    {%- render 'section-heading', title: page.title -%}
+    <div class="rte">{{ page.content }}</div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main page",
+  "settings": []
+}
+{% endschema %}

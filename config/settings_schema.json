@@ -1,0 +1,39 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Montana OS 2.0 MVP",
+    "theme_version": "1.0.0",
+    "theme_author": "OpenAI for AHA Commerce",
+    "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes/theme-structure",
+    "theme_support_url": "https://help.shopify.com/"
+  },
+  {
+    "name": "Brand",
+    "settings": [
+      {"type": "image_picker", "id": "logo", "label": "Logo"},
+      {"type": "image_picker", "id": "favicon", "label": "Favicon"},
+      {"type": "text", "id": "brand_tagline", "label": "Brand tagline", "default": "Be Smart with Montana"},
+      {"type": "color", "id": "color_primary", "label": "Primary / text", "default": "#171717"},
+      {"type": "color", "id": "color_accent", "label": "Primary accent", "default": "#FFC928"},
+      {"type": "color", "id": "color_secondary", "label": "Secondary accent", "default": "#E24A3B"},
+      {"type": "color", "id": "color_support", "label": "Support accent", "default": "#246BFD"},
+      {"type": "color", "id": "color_background", "label": "Background", "default": "#FFFFFF"},
+      {"type": "color", "id": "color_surface", "label": "Surface", "default": "#F7F7F5"}
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {"type": "font_picker", "id": "type_header_font", "label": "Heading font", "default": "plus_jakarta_sans_n6"},
+      {"type": "font_picker", "id": "type_body_font", "label": "Body font", "default": "plus_jakarta_sans_n4"}
+    ]
+  },
+  {
+    "name": "Social & contact",
+    "settings": [
+      {"type": "text", "id": "whatsapp_number", "label": "WhatsApp number", "default": "6281234567890"},
+      {"type": "text", "id": "contact_email", "label": "Contact email", "default": "hello@example.com"},
+      {"type": "text", "id": "business_hours", "label": "Business hours", "default": "Mon - Fri, 09:00 - 18:00"}
+    ]
+  }
+]

@@ -1,0 +1,44 @@
+<footer class="footer">
+  <div class="page-width footer__inner" style="display:block;">
+    <div class="footer__grid">
+      <div>
+        <h3>{{ section.settings.footer_heading }}</h3>
+        <p>{{ section.settings.footer_text }}</p>
+        <p><strong>Email:</strong> {{ settings.contact_email }}</p>
+        <p><strong>Hours:</strong> {{ settings.business_hours }}</p>
+      </div>
+      <div>
+        <h4>Quick links</h4>
+        <div class="grid" style="gap:10px;">
+          {%- for link in linklists[section.settings.menu].links -%}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          {%- else -%}
+            <a href="/pages/faq">FAQ</a>
+            <a href="/policies/shipping-policy">Shipping Policy</a>
+            <a href="/policies/refund-policy">Return Policy</a>
+          {%- endfor -%}
+        </div>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <div class="grid" style="gap:10px;">
+          <a href="{{ routes.search_url }}">Search</a>
+          <a href="/pages/contact-us">Contact Us</a>
+          <a href="https://wa.me/{{ settings.whatsapp_number }}" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__small">© {{ 'now' | date: '%Y' }} {{ shop.name }}. Built for Shopify OS 2.0.</div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Site footer",
+  "settings": [
+    {"type": "link_list", "id": "menu", "label": "Footer menu"},
+    {"type": "text", "id": "footer_heading", "label": "Heading", "default": "Better tools for a smarter generation."},
+    {"type": "textarea", "id": "footer_text", "label": "Text", "default": "Use this area for policy pages, support links, and trust-building information."}
+  ]
+}
+{% endschema %}

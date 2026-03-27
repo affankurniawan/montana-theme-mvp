@@ -1,0 +1,61 @@
+<section class="main-product">
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="{{ routes.all_products_collection_url }}">Product</a> / {{ product.title }}</div>
+  <div class="product-layout">
+    <div class="product-gallery">
+      {%- if product.featured_media != blank -%}
+        {{ product.featured_media | image_url: width: 1200 | image_tag: widths: '600,900,1200', loading: 'eager', alt: product.title }}
+      {%- else -%}
+        <div class="placeholder-box" style="background:#f0f0f0; color:#171717; min-height:520px;">Upload product media</div>
+      {%- endif -%}
+    </div>
+    <div>
+      <span class="eyebrow">Built to last</span>
+      <h1>{{ product.title }}</h1>
+      <div class="price" style="font-size:1.5rem;">{{ product.price | money }}</div>
+      <p>{{ product.description | strip_html | truncate: 200 }}</p>
+
+      {%- if product.variants.size > 1 -%}
+        <div class="product-form">
+          <strong>Variants</strong>
+          <div class="variant-list">
+            {%- for variant in product.variants -%}
+              <span class="variant-chip">{{ variant.title }}</span>
+            {%- endfor -%}
+          </div>
+        </div>
+      {%- endif -%}
+
+      {%- form 'product', product, class: 'product-form' -%}
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+        <div class="grid grid--2">
+          <div class="proof-card"><h3>Durable</h3><p>Use this block for durability proof from real product data or metafields.</p></div>
+          <div class="proof-card"><h3>Smart value</h3><p>Keep product copy benefit-led, direct, and not overhyped.</p></div>
+        </div>
+        <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+          <input type="number" name="quantity" min="1" value="1" style="width:92px; padding:14px 12px; border-radius:999px; border:1px solid rgba(23,23,23,.16);">
+          <button type="submit" class="button button--accent">Add to cart</button>
+        </div>
+      {%- endform -%}
+
+      <div class="grid grid--2" style="margin-top:24px;">
+        <div class="proof-card"><h3>WhatsApp support</h3><p><a href="https://wa.me/{{ settings.whatsapp_number }}" target="_blank" rel="noopener">Ask product questions</a></p></div>
+        <div class="proof-card"><h3>Bulk inquiry</h3><p><a href="/pages/contact-us">Contact us for retail, partnership, or bulk order.</a></p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sticky-cart">
+    <div>
+      <strong>{{ product.title }}</strong><br>
+      <span class="price">{{ product.price | money }}</span>
+    </div>
+    <button class="button button--accent" type="button" onclick="document.querySelector('form[action*=\'/cart/add\'] button[type=submit]').click()">Add</button>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main product",
+  "settings": []
+}
+{% endschema %}

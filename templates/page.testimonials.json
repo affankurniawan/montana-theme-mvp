@@ -1,0 +1,7 @@
+{
+  "sections": {
+    "intro": {"type": "rich-text-cta", "settings": {"eyebrow": "Testimonials", "heading": "Proof that Montana feels durable, worth the price, and easy to trust.", "text": "Separate social proof by audience type so each customer segment sees relevance quickly.", "button_label": "Back to product", "button_link": "/collections/all", "surface": false, "use_accent": true}},
+    "quotes": {"type": "testimonials-grid", "blocks": {"q1": {"type": "quote", "settings": {"quote": "Feels sturdy and lasts through daily classes.", "name": "Customer A", "meta": "Student"}}, "q2": {"type": "quote", "settings": {"quote": "Worth the price and easy to reorder for the office.", "name": "Customer B", "meta": "Office"}}, "q3": {"type": "quote", "settings": {"quote": "Practical for school prep and daily home use.", "name": "Customer C", "meta": "Parent"}}}, "block_order": ["q1", "q2", "q3"]}
+  },
+  "order": ["intro", "quotes"]
+}
