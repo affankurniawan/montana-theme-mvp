@@ -1,6 +1,6 @@
 <section class="hero-banner-video" style="position:relative; width:100%; min-height:85vh; display:flex; align-items:center; justify-content:center; overflow:hidden;">
   <!-- Video Background Layer -->
-  <div style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:1;">
+  <div class="video-bg-layer" style="position:absolute; top:0; left:0; width:100%; height:120%; z-index:1; transform-origin:center top;">
     {%- if section.settings.video != null -%}
       {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, style: 'width: 100%; height: 100%; object-fit: cover;' }}
     {%- else -%}
@@ -32,18 +32,42 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    // GSAP Animate Background Placeholder if video missing
+    gsap.registerPlugin(ScrollTrigger);
+
     if (document.getElementById('heroPlaceholderBg')) {
       gsap.to('#heroPlaceholderBg', { backgroundPosition: "100% 100%", duration: 10, repeat: -1, yoyo: true, ease: "sine.inOut" });
     }
 
-    // GSAP Overlay Text Entrance Animation Sequence
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-    
     tl.fromTo(".gsap-hero-eyebrow", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1 }, "+=0.2")
-      .fromTo(".gsap-hero-heading", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, "duration": 1.2, ease: "expo.out" }, "-=0.6")
+      .fromTo(".gsap-hero-heading", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 1.2, ease: "expo.out" }, "-=0.6")
       .fromTo(".gsap-hero-text", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1 }, "-=0.8")
       .fromTo(".gsap-hero-buttons", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1 }, "-=0.8");
+
+    // ScrollTrigger Parallax for Video Background
+    gsap.to(".video-bg-layer", {
+      yPercent: 20,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".hero-banner-video",
+        start: "top top",
+        end: "bottom top",
+        scrub: true
+      }
+    });
+
+    // ScrollTrigger Fade & Slide for Content Overlay
+    gsap.to(".gsap-hero-content", {
+      y: -100,
+      opacity: 0,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".hero-banner-video",
+        start: "top top",
+        end: "center top",
+        scrub: true
+      }
+    });
   });
 </script>
 
