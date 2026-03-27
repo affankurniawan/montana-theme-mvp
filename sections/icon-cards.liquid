@@ -1,16 +1,23 @@
 <section class="section section--spacious surface">
   <div class="page-width">
-    {%- render 'section-heading', eyebrow: section.settings.eyebrow, title: section.settings.heading, text: section.settings.text -%}
+    {%- render 'section-heading', eyebrow: section.settings.eyebrow, title: section.settings.heading, text: section.settings.text, alignment: 'center' -%}
     <div class="grid grid--4">
       {%- for block in section.blocks -%}
         <div class="icon-card" {{ block.shopify_attributes }}>
           {%- if block.settings.image != blank -%}
             <img src="{{ block.settings.image | image_url: width: 400 }}" alt="{{ block.settings.title }}" style="width:100%; height:180px; object-fit:cover; border-radius:8px; margin-bottom:16px;" loading="lazy">
           {%- else -%}
+            {%- assign downcase_title = block.settings.title | downcase -%}
             {%- assign fallback_img = 'notebook.png' -%}
-            {%- if block.settings.title contains 'School' -%}{%- assign fallback_img = 'school-category.png' -%}
-            {%- elsif block.settings.title contains 'Office' -%}{%- assign fallback_img = 'office-category.png' -%}
-            {%- elsif block.settings.title contains 'Smart value' -%}{%- assign fallback_img = 'why-montana.png' -%}{%- endif -%}
+            {%- if downcase_title contains 'school' -%}{%- assign fallback_img = 'school-category.png' -%}
+            {%- elsif downcase_title contains 'office' -%}{%- assign fallback_img = 'office-category.png' -%}
+            {%- elsif downcase_title contains 'home' -%}{%- assign fallback_img = 'pen-set.png' -%}
+            {%- elsif downcase_title contains 'business' -%}{%- assign fallback_img = 'produk-terbaru.png' -%}
+            {%- elsif downcase_title contains 'smart value' -%}{%- assign fallback_img = 'why-montana.png' -%}
+            {%- elsif downcase_title contains 'built to last' -%}{%- assign fallback_img = 'produk-terbaru.png' -%}
+            {%- elsif downcase_title contains 'everyday' -%}{%- assign fallback_img = 'pen-set.png' -%}
+            {%- elsif downcase_title contains 'purpose' -%}{%- assign fallback_img = 'office-category.png' -%}
+            {%- endif -%}
             <img src="{{ fallback_img | asset_url }}" alt="{{ block.settings.title }}" style="width:100%; height:180px; object-fit:cover; border-radius:8px; margin-bottom:16px;" loading="lazy">
           {%- endif -%}
           <h3>{{ block.settings.title }}</h3>
