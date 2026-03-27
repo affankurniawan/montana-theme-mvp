@@ -1,6 +1,6 @@
 <section class="section section--spacious">
   <div class="page-width">
-    {%- render 'section-heading', eyebrow: section.settings.eyebrow, title: section.settings.heading, text: section.settings.text -%}
+    {%- render 'section-heading', eyebrow: section.settings.eyebrow, title: section.settings.heading, text: section.settings.text, alignment: 'center' -%}
     {%- assign collection = collections[section.settings.collection] -%}
     <div class="product-grid">
       {%- if collection != blank and collection.products_count > 0 -%}
@@ -11,11 +11,11 @@
         {%- for i in (1..4) -%}
           <article class="card product-card">
             <div class="product-card__media"><div class="placeholder-box" style="background:#f0f0f0; color:#171717;">Featured product</div></div>
-            <div class="product-card__content">
-              <span class="badge">Best seller</span>
-              <h3>Placeholder product {{ i }}</h3>
-              <div class="price">Rp 0</div>
-              <p>Replace with your real Shopify products after import.</p>
+            <div class="product-card__content" style="text-align: center; padding: 16px;">
+              <span class="badge" style="background-color: var(--color-accent); color: #000; font-weight: 700; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; text-transform: uppercase; display: inline-block; margin-bottom: 8px;">Best seller</span>
+              <h3 style="color: #fff; margin: 0 0 8px 0; font-family: var(--font-heading); font-size: 1.25rem; letter-spacing: 0.05em;">Placeholder product {{ i }}</h3>
+              <div class="price" style="color: var(--color-accent); font-weight: 700; margin-bottom: 8px;">Rp 0</div>
+              <p style="color: #aaa; font-size: 0.9rem; margin: 0;">Replace with real Shopify products.</p>
             </div>
           </article>
         {%- endfor -%}
