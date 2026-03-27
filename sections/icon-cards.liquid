@@ -17,6 +17,10 @@
             {%- elsif downcase_title contains 'built to last' -%}{%- assign fallback_img = 'why-durable.png' -%}
             {%- elsif downcase_title contains 'everyday' -%}{%- assign fallback_img = 'why-progress.png' -%}
             {%- elsif downcase_title contains 'purpose' -%}{%- assign fallback_img = 'why-purpose.png' -%}
+            {%- elsif downcase_title contains 'mission' -%}{%- assign fallback_img = 'about_mission.png' -%}
+            {%- elsif downcase_title contains 'vision' -%}{%- assign fallback_img = 'about_vision.png' -%}
+            {%- elsif downcase_title contains 'promise' -%}{%- assign fallback_img = 'about_promise.png' -%}
+            {%- elsif downcase_title contains 'role' -%}{%- assign fallback_img = 'about_role.png' -%}
             {%- endif -%}
             <img src="{{ fallback_img | asset_url }}" alt="{{ block.settings.title }}" style="width:100%; height:180px; object-fit:cover; border-radius:8px; margin-bottom:16px;" loading="lazy">
           {%- endif -%}
