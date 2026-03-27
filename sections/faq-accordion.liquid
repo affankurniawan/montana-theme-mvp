@@ -1,6 +1,6 @@
 <section class="section section--spacious surface">
   <div class="page-width">
-    {%- render 'section-heading', eyebrow: section.settings.eyebrow, title: section.settings.heading, text: section.settings.text -%}
+    {%- render 'section-heading', eyebrow: section.settings.eyebrow, title: section.settings.heading, text: section.settings.text, alignment: 'center' -%}
     <div class="grid" style="gap:12px;">
       {%- for block in section.blocks -%}
         <details class="faq-item" {{ block.shopify_attributes }}>

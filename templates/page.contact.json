@@ -1,8 +1,7 @@
 {
   "sections": {
     "main": {"type": "main-contact"},
-    "cards": {"type": "contact-cards"},
-    "faq": {"type": "faq-accordion", "blocks": {"f1": {"type": "faq", "settings": {"question": "Do you support bulk orders?", "answer": "Yes. Use this page or WhatsApp for bulk orders, partnerships, and stock inquiries."}}, "f2": {"type": "faq", "settings": {"question": "Can I ask about products first?", "answer": "Yes. Make WhatsApp support visible so questions do not block purchase intent."}}}, "block_order": ["f1", "f2"]}
+    "faq": {"type": "faq-accordion", "settings": {"text": "Temukan jawaban cepat untuk pertanyaan operasional dan kebijakan produk Montana."}, "blocks": {"f1": {"type": "faq", "settings": {"question": "Apakah Montana melayani pesanan grosir untuk sekolah atau kantor?", "answer": "Ya, kami menyediakan penawaran khusus untuk pembelian dalam jumlah besar (B2B). Silakan hubungi kami melalui formulir di atas atau via WhatsApp untuk berdiskusi."}}, "f2": {"type": "faq", "settings": {"question": "Bagaimana kebijakan pengiriman produk Montana?", "answer": "Pesanan Anda akan diproses pada hari kerja (Senin - Jumat). Pengiriman dilakukan ke seluruh wilayah Indonesia melalui kurir dan marketplace mitra resmi kami."}}, "f3": {"type": "faq", "settings": {"question": "Apakah ada garansi jika paket yang saya terima rusak?", "answer": "Tentu. Kepuasan Anda adalah prioritas kami. Jika Anda menerima barang cacat atau rusak, Anda dapat mengajukan retur maksimal 3 hari setelah status pesanan diterima dengan melampirkan video unboxing."}}}, "block_order": ["f1", "f2", "f3"]}
   },
-  "order": ["main", "cards", "faq"]
+  "order": ["main", "faq"]
 }
