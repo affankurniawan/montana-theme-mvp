@@ -105,8 +105,9 @@ a { color: inherit; text-decoration: none; }
 .value-strip__item, .icon-card, .faq-item, .contact-card, .article-card, .testimonial-card, .proof-card {
   border: 1px solid var(--glass-border); border-radius: var(--radius); background: var(--glass-bg); backdrop-filter: blur(10px); transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
-.value-strip__item:hover, .icon-card:hover, .product-card:hover, .card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.5); }
-.value-strip__item { padding: 20px; font-weight: 700; text-align: center; }
+.icon-card:hover, .product-card:hover, .card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.5); }
+.value-strip__item { padding: 20px; font-weight: 700; text-align: center; transition: all 0.3s ease; cursor: default; }
+.value-strip__item:hover { transform: translateY(-8px); background: var(--color-accent); color: var(--color-background); border-color: var(--color-accent); box-shadow: 0 15px 30px rgba(255,216,0,0.2); }
 .collection-card, .article-card, .testimonial-card, .contact-card, .proof-card, .icon-card { padding: 20px; }
 .collection-card h3, .article-card h3, .testimonial-card h3, .contact-card h3, .proof-card h3, .icon-card h3 { margin-top: 0; }
 .surface { background: var(--color-surface); }
