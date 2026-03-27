@@ -1,11 +1,7 @@
 <header class="header">
   <div class="page-width header__inner">
     <a href="{{ routes.root_url }}" class="header__logo">
-      {%- if settings.logo != blank -%}
-        {{ settings.logo | image_url: width: 220 | image_tag: alt: shop.name, loading: 'eager', widths: '110,220' }}
-      {%- else -%}
-        <strong>{{ shop.name | default: 'Montana' }}</strong>
-      {%- endif -%}
+      <img src="{{ 'logo.png' | asset_url }}" alt="Montana" style="max-height: 48px; width: auto;" loading="eager">
     </a>
 
     <nav class="nav" aria-label="Primary navigation">
