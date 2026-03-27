@@ -33,7 +33,9 @@
     "settings": [
       {"type": "text", "id": "whatsapp_number", "label": "WhatsApp number", "default": "6281234567890"},
       {"type": "text", "id": "contact_email", "label": "Contact email", "default": "hello@example.com"},
-      {"type": "text", "id": "business_hours", "label": "Business hours", "default": "Mon - Fri, 09:00 - 18:00"}
+      {"type": "text", "id": "business_hours", "label": "Business hours", "default": "Mon - Fri, 09:00 - 18:00"},
+      {"type": "url", "id": "social_instagram_link", "label": "Instagram URL"},
+      {"type": "url", "id": "social_tiktok_link", "label": "TikTok URL"}
     ]
   }
 ]
