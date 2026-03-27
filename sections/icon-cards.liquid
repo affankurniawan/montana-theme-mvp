@@ -13,10 +13,10 @@
             {%- elsif downcase_title contains 'office' -%}{%- assign fallback_img = 'cat-office.png' -%}
             {%- elsif downcase_title contains 'home' -%}{%- assign fallback_img = 'cat-home.png' -%}
             {%- elsif downcase_title contains 'business' -%}{%- assign fallback_img = 'cat-business.png' -%}
-            {%- elsif downcase_title contains 'smart value' -%}{%- assign fallback_img = 'why-montana.png' -%}
-            {%- elsif downcase_title contains 'built to last' -%}{%- assign fallback_img = 'produk-terbaru.png' -%}
-            {%- elsif downcase_title contains 'everyday' -%}{%- assign fallback_img = 'pen-set.png' -%}
-            {%- elsif downcase_title contains 'purpose' -%}{%- assign fallback_img = 'office-category.png' -%}
+            {%- elsif downcase_title contains 'smart value' -%}{%- assign fallback_img = 'why-value.png' -%}
+            {%- elsif downcase_title contains 'built to last' -%}{%- assign fallback_img = 'why-durable.png' -%}
+            {%- elsif downcase_title contains 'everyday' -%}{%- assign fallback_img = 'why-progress.png' -%}
+            {%- elsif downcase_title contains 'purpose' -%}{%- assign fallback_img = 'why-purpose.png' -%}
             {%- endif -%}
             <img src="{{ fallback_img | asset_url }}" alt="{{ block.settings.title }}" style="width:100%; height:180px; object-fit:cover; border-radius:8px; margin-bottom:16px;" loading="lazy">
           {%- endif -%}
