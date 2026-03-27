@@ -9,15 +9,11 @@
     </a>
 
     <nav class="nav" aria-label="Primary navigation">
-      {%- for link in linklists[section.settings.menu].links -%}
-        <a href="{{ link.url }}">{{ link.title }}</a>
-      {%- else -%}
-        <a href="/">Home</a>
-        <a href="/collections/all">Product</a>
-        <a href="/blogs/news">Blog</a>
-        <a href="/pages/about-us">About Us</a>
-        <a href="/pages/contact-us">Contact Us</a>
-      {%- endfor -%}
+      <a href="/">Home</a>
+      <a href="/collections/all">Product</a>
+      <a href="/blogs/news">Blog</a>
+      <a href="/pages/about-us">About Us</a>
+      <a href="/pages/contact-us">Contact Us</a>
     </nav>
 
     <div style="display:flex; gap:12px; align-items:center;">
