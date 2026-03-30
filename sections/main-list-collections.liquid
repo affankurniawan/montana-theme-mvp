@@ -1,0 +1,32 @@
+<section class="section section--spacious surface">
+  <div class="page-width">
+    {%- render 'section-heading', eyebrow: 'Collections', title: 'Product Catalog', text: 'Browse our entire selection of smart essentials and office tools.', alignment: 'center' -%}
+    
+    <div class="grid grid--3">
+      {%- for collection in collections -%}
+        <div class="card icon-card" style="text-align: center;">
+          {%- if collection.image != blank -%}
+            <img src="{{ collection.image | image_url: width: 600 }}" alt="{{ collection.title }}" style="width:100%; height:240px; object-fit:cover; border-radius:8px; margin-bottom:16px;" loading="lazy">
+          {%- else -%}
+            <div class="placeholder-box" style="width:100%; height:240px; background:rgba(255,255,255,0.05); border-radius:8px; margin-bottom:16px;"></div>
+          {%- endif -%}
+          <h3 style="color: var(--color-accent); font-family: var(--font-heading); font-size: 1.5rem; margin: 0 0 12px 0;">{{ collection.title }}</h3>
+          <p style="color: #ccc; font-size: 0.95rem; margin: 0 0 16px 0;">{{ collection.products_count }} Products</p>
+          <a href="{{ collection.url }}" class="button button--secondary" style="width:100%;">View All</a>
+        </div>
+      {%- else -%}
+        <div class="proof-card" style="grid-column: 1 / -1; text-align: center;">
+          <h3>No Collections Found</h3>
+          <p>Please create automated or manual collections in your Shopify Admin.</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collections list grid",
+  "settings": []
+}
+{% endschema %}
