@@ -44,22 +44,22 @@
 
         <a {% if shopee_url != blank %}href="{{ shopee_url }}" target="_blank" rel="noopener"{% endif %} 
            style="padding: 4px 8px; font-size: 0.65rem; font-weight: 700; border-radius: 4px; text-decoration: none; color: #fff; background-color: #EE4D2D; display: inline-flex; align-items: center; gap: 4px; {% if shopee_url == blank %}opacity: 0.2; pointer-events: none; filter: grayscale(1);{% else %}box-shadow: 0 2px 4px rgba(238, 77, 45, 0.3); transition: transform 0.2s;{% endif %}" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-          <span style="display:inline-flex; align-items:center; justify-content:center; width:12px; height:12px; border-radius:50%; background:#fff; color:#EE4D2D; font-size:8px; font-weight:900; line-height:1;">S</span>
+          <img src="{{ 'logo-shopee.png' | asset_url }}" style="height:10px; min-width:10px; width:auto; max-width:28px; background:#fff; border-radius:2px; padding:1px 2px; object-fit:contain;" alt="Shopee">
           Shopee
         </a>
         <a {% if tokped_url != blank %}href="{{ tokped_url }}" target="_blank" rel="noopener"{% endif %} 
            style="padding: 4px 8px; font-size: 0.65rem; font-weight: 700; border-radius: 4px; text-decoration: none; color: #fff; background-color: #00AA5B; display: inline-flex; align-items: center; gap: 4px; {% if tokped_url == blank %}opacity: 0.2; pointer-events: none; filter: grayscale(1);{% else %}box-shadow: 0 2px 4px rgba(0, 170, 91, 0.3); transition: transform 0.2s;{% endif %}" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-          <span style="display:inline-flex; align-items:center; justify-content:center; width:12px; height:12px; border-radius:50%; background:#fff; color:#00AA5B; font-size:8px; font-weight:900; line-height:1;">T</span>
+          <img src="{{ 'logo-tokopedia.png' | asset_url }}" style="height:10px; min-width:10px; width:auto; max-width:28px; background:#fff; border-radius:2px; padding:1px 2px; object-fit:contain;" alt="Tokopedia">
           Tokped
         </a>
         <a {% if lazada_url != blank %}href="{{ lazada_url }}" target="_blank" rel="noopener"{% endif %} 
            style="padding: 4px 8px; font-size: 0.65rem; font-weight: 700; border-radius: 4px; text-decoration: none; color: #fff; background-color: #0F136D; display: inline-flex; align-items: center; gap: 4px; {% if lazada_url == blank %}opacity: 0.2; pointer-events: none; filter: grayscale(1);{% else %}box-shadow: 0 2px 4px rgba(15, 19, 109, 0.3); transition: transform 0.2s;{% endif %}" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-          <span style="display:inline-flex; align-items:center; justify-content:center; width:12px; height:12px; border-radius:50%; background:#fff; color:#0F136D; font-size:8px; font-weight:900; line-height:1;">L</span>
+          <img src="{{ 'logo-lazada.png' | asset_url }}" style="height:10px; min-width:10px; width:auto; max-width:28px; background:#fff; border-radius:2px; padding:1px 2px; object-fit:contain;" alt="Lazada">
           Lazada
         </a>
         <a {% if tiktok_url != blank %}href="{{ tiktok_url }}" target="_blank" rel="noopener"{% endif %} 
            style="padding: 4px 8px; font-size: 0.65rem; font-weight: 700; border-radius: 4px; text-decoration: none; color: #fff; background-color: #000; border: 1px solid rgba(255,255,255,0.2); display: inline-flex; align-items: center; gap: 4px; {% if tiktok_url == blank %}opacity: 0.2; pointer-events: none; filter: grayscale(1);{% else %}box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); transition: transform 0.2s;{% endif %}" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-          <span style="display:inline-flex; align-items:center; justify-content:center; width:12px; height:12px; border-radius:50%; background:#fff; color:#000; font-size:9px; font-weight:900; line-height:1;">T</span>
+          <img src="{{ 'logo-tiktok.png' | asset_url }}" style="height:10px; min-width:10px; width:auto; max-width:28px; background:#fff; border-radius:2px; padding:1px 2px; object-fit:contain;" alt="TikTok">
           TikTok
         </a>
       </div>

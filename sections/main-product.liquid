@@ -131,17 +131,15 @@
         .btn-tokopedia { background-color: #00AA5B; }
         .btn-lazada { background-color: #0F136D; }
         .btn-tiktok { background-color: #000000; border: 1px solid rgba(255,255,255,0.2); }
-        .market-icon {
-          width: 20px;
-          height: 20px;
-          border-radius: 50%;
+        .market-img {
+          height: 18px;
+          min-width: 18px;
+          width: auto;
+          max-width: 48px;
           background: #fff;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 13px;
-          font-weight: 900;
-          font-family: sans-serif;
+          border-radius: 4px;
+          padding: 2px 4px;
+          object-fit: contain;
         }
       </style>
       <div style="margin-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); padding: 24px 0;">
@@ -175,10 +173,10 @@
             {%- assign tiktok_link = 'https://www.tiktok.com/@montanastationeryid' -%}
           {%- endif -%}
 
-          <a {% if shopee_link != blank %}href="{{ shopee_link }}" target="_blank" rel="noopener"{% endif %} class="btn-market btn-shopee" style="{% if shopee_link == blank %}opacity: 0.2; pointer-events: none; filter: grayscale(1);{% endif %}"><span class="market-icon" style="color: #EE4D2D;">S</span>Shopee</a>
-          <a {% if tokped_link != blank %}href="{{ tokped_link }}" target="_blank" rel="noopener"{% endif %} class="btn-market btn-tokopedia" style="{% if tokped_link == blank %}opacity: 0.2; pointer-events: none; filter: grayscale(1);{% endif %}"><span class="market-icon" style="color: #00AA5B;">T</span>Tokopedia</a>
-          <a {% if lazada_link != blank %}href="{{ lazada_link }}" target="_blank" rel="noopener"{% endif %} class="btn-market btn-lazada" style="{% if lazada_link == blank %}opacity: 0.2; pointer-events: none; filter: grayscale(1);{% endif %}"><span class="market-icon" style="color: #0F136D;">L</span>Lazada</a>
-          <a {% if tiktok_link != blank %}href="{{ tiktok_link }}" target="_blank" rel="noopener"{% endif %} class="btn-market btn-tiktok" style="{% if tiktok_link == blank %}opacity: 0.2; pointer-events: none; filter: grayscale(1);{% endif %}"><span class="market-icon" style="color: #000000; font-size: 14px;">T</span>TikTok</a>
+          <a {% if shopee_link != blank %}href="{{ shopee_link }}" target="_blank" rel="noopener"{% endif %} class="btn-market btn-shopee" style="{% if shopee_link == blank %}opacity: 0.2; pointer-events: none; filter: grayscale(1);{% endif %}"><img src="{{ 'logo-shopee.png' | asset_url }}" class="market-img" alt="Shopee">Shopee</a>
+          <a {% if tokped_link != blank %}href="{{ tokped_link }}" target="_blank" rel="noopener"{% endif %} class="btn-market btn-tokopedia" style="{% if tokped_link == blank %}opacity: 0.2; pointer-events: none; filter: grayscale(1);{% endif %}"><img src="{{ 'logo-tokopedia.png' | asset_url }}" class="market-img" alt="Tokopedia">Tokopedia</a>
+          <a {% if lazada_link != blank %}href="{{ lazada_link }}" target="_blank" rel="noopener"{% endif %} class="btn-market btn-lazada" style="{% if lazada_link == blank %}opacity: 0.2; pointer-events: none; filter: grayscale(1);{% endif %}"><img src="{{ 'logo-lazada.png' | asset_url }}" class="market-img" alt="Lazada">Lazada</a>
+          <a {% if tiktok_link != blank %}href="{{ tiktok_link }}" target="_blank" rel="noopener"{% endif %} class="btn-market btn-tiktok" style="{% if tiktok_link == blank %}opacity: 0.2; pointer-events: none; filter: grayscale(1);{% endif %}"><img src="{{ 'logo-tiktok.png' | asset_url }}" class="market-img" alt="TikTok">TikTok</a>
         </div>
       </div>
 
