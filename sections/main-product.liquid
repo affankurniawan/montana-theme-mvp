@@ -1,5 +1,5 @@
 <section class="main-product">
-  <div class="breadcrumbs"><a href="/">Home</a> / <a href="{{ routes.all_products_collection_url }}">Product</a> / {{ product.title }}</div>
+  <div class="breadcrumbs"><a href="/">Home</a> / <a href="/collections/all-products">Product</a> / {{ product.title }}</div>
   <div class="product-layout">
     <div class="product-gallery">
       {%- if product.featured_media != blank -%}
@@ -36,6 +36,36 @@
           <button type="submit" class="button button--accent">Add to cart</button>
         </div>
       {%- endform -%}
+
+      <style>
+        .btn-market {
+          padding: 12px 14px;
+          font-size: 0.8rem;
+          font-weight: 600;
+          text-align: center;
+          background: transparent;
+          border: 1px solid rgba(255,255,255,0.2);
+          color: white;
+          text-decoration: none;
+          border-radius: 999px;
+          flex: 1 1 calc(50% - 8px);
+          transition: all 0.2s ease;
+        }
+        .btn-market:hover {
+          background: var(--color-accent);
+          color: #000;
+          border-color: var(--color-accent);
+        }
+      </style>
+      <div style="margin-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); padding: 24px 0;">
+        <span style="font-size: 0.75rem; font-family: var(--font-heading); text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.6); display: block; margin-bottom: 16px; text-align: center;">Atau Checkout via Marketplace</span>
+        <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
+          <a href="https://shopee.co.id/montanaid" target="_blank" rel="noopener" class="btn-market">Shopee</a>
+          <a href="https://www.tokopedia.com/montanaid" target="_blank" rel="noopener" class="btn-market">Tokopedia</a>
+          <a href="https://www.lazada.co.id/shop/montana-id/" target="_blank" rel="noopener" class="btn-market">Lazada</a>
+          <a href="https://www.tiktok.com/@montanastationeryid" target="_blank" rel="noopener" class="btn-market">TikTok</a>
+        </div>
+      </div>
 
       <div class="grid grid--2" style="margin-top:24px;">
         <div class="proof-card"><h3>WhatsApp support</h3><p><a href="https://wa.me/{{ settings.whatsapp_number }}" target="_blank" rel="noopener">Ask product questions</a></p></div>
