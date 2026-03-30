@@ -132,15 +132,15 @@
       <div style="margin-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); padding: 24px 0;">
         <span style="font-size: 0.75rem; font-family: var(--font-heading); text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.6); display: block; margin-bottom: 16px; text-align: center;">Atau Checkout via Marketplace</span>
         <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
-          {%- assign shopee_link = product.metafields.custom.shopee_url | default: "https://shopee.co.id/montanaid" -%}
-          {%- assign tokped_link = product.metafields.custom.tokopedia_url | default: "https://www.tokopedia.com/montanaid" -%}
-          {%- assign lazada_link = product.metafields.custom.lazada_url | default: "https://www.lazada.co.id/shop/montana-id/" -%}
-          {%- assign tiktok_link = product.metafields.custom.tiktok_url | default: "https://www.tiktok.com/@montanastationeryid" -%}
+          {%- assign shopee_link = product.metafields.custom.shopee_url -%}
+          {%- assign tokped_link = product.metafields.custom.tokopedia_url -%}
+          {%- assign lazada_link = product.metafields.custom.lazada_url -%}
+          {%- assign tiktok_link = product.metafields.custom.tiktok_url -%}
 
-          <a href="{{ shopee_link }}" target="_blank" rel="noopener" class="btn-market btn-shopee">Shopee</a>
-          <a href="{{ tokped_link }}" target="_blank" rel="noopener" class="btn-market btn-tokopedia">Tokopedia</a>
-          <a href="{{ lazada_link }}" target="_blank" rel="noopener" class="btn-market btn-lazada">Lazada</a>
-          <a href="{{ tiktok_link }}" target="_blank" rel="noopener" class="btn-market btn-tiktok">TikTok</a>
+          <a {% if shopee_link != blank %}href="{{ shopee_link }}" target="_blank" rel="noopener"{% endif %} class="btn-market btn-shopee" style="{% if shopee_link == blank %}opacity: 0.2; pointer-events: none; filter: grayscale(1);{% endif %}">Shopee</a>
+          <a {% if tokped_link != blank %}href="{{ tokped_link }}" target="_blank" rel="noopener"{% endif %} class="btn-market btn-tokopedia" style="{% if tokped_link == blank %}opacity: 0.2; pointer-events: none; filter: grayscale(1);{% endif %}">Tokopedia</a>
+          <a {% if lazada_link != blank %}href="{{ lazada_link }}" target="_blank" rel="noopener"{% endif %} class="btn-market btn-lazada" style="{% if lazada_link == blank %}opacity: 0.2; pointer-events: none; filter: grayscale(1);{% endif %}">Lazada</a>
+          <a {% if tiktok_link != blank %}href="{{ tiktok_link }}" target="_blank" rel="noopener"{% endif %} class="btn-market btn-tiktok" style="{% if tiktok_link == blank %}opacity: 0.2; pointer-events: none; filter: grayscale(1);{% endif %}">TikTok</a>
         </div>
       </div>
 

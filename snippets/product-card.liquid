@@ -9,6 +9,33 @@
   <div class="product-card__content" style="display:flex; flex-direction:column; flex-grow:1; text-align: center; padding: 16px;">
     {%- if product.tags contains 'promo' -%}<span class="badge" style="background-color: var(--color-accent); color: #000; font-weight: 700; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; text-transform: uppercase; display: inline-block; margin-bottom: 8px;">Promo</span>{%- endif -%}
     <h3 style="margin: 0 0 12px 0; font-family: var(--font-body); font-weight: 600; font-size: 1rem; line-height: 1.4;"><a href="{{ product.url }}" style="color: #fff; text-decoration: none;">{{ product.title }}</a></h3>
-    <div class="price" style="margin-top:auto; color: var(--color-accent); font-weight: 700;">{{ product.price | money }}</div>
+    
+    <div style="margin-top:auto; display:flex; flex-direction:column; gap: 12px;">
+      <div class="price" style="color: var(--color-accent); font-weight: 700;">{{ product.price | money }}</div>
+      
+      <div style="display: flex; gap: 4px; justify-content: center; flex-wrap: wrap;">
+        {%- assign shopee_url = product.metafields.custom.shopee_url -%}
+        {%- assign tokped_url = product.metafields.custom.tokopedia_url -%}
+        {%- assign lazada_url = product.metafields.custom.lazada_url -%}
+        {%- assign tiktok_url = product.metafields.custom.tiktok_url -%}
+
+        <a {% if shopee_url != blank %}href="{{ shopee_url }}" target="_blank" rel="noopener"{% endif %} 
+           style="padding: 4px 8px; font-size: 0.65rem; font-weight: 700; border-radius: 4px; text-decoration: none; color: #fff; background-color: #EE4D2D; display: inline-block; {% if shopee_url == blank %}opacity: 0.2; pointer-events: none; filter: grayscale(1);{% else %}box-shadow: 0 2px 4px rgba(238, 77, 45, 0.3); transition: transform 0.2s;{% endif %}" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+          Shopee
+        </a>
+        <a {% if tokped_url != blank %}href="{{ tokped_url }}" target="_blank" rel="noopener"{% endif %} 
+           style="padding: 4px 8px; font-size: 0.65rem; font-weight: 700; border-radius: 4px; text-decoration: none; color: #fff; background-color: #00AA5B; display: inline-block; {% if tokped_url == blank %}opacity: 0.2; pointer-events: none; filter: grayscale(1);{% else %}box-shadow: 0 2px 4px rgba(0, 170, 91, 0.3); transition: transform 0.2s;{% endif %}" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+          Tokped
+        </a>
+        <a {% if lazada_url != blank %}href="{{ lazada_url }}" target="_blank" rel="noopener"{% endif %} 
+           style="padding: 4px 8px; font-size: 0.65rem; font-weight: 700; border-radius: 4px; text-decoration: none; color: #fff; background-color: #0F136D; display: inline-block; {% if lazada_url == blank %}opacity: 0.2; pointer-events: none; filter: grayscale(1);{% else %}box-shadow: 0 2px 4px rgba(15, 19, 109, 0.3); transition: transform 0.2s;{% endif %}" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+          Lazada
+        </a>
+        <a {% if tiktok_url != blank %}href="{{ tiktok_url }}" target="_blank" rel="noopener"{% endif %} 
+           style="padding: 4px 8px; font-size: 0.65rem; font-weight: 700; border-radius: 4px; text-decoration: none; color: #fff; background-color: #000; display: inline-block; border: 1px solid rgba(255,255,255,0.2); {% if tiktok_url == blank %}opacity: 0.2; pointer-events: none; filter: grayscale(1);{% else %}box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); transition: transform 0.2s;{% endif %}" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+          TikTok
+        </a>
+      </div>
+    </div>
   </div>
 </article>
