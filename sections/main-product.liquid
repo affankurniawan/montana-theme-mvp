@@ -132,10 +132,15 @@
       <div style="margin-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); padding: 24px 0;">
         <span style="font-size: 0.75rem; font-family: var(--font-heading); text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.6); display: block; margin-bottom: 16px; text-align: center;">Atau Checkout via Marketplace</span>
         <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
-          <a href="https://shopee.co.id/montanaid" target="_blank" rel="noopener" class="btn-market btn-shopee">Shopee</a>
-          <a href="https://www.tokopedia.com/montanaid" target="_blank" rel="noopener" class="btn-market btn-tokopedia">Tokopedia</a>
-          <a href="https://www.lazada.co.id/shop/montana-id/" target="_blank" rel="noopener" class="btn-market btn-lazada">Lazada</a>
-          <a href="https://www.tiktok.com/@montanastationeryid" target="_blank" rel="noopener" class="btn-market btn-tiktok">TikTok</a>
+          {%- assign shopee_link = product.metafields.custom.shopee_url | default: "https://shopee.co.id/montanaid" -%}
+          {%- assign tokped_link = product.metafields.custom.tokopedia_url | default: "https://www.tokopedia.com/montanaid" -%}
+          {%- assign lazada_link = product.metafields.custom.lazada_url | default: "https://www.lazada.co.id/shop/montana-id/" -%}
+          {%- assign tiktok_link = product.metafields.custom.tiktok_url | default: "https://www.tiktok.com/@montanastationeryid" -%}
+
+          <a href="{{ shopee_link }}" target="_blank" rel="noopener" class="btn-market btn-shopee">Shopee</a>
+          <a href="{{ tokped_link }}" target="_blank" rel="noopener" class="btn-market btn-tokopedia">Tokopedia</a>
+          <a href="{{ lazada_link }}" target="_blank" rel="noopener" class="btn-market btn-lazada">Lazada</a>
+          <a href="{{ tiktok_link }}" target="_blank" rel="noopener" class="btn-market btn-tiktok">TikTok</a>
         </div>
       </div>
 
