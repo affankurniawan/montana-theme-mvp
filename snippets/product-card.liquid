@@ -14,10 +14,33 @@
       <div class="price" style="color: var(--color-accent); font-weight: 700;">{{ product.price | money }}</div>
       
       <div style="display: flex; gap: 4px; justify-content: center; flex-wrap: wrap;">
-        {%- assign shopee_url = product.metafields.custom.shopee_url -%}
-        {%- assign tokped_url = product.metafields.custom.tokopedia_url -%}
-        {%- assign lazada_url = product.metafields.custom.lazada_url -%}
-        {%- assign tiktok_url = product.metafields.custom.tiktok_url -%}
+        {%- assign shopee_url = blank -%}
+        {%- if product.metafields.custom.shopee_url != blank -%}
+          {%- assign shopee_url = product.metafields.custom.shopee_url -%}
+        {%- elsif product.tags contains 'shopee' or product.tags contains 'Shopee' -%}
+          {%- assign shopee_url = 'https://shopee.co.id/search?keyword=' | append: product.title | url_param_escape -%}
+        {%- endif -%}
+
+        {%- assign tokped_url = blank -%}
+        {%- if product.metafields.custom.tokopedia_url != blank -%}
+          {%- assign tokped_url = product.metafields.custom.tokopedia_url -%}
+        {%- elsif product.tags contains 'tokopedia' or product.tags contains 'Tokopedia' -%}
+          {%- assign tokped_url = 'https://www.tokopedia.com/montanaid/product?q=' | append: product.title | url_param_escape -%}
+        {%- endif -%}
+
+        {%- assign lazada_url = blank -%}
+        {%- if product.metafields.custom.lazada_url != blank -%}
+          {%- assign lazada_url = product.metafields.custom.lazada_url -%}
+        {%- elsif product.tags contains 'lazada' or product.tags contains 'Lazada' -%}
+          {%- assign lazada_url = 'https://www.lazada.co.id/montana-id/?q=' | append: product.title | url_param_escape -%}
+        {%- endif -%}
+
+        {%- assign tiktok_url = blank -%}
+        {%- if product.metafields.custom.tiktok_url != blank -%}
+          {%- assign tiktok_url = product.metafields.custom.tiktok_url -%}
+        {%- elsif product.tags contains 'tiktok' or product.tags contains 'TikTok' -%}
+          {%- assign tiktok_url = 'https://www.tiktok.com/@montanastationeryid' -%}
+        {%- endif -%}
 
         <a {% if shopee_url != blank %}href="{{ shopee_url }}" target="_blank" rel="noopener"{% endif %} 
            style="padding: 4px 8px; font-size: 0.65rem; font-weight: 700; border-radius: 4px; text-decoration: none; color: #fff; background-color: #EE4D2D; display: inline-block; {% if shopee_url == blank %}opacity: 0.2; pointer-events: none; filter: grayscale(1);{% else %}box-shadow: 0 2px 4px rgba(238, 77, 45, 0.3); transition: transform 0.2s;{% endif %}" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
