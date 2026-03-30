@@ -13,9 +13,9 @@
           {%- endif -%}
           
           {%- if block.settings.image != blank -%}
-            <img src="{{ block.settings.image | image_url: width: 160 }}" alt="{{ block.settings.title }}" style="height:64px; width:auto; margin-bottom:16px; object-fit:contain;" loading="lazy">
+            <img src="{{ block.settings.image | image_url: width: 160 }}" alt="{{ block.settings.title }}" style="height:76px; width:auto; min-width:76px; padding:10px 16px; background:#fff; border-radius:12px; margin-bottom:16px; object-fit:contain;" loading="lazy">
           {%- elsif fallback_img != '' -%}
-            <img src="{{ fallback_img | asset_url }}" alt="{{ block.settings.title }}" style="height:64px; width:auto; margin-bottom:16px; object-fit:contain;" loading="lazy">
+            <img src="{{ fallback_img | asset_url }}" alt="{{ block.settings.title }}" style="height:76px; width:auto; min-width:76px; padding:10px 16px; background:#fff; border-radius:12px; margin-bottom:16px; object-fit:contain;" loading="lazy">
           {%- endif -%}
           <h3 style="margin:0; font-size:1.25rem;">{{ block.settings.title }}</h3>
         </div>
