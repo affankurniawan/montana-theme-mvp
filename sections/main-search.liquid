@@ -1,29 +1,54 @@
 <section class="section section--spacious">
   <div class="page-width">
-    {%- render 'section-heading', eyebrow: 'Search', title: 'Search Montana', text: 'Help customers find products, articles, and useful content quickly.' -%}
-    <form action="{{ routes.search_url }}" method="get" role="search" class="contact-form" style="margin-bottom:24px;">
-      <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search products or articles">
-    </form>
+    <div style="text-align: center; margin-bottom: 40px; display: flex; flex-direction: column; align-items: center;">
+      <div class="breadcrumbs" style="color: #aaa; font-size: 0.9rem; margin-bottom: 12px; font-weight: 500;"><a href="/" style="color: #fff; text-decoration: none;">Home</a> <span style="margin: 0 4px;">/</span> <span style="color: var(--color-accent);">Search</span></div>
+      {%- render 'section-heading', eyebrow: 'Search Engine', title: 'Pencarian Montana', text: 'Temukan produk spesifik mulai alat tulis hingga perlengkapan lainnya secara instan.', alignment: 'center' -%}
+    </div>
+
+    <!-- Search Tooling -->
+    <div class="katalog-tools" style="max-width: 680px; margin: 0 auto 48px auto; padding: 0 20px;">
+      <form action="{{ routes.search_url }}" method="get" role="search" style="display: flex; gap: 8px; margin-bottom: 24px;">
+        <input type="hidden" name="type" value="product">
+        <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="Cari Pensil, Kalkulator, Kertas..." style="flex-grow: 1; padding: 14px 24px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.15); background: rgba(0,0,0,0.4); color: #fff; font-size: 1rem; outline: none; box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);">
+        <button type="submit" class="button button--accent" style="border-radius: 999px; padding: 14px 28px; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+      </form>
+      
+      <!-- Category Pills Tracking Strategy -->
+      <div class="katalog-categories" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+        <a href="/pages/katalog" style="padding: 8px 20px; border-radius: 999px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; font-weight: 500; text-decoration: none; font-size: 0.9rem;">Semua Produk</a>
+        <a href="{{ routes.search_url }}?type=product&q=pulpen" style="padding: 8px 20px; border-radius: 999px; background: {% if search.terms contains 'pulpen' %}var(--color-accent){% else %}rgba(255,255,255,0.05){% endif %}; border: 1px solid rgba(255,255,255,0.1); color: {% if search.terms contains 'pulpen' %}#000{% else %}#fff{% endif %}; font-weight: {% if search.terms contains 'pulpen' %}700{% else %}500{% endif %}; text-decoration: none; font-size: 0.9rem;">Pulpen</a>
+        <a href="{{ routes.search_url }}?type=product&q=pensil" style="padding: 8px 20px; border-radius: 999px; background: {% if search.terms contains 'pensil' %}var(--color-accent){% else %}rgba(255,255,255,0.05){% endif %}; border: 1px solid rgba(255,255,255,0.1); color: {% if search.terms contains 'pensil' %}#000{% else %}#fff{% endif %}; font-weight: {% if search.terms contains 'pensil' %}700{% else %}500{% endif %}; text-decoration: none; font-size: 0.9rem;">Pensil & Raut</a>
+        <a href="{{ routes.search_url }}?type=product&q=kalkulator" style="padding: 8px 20px; border-radius: 999px; background: {% if search.terms contains 'kalkulator' %}var(--color-accent){% else %}rgba(255,255,255,0.05){% endif %}; border: 1px solid rgba(255,255,255,0.1); color: {% if search.terms contains 'kalkulator' %}#000{% else %}#fff{% endif %}; font-weight: {% if search.terms contains 'kalkulator' %}700{% else %}500{% endif %}; text-decoration: none; font-size: 0.9rem;">Kalkulator</a>
+        <a href="{{ routes.search_url }}?type=product&q=label" style="padding: 8px 20px; border-radius: 999px; background: {% if search.terms contains 'label' %}var(--color-accent){% else %}rgba(255,255,255,0.05){% endif %}; border: 1px solid rgba(255,255,255,0.1); color: {% if search.terms contains 'label' %}#000{% else %}#fff{% endif %}; font-weight: {% if search.terms contains 'label' %}700{% else %}500{% endif %}; text-decoration: none; font-size: 0.9rem;">Stiker & Label</a>
+        <a href="{{ routes.search_url }}?type=product&q=kertas" style="padding: 8px 20px; border-radius: 999px; background: {% if search.terms contains 'kertas' %}var(--color-accent){% else %}rgba(255,255,255,0.05){% endif %}; border: 1px solid rgba(255,255,255,0.1); color: {% if search.terms contains 'kertas' %}#000{% else %}#fff{% endif %}; font-weight: {% if search.terms contains 'kertas' %}700{% else %}500{% endif %}; text-decoration: none; font-size: 0.9rem;">Buku & Kertas</a>
+      </div>
+    </div>
 
     {%- if search.performed -%}
-      <p>{{ search.results_count }} result(s) for “{{ search.terms }}”.</p>
-      <div class="grid grid--3">
+      <div style="text-align: center; margin-bottom: 24px;">
+        <p style="color: #aaa; font-size: 1.1rem;">Ditemukan <strong style="color: #fff;">{{ search.results_count }}</strong> hasil untuk “<strong style="color: var(--color-accent);">{{ search.terms }}</strong>”.</p>
+      </div>
+
+      <div class="product-grid">
         {%- for item in search.results -%}
-          <article class="article-card">
-            <h3><a href="{{ item.url }}">{{ item.title | default: item.product.title }}</a></h3>
-            <p>
-              {%- if item.object_type == 'product' -%}
-                {{ item.description | strip_html | truncate: 120 }}
-              {%- elsif item.object_type == 'article' -%}
-                {{ item.excerpt_or_content | strip_html | truncate: 120 }}
-              {%- else -%}
-                {{ item.content | strip_html | truncate: 120 }}
-              {%- endif -%}
-            </p>
-          </article>
+          {%- if item.object_type == 'product' -%}
+            {%- render 'product-card', product: item -%}
+          {%- else -%}
+            <article class="card article-card" style="padding: 24px; display:flex; flex-direction:column;">
+              <h3 style="margin:0 0 12px 0;"><a href="{{ item.url }}" style="color:#fff; text-decoration:none;">{{ item.title }}</a></h3>
+              <p style="color:#aaa; font-size:0.9rem; flex-grow:1;">{{ item.content | strip_html | truncate: 120 }}</p>
+            </article>
+          {%- endif -%}
         {%- else -%}
-          <article class="article-card"><h3>No results found</h3><p>Try a broader keyword.</p></article>
+          <div class="proof-card" style="grid-column: 1 / -1; text-align: center;"><h3>Pencarian Tidak Ditemukan</h3><p>Coba gunakan kata kunci lain (misal: penggaris, spidol).</p></div>
         {%- endfor -%}
+      </div>
+    {%- else -%}
+      <div class="proof-card" style="grid-column: 1 / -1; text-align: center; max-width: 600px; margin: 0 auto;">
+         <h3>Mulai Pencarian</h3>
+         <p>Ketikkan nama produk di kotak pencarian di atas untuk memilah 200 produk Montana.</p>
       </div>
     {%- endif -%}
   </div>
