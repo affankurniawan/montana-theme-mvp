@@ -11,8 +11,8 @@
     <nav class="nav" aria-label="Primary navigation">
       {%- assign current_path = request.path -%}
       {%- assign active_style = 'color: var(--color-accent); font-weight: 700; border-bottom: 2px solid var(--color-accent); padding-bottom: 4px;' -%}
-      <a href="/" {% if current_path == '/' %}style="{{ active_style }}"{% endif %}>Home</a>
-      <a href="/collections/all" {% if current_path contains '/collections' or current_path contains '/products' %}style="{{ active_style }}"{% endif %}>Product</a>
+      <a href="{{ routes.root_url }}" {% if current_path == routes.root_url %}style="{{ active_style }}"{% endif %}>Home</a>
+      <a href="{{ routes.all_products_collection_url }}" {% if current_path contains '/collections' or current_path contains '/products' %}style="{{ active_style }}"{% endif %}>Product</a>
       <a href="/blogs/news" {% if current_path contains '/blogs' or current_path contains '/articles' %}style="{{ active_style }}"{% endif %}>Blog</a>
       <a href="/pages/about-us?view=about-us" {% if current_path == '/pages/about-us' %}style="{{ active_style }}"{% endif %}>About Us</a>
       <a href="/pages/contact-us?view=contact" {% if current_path == '/pages/contact-us' %}style="{{ active_style }}"{% endif %}>Contact Us</a>
@@ -40,8 +40,8 @@
     </div>
     <nav class="mobile-nav">
       {%- assign mobile_active_style = 'color: var(--color-accent); font-weight: 700; border-bottom-color: var(--color-accent);' -%}
-      <a href="/" {% if current_path == '/' %}style="{{ mobile_active_style }}"{% endif %}>Home</a>
-      <a href="/collections/all" {% if current_path contains '/collections' or current_path contains '/products' %}style="{{ mobile_active_style }}"{% endif %}>Product Catalog</a>
+      <a href="{{ routes.root_url }}" {% if current_path == routes.root_url %}style="{{ mobile_active_style }}"{% endif %}>Home</a>
+      <a href="{{ routes.all_products_collection_url }}" {% if current_path contains '/collections' or current_path contains '/products' %}style="{{ mobile_active_style }}"{% endif %}>Product Catalog</a>
       <a href="/blogs/news" {% if current_path contains '/blogs' or current_path contains '/articles' %}style="{{ mobile_active_style }}"{% endif %}>Blog</a>
       <a href="/pages/about-us?view=about-us" {% if current_path == '/pages/about-us' %}style="{{ mobile_active_style }}"{% endif %}>About Us</a>
       <a href="/pages/contact-us?view=contact" {% if current_path == '/pages/contact-us' %}style="{{ mobile_active_style }}"{% endif %}>Contact Us</a>
