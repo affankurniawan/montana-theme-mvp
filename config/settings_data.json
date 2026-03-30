@@ -1,5 +1,16 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
+    "logo": "shopify://shop_images/logo_5c4aa8ba-3809-473d-939f-be5e9d9abfe0.png",
+    "favicon": "shopify://shop_images/logo_5c4aa8ba-3809-473d-939f-be5e9d9abfe0.png",
     "brand_tagline": "Be Smart with Montana",
     "color_primary": "#ffffff",
     "color_accent": "#ffd800",
@@ -9,6 +20,7 @@
     "color_surface": "#111111",
     "whatsapp_number": "6281234567890",
     "contact_email": "hello@example.com",
-    "business_hours": "Mon - Fri, 09:00 - 18:00"
+    "business_hours": "Mon - Fri, 09:00 - 18:00",
+    "content_for_index": []
   }
 }
