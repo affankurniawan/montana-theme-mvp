@@ -19,10 +19,10 @@
         transform: scale(1.08);
         box-shadow: 0 8px 16px rgba(0,0,0,0.4);
       }
-      .marketplace-icon-card h3 {
-        margin:0; font-size:1.25rem; transition: color 0.3s ease;
+      .marketplace-icon-card .mp-title {
+        margin:0; font-size:1.25rem; font-weight:800; font-style:italic; font-family:var(--font-heading); text-transform:uppercase; transition: color 0.3s ease;
       }
-      .marketplace-icon-card:hover h3 {
+      .marketplace-icon-card:hover .mp-title {
         color: var(--color-accent);
       }
     </style>
@@ -42,7 +42,7 @@
           {%- elsif fallback_img != '' -%}
             <img src="{{ fallback_img | asset_url }}" alt="{{ block.settings.title }}" loading="lazy">
           {%- endif -%}
-          <h3>{{ block.settings.title }}</h3>
+          <div class="mp-title">{{ block.settings.title }}</div>
         </div>
       {%- endfor -%}
     </div>
