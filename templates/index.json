@@ -112,7 +112,7 @@
             "title": "School",
             "text": "Reliable basics, attractive price, clean look, and easy access.",
             "link_label": "Browse school",
-            "link": "/search?type=product&q=sekolah+OR+alat+tulis+OR+buku+OR+pensil+OR+pulpen+OR+penggaris+OR+serutan+OR+penghapus+OR+spidol+OR+tipe-x+OR+pianika"
+            "link": "/pages/katalog"
           }
         },
         "c2": {
@@ -121,7 +121,7 @@
             "title": "Office",
             "text": "Products that feel neat, dependable, and efficient.",
             "link_label": "Browse office",
-            "link": "/search?type=product&q=kantor+OR+office+OR+map+OR+kertas+OR+stempel+OR+laminating+OR+kwitansi+OR+binder+OR+id+OR+kalkulator"
+            "link": "/pages/katalog"
           }
         },
         "c3": {
@@ -130,7 +130,7 @@
             "title": "Home",
             "text": "Practical everyday items for family use and household restock.",
             "link_label": "Browse home",
-            "link": "/search?type=product&q=rumah+OR+home+OR+isolasi+OR+lakban+OR+gunting+OR+cutter+OR+lem+OR+stiker+OR+label+OR+korek+OR+pemantik"
+            "link": "/pages/katalog"
           }
         },
         "c4": {
@@ -139,7 +139,7 @@
             "title": "Business",
             "text": "Consistent quality and easy repeat buying for practical buyers.",
             "link_label": "Browse business",
-            "link": "/search?type=product&q=bisnis+OR+grosir+OR+box+OR+kardus+OR+pack+OR+lusin+OR+rim+OR+nota+OR+tanda+terima+OR+kertas+OR+stempel"
+            "link": "/pages/katalog"
           }
         }
       },
