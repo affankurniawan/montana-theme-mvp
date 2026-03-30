@@ -41,29 +41,31 @@
         .btn-market {
           padding: 12px 14px;
           font-size: 0.8rem;
-          font-weight: 600;
+          font-weight: 700;
           text-align: center;
-          background: transparent;
-          border: 1px solid rgba(255,255,255,0.2);
           color: white;
           text-decoration: none;
           border-radius: 999px;
           flex: 1 1 calc(50% - 8px);
-          transition: all 0.2s ease;
+          transition: transform 0.2s ease, filter 0.2s ease;
+          border: none;
         }
         .btn-market:hover {
-          background: var(--color-accent);
-          color: #000;
-          border-color: var(--color-accent);
+          transform: translateY(-2px);
+          filter: brightness(1.1);
         }
+        .btn-shopee { background-color: #EE4D2D; }
+        .btn-tokopedia { background-color: #00AA5B; }
+        .btn-lazada { background-color: #0F136D; }
+        .btn-tiktok { background-color: #000000; border: 1px solid rgba(255,255,255,0.2); }
       </style>
       <div style="margin-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); padding: 24px 0;">
         <span style="font-size: 0.75rem; font-family: var(--font-heading); text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.6); display: block; margin-bottom: 16px; text-align: center;">Atau Checkout via Marketplace</span>
         <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
-          <a href="https://shopee.co.id/montanaid" target="_blank" rel="noopener" class="btn-market">Shopee</a>
-          <a href="https://www.tokopedia.com/montanaid" target="_blank" rel="noopener" class="btn-market">Tokopedia</a>
-          <a href="https://www.lazada.co.id/shop/montana-id/" target="_blank" rel="noopener" class="btn-market">Lazada</a>
-          <a href="https://www.tiktok.com/@montanastationeryid" target="_blank" rel="noopener" class="btn-market">TikTok</a>
+          <a href="https://shopee.co.id/montanaid" target="_blank" rel="noopener" class="btn-market btn-shopee">Shopee</a>
+          <a href="https://www.tokopedia.com/montanaid" target="_blank" rel="noopener" class="btn-market btn-tokopedia">Tokopedia</a>
+          <a href="https://www.lazada.co.id/shop/montana-id/" target="_blank" rel="noopener" class="btn-market btn-lazada">Lazada</a>
+          <a href="https://www.tiktok.com/@montanastationeryid" target="_blank" rel="noopener" class="btn-market btn-tiktok">TikTok</a>
         </div>
       </div>
 
