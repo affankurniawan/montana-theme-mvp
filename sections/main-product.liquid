@@ -112,11 +112,14 @@
           padding: 12px 14px;
           font-size: 0.8rem;
           font-weight: 700;
-          text-align: center;
           color: white;
           text-decoration: none;
           border-radius: 999px;
           flex: 1 1 calc(50% - 8px);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
           transition: transform 0.2s ease, filter 0.2s ease;
           border: none;
         }
@@ -128,9 +131,21 @@
         .btn-tokopedia { background-color: #00AA5B; }
         .btn-lazada { background-color: #0F136D; }
         .btn-tiktok { background-color: #000000; border: 1px solid rgba(255,255,255,0.2); }
+        .market-icon {
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 13px;
+          font-weight: 900;
+          font-family: sans-serif;
+        }
       </style>
       <div style="margin-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); padding: 24px 0;">
-        <span style="font-size: 0.75rem; font-family: var(--font-heading); text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.6); display: block; margin-bottom: 16px; text-align: center;">Atau Checkout via Marketplace</span>
+        <span style="font-size: 0.75rem; font-family: var(--font-heading); text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.6); display: block; margin-bottom: 16px; text-align: center;">Or checkout via Official Store</span>
         <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
           {%- assign shopee_link = blank -%}
           {%- if product.metafields.custom.shopee_url != blank -%}
@@ -160,10 +175,10 @@
             {%- assign tiktok_link = 'https://www.tiktok.com/@montanastationeryid' -%}
           {%- endif -%}
 
-          <a {% if shopee_link != blank %}href="{{ shopee_link }}" target="_blank" rel="noopener"{% endif %} class="btn-market btn-shopee" style="{% if shopee_link == blank %}opacity: 0.2; pointer-events: none; filter: grayscale(1);{% endif %}">Shopee</a>
-          <a {% if tokped_link != blank %}href="{{ tokped_link }}" target="_blank" rel="noopener"{% endif %} class="btn-market btn-tokopedia" style="{% if tokped_link == blank %}opacity: 0.2; pointer-events: none; filter: grayscale(1);{% endif %}">Tokopedia</a>
-          <a {% if lazada_link != blank %}href="{{ lazada_link }}" target="_blank" rel="noopener"{% endif %} class="btn-market btn-lazada" style="{% if lazada_link == blank %}opacity: 0.2; pointer-events: none; filter: grayscale(1);{% endif %}">Lazada</a>
-          <a {% if tiktok_link != blank %}href="{{ tiktok_link }}" target="_blank" rel="noopener"{% endif %} class="btn-market btn-tiktok" style="{% if tiktok_link == blank %}opacity: 0.2; pointer-events: none; filter: grayscale(1);{% endif %}">TikTok</a>
+          <a {% if shopee_link != blank %}href="{{ shopee_link }}" target="_blank" rel="noopener"{% endif %} class="btn-market btn-shopee" style="{% if shopee_link == blank %}opacity: 0.2; pointer-events: none; filter: grayscale(1);{% endif %}"><span class="market-icon" style="color: #EE4D2D;">S</span>Shopee</a>
+          <a {% if tokped_link != blank %}href="{{ tokped_link }}" target="_blank" rel="noopener"{% endif %} class="btn-market btn-tokopedia" style="{% if tokped_link == blank %}opacity: 0.2; pointer-events: none; filter: grayscale(1);{% endif %}"><span class="market-icon" style="color: #00AA5B;">T</span>Tokopedia</a>
+          <a {% if lazada_link != blank %}href="{{ lazada_link }}" target="_blank" rel="noopener"{% endif %} class="btn-market btn-lazada" style="{% if lazada_link == blank %}opacity: 0.2; pointer-events: none; filter: grayscale(1);{% endif %}"><span class="market-icon" style="color: #0F136D;">L</span>Lazada</a>
+          <a {% if tiktok_link != blank %}href="{{ tiktok_link }}" target="_blank" rel="noopener"{% endif %} class="btn-market btn-tiktok" style="{% if tiktok_link == blank %}opacity: 0.2; pointer-events: none; filter: grayscale(1);{% endif %}"><span class="market-icon" style="color: #000000; font-size: 14px;">T</span>TikTok</a>
         </div>
       </div>
 
