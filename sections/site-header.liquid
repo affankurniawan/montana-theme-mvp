@@ -9,14 +9,13 @@
     </a>
 
     <nav class="nav" aria-label="Primary navigation">
-      {%- assign menu_handle = section.settings.menu | default: 'main-menu' -%}
-      {%- for link in linklists[menu_handle].links -%}
-        {%- assign a_style = '' -%}
-        {%- if link.active or link.child_active -%}
-          {%- assign a_style = 'style="color: var(--color-accent); font-weight: 700; border-bottom: 2px solid var(--color-accent); padding-bottom: 4px;"' -%}
-        {%- endif -%}
-        <a href="{{ link.url }}" {{ a_style }}>{{ link.title }}</a>
-      {%- endfor -%}
+      {%- assign current_path = request.path -%}
+      {%- assign active_style = 'color: var(--color-accent); font-weight: 700; border-bottom: 2px solid var(--color-accent); padding-bottom: 4px;' -%}
+      <a href="{{ routes.root_url }}" {% if current_path == routes.root_url %}style="{{ active_style }}"{% endif %}>Home</a>
+      <a href="/collections/all-products" {% if current_path contains '/collections' or current_path contains '/products' %}style="{{ active_style }}"{% endif %}>Product</a>
+      <a href="/blogs/news" {% if current_path contains '/blogs' or current_path contains '/articles' %}style="{{ active_style }}"{% endif %}>Blog</a>
+      <a href="/pages/about-us?view=about-us" {% if current_path == '/pages/about-us' %}style="{{ active_style }}"{% endif %}>About Us</a>
+      <a href="/pages/contact-us?view=contact" {% if current_path == '/pages/contact-us' %}style="{{ active_style }}"{% endif %}>Contact Us</a>
     </nav>
 
     <div class="header__actions" style="display:flex; gap:12px; align-items:center;">
@@ -40,14 +39,12 @@
       </button>
     </div>
     <nav class="mobile-nav">
-      {%- assign menu_handle = section.settings.menu | default: 'main-menu' -%}
-      {%- for link in linklists[menu_handle].links -%}
-        {%- assign a_style = '' -%}
-        {%- if link.active or link.child_active -%}
-          {%- assign a_style = 'style="color: var(--color-accent); font-weight: 700; border-bottom-color: var(--color-accent);"' -%}
-        {%- endif -%}
-        <a href="{{ link.url }}" {{ a_style }}>{{ link.title }}</a>
-      {%- endfor -%}
+      {%- assign mobile_active_style = 'color: var(--color-accent); font-weight: 700; border-bottom-color: var(--color-accent);' -%}
+      <a href="{{ routes.root_url }}" {% if current_path == routes.root_url %}style="{{ mobile_active_style }}"{% endif %}>Home</a>
+      <a href="/collections/all-products" {% if current_path contains '/collections' or current_path contains '/products' %}style="{{ mobile_active_style }}"{% endif %}>Product Catalog</a>
+      <a href="/blogs/news" {% if current_path contains '/blogs' or current_path contains '/articles' %}style="{{ mobile_active_style }}"{% endif %}>Blog</a>
+      <a href="/pages/about-us?view=about-us" {% if current_path == '/pages/about-us' %}style="{{ mobile_active_style }}"{% endif %}>About Us</a>
+      <a href="/pages/contact-us?view=contact" {% if current_path == '/pages/contact-us' %}style="{{ mobile_active_style }}"{% endif %}>Contact Us</a>
     </nav>
   </div>
 
