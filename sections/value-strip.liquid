@@ -5,9 +5,25 @@
         <span style="font-size:0.85rem; color:#888; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; margin:0; display:block;">{{ section.settings.heading }}</span>
       </div>
     {%- endif -%}
-    <div class="value-strip">
+    <div class="value-strip" style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
       {%- for block in section.blocks -%}
-        <div class="value-strip__item" {{ block.shopify_attributes }}>{{ block.settings.title }}</div>
+        {%- assign title_down = block.settings.title | downcase -%}
+        <div class="value-strip__item card" {{ block.shopify_attributes }} style="display:flex; align-items:center; justify-content:center; gap:12px; padding: 16px 24px; border-radius: 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); font-weight:700; font-family:var(--font-heading); letter-spacing:0.05em; font-size:1.1rem; transition: transform 0.2s, background 0.2s;">
+          <span style="color:var(--color-accent); display:flex; align-items:center;">
+             {%- if title_down contains 'durable' -%}
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+             {%- elsif title_down contains 'affordable' -%}
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+             {%- elsif title_down contains 'practical' -%}
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+             {%- elsif title_down contains 'everyday' -%}
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+             {%- else -%}
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+             {%- endif -%}
+          </span>
+          <span>{{ block.settings.title }}</span>
+        </div>
       {%- endfor -%}
     </div>
   </div>
