@@ -3,49 +3,62 @@
   <div class="product-layout">
     <div class="product-gallery">
       <style>
-        .gallery-scroller {
-          display: flex;
-          overflow-x: auto;
-          scroll-snap-type: x mandatory;
-          scroll-behavior: smooth;
-          gap: 16px;
-          padding-bottom: 12px;
-          -webkit-overflow-scrolling: touch;
-          scrollbar-width: thin;
-          scrollbar-color: rgba(255,255,255,0.2) transparent;
-        }
-        .gallery-scroller::-webkit-scrollbar { height: 6px; }
-        .gallery-scroller::-webkit-scrollbar-thumb { background-color: rgba(255,255,255,0.2); border-radius: 999px; }
-        .gallery-item {
-          flex: 0 0 100%;
-          scroll-snap-align: start;
+        .gallery-main {
           border-radius: 12px;
           overflow: hidden;
           background: #111;
+          aspect-ratio: 1/1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 12px;
         }
-        .gallery-item img {
-          display: block;
+        .gallery-main img {
           width: 100%;
-          height: auto;
+          height: 100%;
           object-fit: contain;
         }
-        @media (min-width: 768px) {
-          .gallery-scroller { flex-direction: column; overflow-x: hidden; gap: 24px; padding-bottom: 0; }
-          .gallery-item { flex: auto; }
+        .gallery-thumbnails {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 12px;
+        }
+        .thumbnail-item {
+          width: calc(20% - 9.6px);
+          aspect-ratio: 1/1;
+          border-radius: 8px;
+          overflow: hidden;
+          background: #111;
+          cursor: pointer;
+          border: 2px solid transparent;
+          transition: border-color 0.2s;
+        }
+        .thumbnail-item:hover, .thumbnail-item.active {
+          border-color: var(--color-accent);
+        }
+        .thumbnail-item img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+        @media (max-width: 767px) {
+          .thumbnail-item { width: calc(25% - 9px); }
         }
       </style>
       {%- if product.media.size > 0 -%}
-        <div class="gallery-scroller">
-          {%- for media in product.media -%}
-            <div class="gallery-item">
-              {%- if forloop.first -%}
-                {{ media | image_url: width: 1200 | image_tag: widths: '600,900,1200', loading: 'eager', alt: product.title }}
-              {%- else -%}
-                {{ media | image_url: width: 1200 | image_tag: widths: '600,900,1200', loading: 'lazy', alt: product.title }}
-              {%- endif -%}
-            </div>
-          {%- endfor -%}
+        <div class="gallery-main">
+          {{ product.featured_media | image_url: width: 1200 | image_tag: widths: '600,900,1200', loading: 'eager', alt: product.title, id: 'MainProductImage' }}
         </div>
+        {%- if product.media.size > 1 -%}
+          <div class="gallery-thumbnails">
+            {%- for media in product.media -%}
+              <div class="thumbnail-item {% if forloop.first %}active{% endif %}" onclick="document.getElementById('MainProductImage').src='{{ media | image_url: width: 1200 }}'; document.getElementById('MainProductImage').srcset=''; document.querySelectorAll('.thumbnail-item').forEach(el => el.classList.remove('active')); this.classList.add('active');">
+                {{ media | image_url: width: 300 | image_tag: loading: 'lazy', alt: product.title }}
+              </div>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
       {%- else -%}
         <div class="placeholder-box" style="background:#f0f0f0; color:#171717; min-height:520px; border-radius: 12px;">Upload product media</div>
       {%- endif -%}
