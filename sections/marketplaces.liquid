@@ -1,9 +1,34 @@
 <section class="section section--spacious surface" style="background:var(--color-surface); padding-top: 64px; padding-bottom: 64px;">
   <div class="page-width">
     {%- render 'section-heading', eyebrow: section.settings.eyebrow, title: section.settings.heading, text: section.settings.text, alignment: 'center' -%}
+    <style>
+      .marketplace-icon-card {
+        text-align:center; padding:24px; display:flex; flex-direction:column; align-items:center; justify-content:center; cursor:pointer; 
+        border-radius: 16px; border: 1px solid transparent; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      }
+      .marketplace-icon-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+      }
+      .marketplace-icon-card img {
+        height:76px; width:auto; min-width:76px; padding:10px 16px; background:#fff; border-radius:12px; margin-bottom:16px; object-fit:contain;
+        border: 2px solid transparent; transition: all 0.3s ease;
+      }
+      .marketplace-icon-card:hover img {
+        border-color: var(--color-accent);
+        transform: scale(1.08);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+      }
+      .marketplace-icon-card h3 {
+        margin:0; font-size:1.25rem; transition: color 0.3s ease;
+      }
+      .marketplace-icon-card:hover h3 {
+        color: var(--color-accent);
+      }
+    </style>
     <div class="grid grid--4" style="gap:24px;">
       {%- for block in section.blocks -%}
-        <div class="icon-card" style="text-align:center; padding:24px; display:flex; flex-direction:column; align-items:center; justify-content:center; cursor:pointer; transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);" onclick="window.open('{{ block.settings.link }}', '_blank')" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 15px 30px rgba(0,0,0,0.5)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';" {{ block.shopify_attributes }}>
+        <div class="marketplace-icon-card" onclick="window.open('{{ block.settings.link }}', '_blank')" {{ block.shopify_attributes }}>
           {%- assign downcase_title = block.settings.title | downcase -%}
           {%- assign fallback_img = '' -%}
           {%- if downcase_title contains 'shopee' -%}{%- assign fallback_img = 'logo-shopee.png' -%}
@@ -13,10 +38,11 @@
           {%- endif -%}
           
           {%- if block.settings.image != blank -%}
-            <img src="{{ block.settings.image | image_url: width: 160 }}" alt="{{ block.settings.title }}" style="height:76px; width:auto; min-width:76px; padding:10px 16px; background:#fff; border-radius:12px; margin-bottom:16px; object-fit:contain;" loading="lazy">
+            <img src="{{ block.settings.image | image_url: width: 160 }}" alt="{{ block.settings.title }}" loading="lazy">
           {%- elsif fallback_img != '' -%}
-            <img src="{{ fallback_img | asset_url }}" alt="{{ block.settings.title }}" style="height:76px; width:auto; min-width:76px; padding:10px 16px; background:#fff; border-radius:12px; margin-bottom:16px; object-fit:contain;" loading="lazy">
+            <img src="{{ fallback_img | asset_url }}" alt="{{ block.settings.title }}" loading="lazy">
           {%- endif -%}
+          <h3>{{ block.settings.title }}</h3>
           <h3 style="margin:0; font-size:1.25rem;">{{ block.settings.title }}</h3>
         </div>
       {%- endfor -%}
