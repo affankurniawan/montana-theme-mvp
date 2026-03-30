@@ -2,10 +2,52 @@
   <div class="breadcrumbs"><a href="/">Home</a> / <a href="/collections/all-products">Product</a> / {{ product.title }}</div>
   <div class="product-layout">
     <div class="product-gallery">
-      {%- if product.featured_media != blank -%}
-        {{ product.featured_media | image_url: width: 1200 | image_tag: widths: '600,900,1200', loading: 'eager', alt: product.title }}
+      <style>
+        .gallery-scroller {
+          display: flex;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          scroll-behavior: smooth;
+          gap: 16px;
+          padding-bottom: 12px;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: thin;
+          scrollbar-color: rgba(255,255,255,0.2) transparent;
+        }
+        .gallery-scroller::-webkit-scrollbar { height: 6px; }
+        .gallery-scroller::-webkit-scrollbar-thumb { background-color: rgba(255,255,255,0.2); border-radius: 999px; }
+        .gallery-item {
+          flex: 0 0 100%;
+          scroll-snap-align: start;
+          border-radius: 12px;
+          overflow: hidden;
+          background: #111;
+        }
+        .gallery-item img {
+          display: block;
+          width: 100%;
+          height: auto;
+          object-fit: contain;
+        }
+        @media (min-width: 768px) {
+          .gallery-scroller { flex-direction: column; overflow-x: hidden; gap: 24px; padding-bottom: 0; }
+          .gallery-item { flex: auto; }
+        }
+      </style>
+      {%- if product.media.size > 0 -%}
+        <div class="gallery-scroller">
+          {%- for media in product.media -%}
+            <div class="gallery-item">
+              {%- if forloop.first -%}
+                {{ media | image_url: width: 1200 | image_tag: widths: '600,900,1200', loading: 'eager', alt: product.title }}
+              {%- else -%}
+                {{ media | image_url: width: 1200 | image_tag: widths: '600,900,1200', loading: 'lazy', alt: product.title }}
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
       {%- else -%}
-        <div class="placeholder-box" style="background:#f0f0f0; color:#171717; min-height:520px;">Upload product media</div>
+        <div class="placeholder-box" style="background:#f0f0f0; color:#171717; min-height:520px; border-radius: 12px;">Upload product media</div>
       {%- endif -%}
     </div>
     <div>
@@ -15,12 +57,8 @@
       
       <div class="product-description" style="font-size: 0.95rem; line-height: 1.6; color: rgba(255,255,255,0.85); margin-bottom: 32px;">
         <style>
-          .product-description img {
-            max-width: 250px !important;
-            height: auto !important;
-            border-radius: 8px;
-            margin: 16px 0;
-            display: block;
+          .product-description img, .product-description iframe {
+            display: none !important;
           }
         </style>
         {%- if product.description != blank -%}
