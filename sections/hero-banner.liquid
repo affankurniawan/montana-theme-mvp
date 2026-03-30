@@ -27,7 +27,7 @@
       
       <div class="gsap-hero-buttons" style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
         {%- if section.settings.primary_label != blank -%}
-          <a href="{{ section.settings.primary_link | default: '/pages/katalog' }}" class="button button--accent" style="font-size:1.1rem; padding: 14px 28px;">{{ section.settings.primary_label }}</a>
+          <a href="/pages/katalog" class="button button--accent" style="font-size:1.1rem; padding: 14px 28px;">{{ section.settings.primary_label }}</a>
         {%- endif -%}
         {%- if section.settings.secondary_label != blank -%}
           <a href="{{ section.settings.secondary_link }}" class="button button--secondary" style="font-size:1.1rem; padding: 14px 28px; border-color:#fff; color:#fff;">{{ section.settings.secondary_label }}</a>
