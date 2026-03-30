@@ -8,8 +8,7 @@
   </a>
   <div class="product-card__content" style="text-align: center; padding: 16px;">
     {%- if product.tags contains 'promo' -%}<span class="badge" style="background-color: var(--color-accent); color: #000; font-weight: 700; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; text-transform: uppercase; display: inline-block; margin-bottom: 8px;">Promo</span>{%- endif -%}
-    <h3 style="margin: 0 0 8px 0; font-family: var(--font-heading); font-size: 1.25rem; letter-spacing: 0.05em;"><a href="{{ product.url }}" style="color: #fff; text-decoration: none;">{{ product.title }}</a></h3>
-    <div class="price" style="color: var(--color-accent); font-weight: 700; margin-bottom: 8px;">{{ product.price | money }}</div>
-    <p style="color: #aaa; font-size: 0.9rem; margin: 0;">{{ product.description | strip_html | truncate: 90 }}</p>
+    <h3 style="margin: 0 0 12px 0; font-family: var(--font-body); font-weight: 600; font-size: 1rem; line-height: 1.4;"><a href="{{ product.url }}" style="color: #fff; text-decoration: none;">{{ product.title }}</a></h3>
+    <div class="price" style="color: var(--color-accent); font-weight: 700;">{{ product.price | money }}</div>
   </div>
 </article>
