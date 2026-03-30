@@ -1,0 +1,30 @@
+<section class="main-collection">
+  <div class="breadcrumbs"><a href="/">Home</a> / {{ page.title }}</div>
+  {%- render 'section-heading', eyebrow: 'Product hub', title: page.title, text: 'Browse our entire selection of durable essentials at smart prices.' -%}
+
+  <div class="product-grid">
+    {%- paginate collections.all.products by 48 -%}
+      {%- for product in collections.all.products -%}
+        {%- render 'product-card', product: product -%}
+      {%- else -%}
+        <div class="proof-card" style="grid-column: 1 / -1; text-align: center;">
+          <h3>Katalog Sedang Kosong</h3>
+          <p>Sistem tidak dapat mendeteksi produk di kanal Online Store Anda. Harap pastikan 200 produk Anda dicentang (Included) ke Online Store Sales Channels.</p>
+        </div>
+      {%- endfor -%}
+
+      {%- if paginate.pages > 1 -%}
+        <div class="pagination" style="grid-column: 1 / -1; display:flex; justify-content:center; gap:8px; margin-top:32px;">
+          {{ paginate | default_pagination }}
+        </div>
+      {%- endif -%}
+    {%- endpaginate -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Katalog Page Grid",
+  "settings": []
+}
+{% endschema %}
