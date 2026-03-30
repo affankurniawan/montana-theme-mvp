@@ -2,14 +2,14 @@
   <div class="page-width">
     <div style="text-align: center; margin-bottom: 40px; display: flex; flex-direction: column; align-items: center;">
       <div class="breadcrumbs" style="color: #aaa; font-size: 0.9rem; margin-bottom: 12px; font-weight: 500;"><a href="/" style="color: #fff; text-decoration: none;">Home</a> <span style="margin: 0 4px;">/</span> <span style="color: var(--color-accent);">Search</span></div>
-      {%- render 'section-heading', eyebrow: 'Search Engine', title: 'Pencarian Montana', text: 'Temukan produk spesifik mulai alat tulis hingga perlengkapan lainnya secara instan.', alignment: 'center' -%}
+      {%- render 'section-heading', eyebrow: 'Search Engine', title: 'Search Montana', text: 'Find specific stationery, tools, and office essentials instantly.', alignment: 'center' -%}
     </div>
 
     <!-- Search Tooling -->
     <div class="katalog-tools" style="max-width: 680px; margin: 0 auto 48px auto; padding: 0 20px;">
       <form action="{{ routes.search_url }}" method="get" role="search" style="display: flex; gap: 8px; margin-bottom: 24px;">
         <input type="hidden" name="type" value="product">
-        <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="Cari Pensil, Kalkulator, Kertas..." style="flex-grow: 1; padding: 14px 24px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.15); background: rgba(0,0,0,0.4); color: #fff; font-size: 1rem; outline: none; box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);">
+        <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search pens, calculators, paper..." style="flex-grow: 1; padding: 14px 24px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.15); background: rgba(0,0,0,0.4); color: #fff; font-size: 1rem; outline: none; box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);">
         <button type="submit" class="button button--accent" style="border-radius: 999px; padding: 14px 28px; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;">
           <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
         </button>
@@ -17,22 +17,32 @@
       
       <!-- Category Pills Tracking Strategy -->
       <div class="katalog-categories" style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
-        <a href="/pages/katalog" style="padding: 8px 18px; border-radius: 999px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; font-weight: 500; text-decoration: none; font-size: 0.9rem;">Semua Produk</a>
-        <a href="{{ routes.search_url }}?type=product&q=pulpen+OR+tinta+OR+ballpoint+OR+pen+OR+pena+OR+gel" style="padding: 8px 18px; border-radius: 999px; background: {% if search.terms contains 'pulpen' %}var(--color-accent){% else %}rgba(255,255,255,0.05){% endif %}; border: 1px solid rgba(255,255,255,0.1); color: {% if search.terms contains 'pulpen' %}#000{% else %}#fff{% endif %}; font-weight: {% if search.terms contains 'pulpen' %}700{% else %}500{% endif %}; text-decoration: none; font-size: 0.9rem;">Pulpen</a>
-        <a href="{{ routes.search_url }}?type=product&q=pensil+OR+raut+OR+penghapus+OR+serutan+OR+pencil+OR+eraser" style="padding: 8px 18px; border-radius: 999px; background: {% if search.terms contains 'pensil' %}var(--color-accent){% else %}rgba(255,255,255,0.05){% endif %}; border: 1px solid rgba(255,255,255,0.1); color: {% if search.terms contains 'pensil' %}#000{% else %}#fff{% endif %}; font-weight: {% if search.terms contains 'pensil' %}700{% else %}500{% endif %}; text-decoration: none; font-size: 0.9rem;">Pensil & Raut</a>
-        <a href="{{ routes.search_url }}?type=product&q=kalkulator+OR+calculator" style="padding: 8px 18px; border-radius: 999px; background: {% if search.terms contains 'kalkulator' %}var(--color-accent){% else %}rgba(255,255,255,0.05){% endif %}; border: 1px solid rgba(255,255,255,0.1); color: {% if search.terms contains 'kalkulator' %}#000{% else %}#fff{% endif %}; font-weight: {% if search.terms contains 'kalkulator' %}700{% else %}500{% endif %}; text-decoration: none; font-size: 0.9rem;">Kalkulator</a>
-        <a href="{{ routes.search_url }}?type=product&q=kertas+OR+buku+OR+notes+OR+book+OR+paper+OR+memo" style="padding: 8px 18px; border-radius: 999px; background: {% if search.terms contains 'kertas' %}var(--color-accent){% else %}rgba(255,255,255,0.05){% endif %}; border: 1px solid rgba(255,255,255,0.1); color: {% if search.terms contains 'kertas' %}#000{% else %}#fff{% endif %}; font-weight: {% if search.terms contains 'kertas' %}700{% else %}500{% endif %}; text-decoration: none; font-size: 0.9rem;">Buku & Kertas</a>
-        <a href="{{ routes.search_url }}?type=product&q=label+OR+stiker+OR+sticker+OR+nama+OR+tag" style="padding: 8px 18px; border-radius: 999px; background: {% if search.terms contains 'label' %}var(--color-accent){% else %}rgba(255,255,255,0.05){% endif %}; border: 1px solid rgba(255,255,255,0.1); color: {% if search.terms contains 'label' %}#000{% else %}#fff{% endif %}; font-weight: {% if search.terms contains 'label' %}700{% else %}500{% endif %}; text-decoration: none; font-size: 0.9rem;">Stiker & Label</a>
-        <a href="{{ routes.search_url }}?type=product&q=korek+OR+api+OR+gas+OR+m2000+OR+lighter+OR+pemantik" style="padding: 8px 18px; border-radius: 999px; background: {% if search.terms contains 'korek' %}var(--color-accent){% else %}rgba(255,255,255,0.05){% endif %}; border: 1px solid rgba(255,255,255,0.1); color: {% if search.terms contains 'korek' %}#000{% else %}#fff{% endif %}; font-weight: {% if search.terms contains 'korek' %}700{% else %}500{% endif %}; text-decoration: none; font-size: 0.9rem;">Korek Api</a>
-        <a href="{{ routes.search_url }}?type=product&q=gunting+OR+cutter+OR+lem+OR+rak+OR+binder+OR+office+OR+kantor+OR+isolasi+OR+lakban+OR+tape" style="padding: 8px 18px; border-radius: 999px; background: {% if search.terms contains 'gunting' %}var(--color-accent){% else %}rgba(255,255,255,0.05){% endif %}; border: 1px solid rgba(255,255,255,0.1); color: {% if search.terms contains 'gunting' %}#000{% else %}#fff{% endif %}; font-weight: {% if search.terms contains 'gunting' %}700{% else %}500{% endif %}; text-decoration: none; font-size: 0.9rem;">Alat Kantor</a>
-        <a href="{{ routes.search_url }}?type=product&q=penggaris+OR+jangka+OR+tipe-x+OR+correction+OR+spidol+OR+marker+OR+pianika+OR+tiup+OR+musik+OR+seruling" style="padding: 8px 18px; border-radius: 999px; background: {% if search.terms contains 'penggaris' %}var(--color-accent){% else %}rgba(255,255,255,0.05){% endif %}; border: 1px solid rgba(255,255,255,0.1); color: {% if search.terms contains 'penggaris' %}#000{% else %}#fff{% endif %}; font-weight: {% if search.terms contains 'penggaris' %}700{% else %}500{% endif %}; text-decoration: none; font-size: 0.9rem;">Alat Sekolah</a>
+        <a href="/pages/katalog" style="padding: 8px 18px; border-radius: 999px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; font-weight: 500; text-decoration: none; font-size: 0.9rem;">All Products</a>
+        <a href="{{ routes.search_url }}?type=product&q=pulpen+OR+tinta+OR+ballpoint+OR+pen+OR+pena+OR+gel" style="padding: 8px 18px; border-radius: 999px; background: {% if search.terms contains 'pulpen' %}var(--color-accent){% else %}rgba(255,255,255,0.05){% endif %}; border: 1px solid rgba(255,255,255,0.1); color: {% if search.terms contains 'pulpen' %}#000{% else %}#fff{% endif %}; font-weight: {% if search.terms contains 'pulpen' %}700{% else %}500{% endif %}; text-decoration: none; font-size: 0.9rem;">Pens</a>
+        <a href="{{ routes.search_url }}?type=product&q=pensil+OR+raut+OR+penghapus+OR+serutan+OR+pencil+OR+eraser" style="padding: 8px 18px; border-radius: 999px; background: {% if search.terms contains 'pensil' %}var(--color-accent){% else %}rgba(255,255,255,0.05){% endif %}; border: 1px solid rgba(255,255,255,0.1); color: {% if search.terms contains 'pensil' %}#000{% else %}#fff{% endif %}; font-weight: {% if search.terms contains 'pensil' %}700{% else %}500{% endif %}; text-decoration: none; font-size: 0.9rem;">Pencils / Sharpeners</a>
+        <a href="{{ routes.search_url }}?type=product&q=kalkulator+OR+calculator" style="padding: 8px 18px; border-radius: 999px; background: {% if search.terms contains 'kalkulator' %}var(--color-accent){% else %}rgba(255,255,255,0.05){% endif %}; border: 1px solid rgba(255,255,255,0.1); color: {% if search.terms contains 'kalkulator' %}#000{% else %}#fff{% endif %}; font-weight: {% if search.terms contains 'kalkulator' %}700{% else %}500{% endif %}; text-decoration: none; font-size: 0.9rem;">Calculators</a>
+        <a href="{{ routes.search_url }}?type=product&q=kertas+OR+buku+OR+notes+OR+book+OR+paper+OR+memo" style="padding: 8px 18px; border-radius: 999px; background: {% if search.terms contains 'kertas' %}var(--color-accent){% else %}rgba(255,255,255,0.05){% endif %}; border: 1px solid rgba(255,255,255,0.1); color: {% if search.terms contains 'kertas' %}#000{% else %}#fff{% endif %}; font-weight: {% if search.terms contains 'kertas' %}700{% else %}500{% endif %}; text-decoration: none; font-size: 0.9rem;">Books / Paper</a>
+        <a href="{{ routes.search_url }}?type=product&q=label+OR+stiker+OR+sticker+OR+nama+OR+tag" style="padding: 8px 18px; border-radius: 999px; background: {% if search.terms contains 'label' %}var(--color-accent){% else %}rgba(255,255,255,0.05){% endif %}; border: 1px solid rgba(255,255,255,0.1); color: {% if search.terms contains 'label' %}#000{% else %}#fff{% endif %}; font-weight: {% if search.terms contains 'label' %}700{% else %}500{% endif %}; text-decoration: none; font-size: 0.9rem;">Stickers / Labels</a>
+        <a href="{{ routes.search_url }}?type=product&q=korek+OR+api+OR+gas+OR+m2000+OR+lighter+OR+pemantik" style="padding: 8px 18px; border-radius: 999px; background: {% if search.terms contains 'korek' %}var(--color-accent){% else %}rgba(255,255,255,0.05){% endif %}; border: 1px solid rgba(255,255,255,0.1); color: {% if search.terms contains 'korek' %}#000{% else %}#fff{% endif %}; font-weight: {% if search.terms contains 'korek' %}700{% else %}500{% endif %}; text-decoration: none; font-size: 0.9rem;">Lighters</a>
+        <a href="{{ routes.search_url }}?type=product&q=gunting+OR+cutter+OR+lem+OR+rak+OR+binder+OR+office+OR+kantor+OR+isolasi+OR+lakban+OR+tape" style="padding: 8px 18px; border-radius: 999px; background: {% if search.terms contains 'gunting' %}var(--color-accent){% else %}rgba(255,255,255,0.05){% endif %}; border: 1px solid rgba(255,255,255,0.1); color: {% if search.terms contains 'gunting' %}#000{% else %}#fff{% endif %}; font-weight: {% if search.terms contains 'gunting' %}700{% else %}500{% endif %}; text-decoration: none; font-size: 0.9rem;">Office Supplies</a>
+        <a href="{{ routes.search_url }}?type=product&q=penggaris+OR+jangka+OR+tipe-x+OR+correction+OR+spidol+OR+marker+OR+pianika+OR+tiup+OR+musik+OR+seruling" style="padding: 8px 18px; border-radius: 999px; background: {% if search.terms contains 'penggaris' %}var(--color-accent){% else %}rgba(255,255,255,0.05){% endif %}; border: 1px solid rgba(255,255,255,0.1); color: {% if search.terms contains 'penggaris' %}#000{% else %}#fff{% endif %}; font-weight: {% if search.terms contains 'penggaris' %}700{% else %}500{% endif %}; text-decoration: none; font-size: 0.9rem;">School Supplies</a>
       </div>
     </div>
 
     {%- if search.performed -%}
       {%- assign display_terms = search.terms | split: ' OR ' | first | replace: '*', '' -%}
+      {%- if display_terms == 'pulpen' -%}{%- assign display_terms = 'Pens' -%}
+      {%- elsif display_terms == 'pensil' -%}{%- assign display_terms = 'Pencils' -%}
+      {%- elsif display_terms == 'kalkulator' -%}{%- assign display_terms = 'Calculators' -%}
+      {%- elsif display_terms == 'kertas' -%}{%- assign display_terms = 'Books & Paper' -%}
+      {%- elsif display_terms == 'label' -%}{%- assign display_terms = 'Stickers' -%}
+      {%- elsif display_terms == 'korek' -%}{%- assign display_terms = 'Lighters' -%}
+      {%- elsif display_terms == 'gunting' -%}{%- assign display_terms = 'Office Supplies' -%}
+      {%- elsif display_terms == 'penggaris' -%}{%- assign display_terms = 'School Supplies' -%}
+      {%- endif -%}
+
       <div style="text-align: center; margin-bottom: 24px;">
-        <p style="color: #aaa; font-size: 1.1rem;">Ditemukan <strong style="color: #fff;">{{ search.results_count }}</strong> hasil untuk kategori “<strong style="color: var(--color-accent); text-transform: capitalize;">{{ display_terms }}</strong>”.</p>
+        <p style="color: #aaa; font-size: 1.1rem;">Found <strong style="color: #fff;">{{ search.results_count }}</strong> result(s) for category “<strong style="color: var(--color-accent); text-transform: capitalize;">{{ display_terms }}</strong>”.</p>
       </div>
 
       <div class="product-grid">
@@ -46,13 +56,13 @@
             </article>
           {%- endif -%}
         {%- else -%}
-          <div class="proof-card" style="grid-column: 1 / -1; text-align: center;"><h3>Pencarian Tidak Ditemukan</h3><p>Coba gunakan kata kunci lain (misal: penggaris, spidol).</p></div>
+          <div class="proof-card" style="grid-column: 1 / -1; text-align: center;"><h3>No Results Found</h3><p>Try using a different keyword (e.g. ruler, marker).</p></div>
         {%- endfor -%}
       </div>
     {%- else -%}
       <div class="proof-card" style="grid-column: 1 / -1; text-align: center; max-width: 600px; margin: 0 auto;">
-         <h3>Mulai Pencarian</h3>
-         <p>Ketikkan nama produk di kotak pencarian di atas untuk memilah 200 produk Montana.</p>
+         <h3>Start Searching</h3>
+         <p>Type a product name in the search box above to browse 200 Montana products.</p>
       </div>
     {%- endif -%}
   </div>
