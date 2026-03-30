@@ -1,5 +1,11 @@
 <section class="main-product">
-  <div class="breadcrumbs"><a href="/">Home</a> / <a href="/collections/all-products">Product</a> / {{ product.title }}</div>
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; flex-wrap: wrap; gap: 16px;">
+    <div class="breadcrumbs" style="margin-bottom: 0;"><a href="/">Home</a> / <a href="/pages/katalog">Product</a> / <span style="color: var(--color-accent);">{{ product.title }}</span></div>
+    <a href="/pages/katalog" class="button-exit" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 16px; border-radius: 999px; background: rgba(255,255,255,0.1); color: #fff; text-decoration: none; font-size: 0.85rem; font-weight: 600; font-family: var(--font-body); border: 1px solid rgba(255,255,255,0.2); transition: all 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top:-1px;"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      Exit
+    </a>
+  </div>
   <div class="product-layout">
     <div class="product-gallery">
       <style>
