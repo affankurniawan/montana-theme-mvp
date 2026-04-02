@@ -6,7 +6,7 @@
       "type": "announcement-bar",
       "settings": {
         "text": "Durable essentials at smart prices.",
-        "link": "/collections/all"
+        "link": "/pages/katalog"
       }
     },
     "header": {
@@ -15,7 +15,7 @@
         "menu": "main-menu",
         "show_search": false,
         "cta_label": "Shop now",
-        "cta_link": "/collections/all"
+        "cta_link": "/pages/katalog"
       }
     }
   },
