@@ -29,15 +29,6 @@
 
   <div class="product-grid">
     {%- paginate collections.all.products by 48 -%}
-      {%- for product in collections.all.products -%}
-        {%- render 'product-card', product: product -%}
-      {%- else -%}
-        <div class="proof-card" style="grid-column: 1 / -1; text-align: center;">
-          <h3>Katalog Sedang Kosong</h3>
-          <p>Sistem tidak dapat mendeteksi produk di kanal Online Store Anda. Harap pastikan 200 produk Anda dicentang (Included) ke Online Store Sales Channels.</p>
-        </div>
-      {%- endfor -%}
-
       {%- if paginate.pages > 1 -%}
         <style>
           .pagination { font-size: 1.1rem; font-weight: 500; }
@@ -53,6 +44,21 @@
           }
           .pagination span.deco { min-width: 24px; color: #888; display: inline-flex; align-items: center; justify-content: center; }
         </style>
+        <div class="pagination" style="grid-column: 1 / -1; display:flex; justify-content:center; gap:8px; margin-bottom: 32px; flex-wrap:wrap;">
+          {{ paginate | default_pagination }}
+        </div>
+      {%- endif -%}
+
+      {%- for product in collections.all.products -%}
+        {%- render 'product-card', product: product -%}
+      {%- else -%}
+        <div class="proof-card" style="grid-column: 1 / -1; text-align: center;">
+          <h3>Katalog Sedang Kosong</h3>
+          <p>Sistem tidak dapat mendeteksi produk di kanal Online Store Anda. Harap pastikan 200 produk Anda dicentang (Included) ke Online Store Sales Channels.</p>
+        </div>
+      {%- endfor -%}
+
+      {%- if paginate.pages > 1 -%}
         <div class="pagination" style="grid-column: 1 / -1; display:flex; justify-content:center; gap:8px; margin-top:48px; margin-bottom: 32px; flex-wrap:wrap;">
           {{ paginate | default_pagination }}
         </div>
