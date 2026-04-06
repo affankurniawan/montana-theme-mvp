@@ -18,7 +18,12 @@
         <span>{{ product.price | money }}</span>
       </div>
       
-      <div style="display: flex; gap: 4px; justify-content: center; flex-wrap: wrap;">
+      <style>
+        .product-card .marketplace-buttons-wrapper { opacity: 0; max-height: 0; overflow: hidden; transform: translateY(4px); transition: all 0.3s ease; }
+        .product-card:hover .marketplace-buttons-wrapper { opacity: 1; max-height: 50px; transform: translateY(0); margin-top: 8px; }
+        @media (max-width: 768px) { .product-card .marketplace-buttons-wrapper { opacity: 1; max-height: 50px; transform: translateY(0); margin-top: 8px; } }
+      </style>
+      <div class="marketplace-buttons-wrapper" style="display: flex; gap: 4px; justify-content: center; flex-wrap: wrap;">
         {%- assign downcased_tags = product.tags | join: ',' | downcase -%}
 
         {%- assign shopee_url = blank -%}
