@@ -7,7 +7,21 @@
           {%- if block.settings.image != blank -%}
             <img src="{{ block.settings.image | image_url: width: 400 }}" alt="{{ block.settings.title }}" style="width:100%; height:180px; object-fit:cover; border-radius:8px; margin-bottom:16px;" loading="lazy">
           {%- else -%}
-            {%- assign fallback_img = block.settings.title | upcase | append: '.png' -%}
+            {%- assign downcase_title = block.settings.title | downcase -%}
+            {%- assign fallback_img = 'notebook.png' -%}
+            {%- if downcase_title contains 'school' -%}{%- assign fallback_img = 'cat-school.png' -%}
+            {%- elsif downcase_title contains 'office' -%}{%- assign fallback_img = 'cat-office.png' -%}
+            {%- elsif downcase_title contains 'home' -%}{%- assign fallback_img = 'cat-home.png' -%}
+            {%- elsif downcase_title contains 'business' -%}{%- assign fallback_img = 'cat-business.png' -%}
+            {%- elsif downcase_title contains 'smart value' -%}{%- assign fallback_img = 'why-value.png' -%}
+            {%- elsif downcase_title contains 'built to last' -%}{%- assign fallback_img = 'why-durable.png' -%}
+            {%- elsif downcase_title contains 'everyday' -%}{%- assign fallback_img = 'why-progress.png' -%}
+            {%- elsif downcase_title contains 'purpose' -%}{%- assign fallback_img = 'why-purpose.png' -%}
+            {%- elsif downcase_title contains 'mission' -%}{%- assign fallback_img = 'about_mission.png' -%}
+            {%- elsif downcase_title contains 'vision' -%}{%- assign fallback_img = 'about_vision.png' -%}
+            {%- elsif downcase_title contains 'promise' -%}{%- assign fallback_img = 'about_promise.png' -%}
+            {%- elsif downcase_title contains 'role' -%}{%- assign fallback_img = 'about_role.png' -%}
+            {%- endif -%}
             <img src="{{ fallback_img | asset_url }}" alt="{{ block.settings.title }}" style="width:100%; height:180px; object-fit:cover; border-radius:8px; margin-bottom:16px;" loading="lazy">
           {%- endif -%}
           <div style="text-align: center; display: flex; flex-direction: column; flex-grow: 1;">
