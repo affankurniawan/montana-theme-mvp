@@ -250,25 +250,25 @@
         "t1": {
           "type": "quote",
           "settings": {
-            "quote": "Feels durable and worth the price.",
-            "name": "Alya",
-            "meta": "Student"
+            "quote": "Akhirnya ada pena yang tintanya tidak tembus dan tahan satu semester. Sangat sepadan.",
+            "name": "Ayu T.",
+            "meta": "Mahasiswa"
           }
         },
         "t2": {
           "type": "quote",
           "settings": {
-            "quote": "Simple, neat, and dependable for daily office use.",
-            "name": "Raka",
-            "meta": "Office worker"
+            "quote": "Kami melengkapi seluruh kantor dengan Montana. Terlihat premium tanpa bikin kantong jebol.",
+            "name": "Budi P.",
+            "meta": "Manajer Kantor"
           }
         },
         "t3": {
           "type": "quote",
           "settings": {
-            "quote": "Good quality without overspending.",
-            "name": "Nina",
-            "meta": "Parent"
+            "quote": "Sempurna untuk perlengkapan sekolah anak-anak. Cukup awet untuk dipakai setahun penuh.",
+            "name": "Siti K.",
+            "meta": "Ibu"
           }
         }
       },
@@ -278,9 +278,8 @@
         "t3"
       ],
       "settings": {
-        "eyebrow": "Social proof",
-        "heading": "Trusted for daily use",
-        "text": "Discover why professionals, students, and families rely on Montana for their everyday essential needs."
+        "eyebrow": "Testimoni",
+        "heading": "Kata Mereka"
       }
     },
     "blog": {
