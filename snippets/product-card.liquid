@@ -55,24 +55,20 @@
         {%- endif -%}
 
         <a {% if shopee_url != blank %}href="{{ shopee_url }}" target="_blank" rel="noopener"{% endif %} 
-           style="padding: 3px 8px; font-size: 0.65rem; font-weight: 700; border-radius: 4px; border: 1px solid var(--color-accent); text-decoration: none; color: #fff; background-color: #EE4D2D; display: inline-flex; align-items: center; gap: 4px; {% if shopee_url == blank %}opacity: 0.2; pointer-events: none; filter: grayscale(1);{% else %}box-shadow: 0 2px 4px rgba(238, 77, 45, 0.3); transition: transform 0.2s, box-shadow 0.2s;{% endif %}" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 8px rgba(255,215,0,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='{% if shopee_url == blank %}none{% else %}0 2px 4px rgba(238, 77, 45, 0.3){% endif %}'">
-          <img src="{{ 'logo-shopee.png' | asset_url }}" style="height:10px; min-width:10px; width:auto; max-width:28px; background:#fff; border-radius:2px; padding:1px 2px; object-fit:contain;" alt="Shopee">
-          Shopee
+           style="text-decoration: none; display: inline-flex; transition: transform 0.2s; {% if shopee_url == blank %}opacity: 0.2; pointer-events: none; filter: grayscale(1);{% endif %}" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+          <img src="{{ 'logo-shopee.png' | asset_url }}" style="height:20px; width:auto; object-fit:contain; border-radius:4px;" alt="Shopee">
         </a>
         <a {% if tokped_url != blank %}href="{{ tokped_url }}" target="_blank" rel="noopener"{% endif %} 
-           style="padding: 3px 8px; font-size: 0.65rem; font-weight: 700; border-radius: 4px; border: 1px solid var(--color-accent); text-decoration: none; color: #fff; background-color: #00AA5B; display: inline-flex; align-items: center; gap: 4px; {% if tokped_url == blank %}opacity: 0.2; pointer-events: none; filter: grayscale(1);{% else %}box-shadow: 0 2px 4px rgba(0, 170, 91, 0.3); transition: transform 0.2s, box-shadow 0.2s;{% endif %}" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 8px rgba(255,215,0,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='{% if tokped_url == blank %}none{% else %}0 2px 4px rgba(0, 170, 91, 0.3){% endif %}'">
-          <img src="{{ 'logo-tokopedia.png' | asset_url }}" style="height:10px; min-width:10px; width:auto; max-width:28px; background:#fff; border-radius:2px; padding:1px 2px; object-fit:contain;" alt="Tokopedia">
-          Tokped
+           style="text-decoration: none; display: inline-flex; transition: transform 0.2s; {% if tokped_url == blank %}opacity: 0.2; pointer-events: none; filter: grayscale(1);{% endif %}" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+          <img src="{{ 'logo-tokopedia.png' | asset_url }}" style="height:20px; width:auto; object-fit:contain; border-radius:4px;" alt="Tokopedia">
         </a>
         <a {% if lazada_url != blank %}href="{{ lazada_url }}" target="_blank" rel="noopener"{% endif %} 
-           style="padding: 3px 8px; font-size: 0.65rem; font-weight: 700; border-radius: 4px; border: 1px solid var(--color-accent); text-decoration: none; color: #fff; background-color: #0F136D; display: inline-flex; align-items: center; gap: 4px; {% if lazada_url == blank %}opacity: 0.2; pointer-events: none; filter: grayscale(1);{% else %}box-shadow: 0 2px 4px rgba(15, 19, 109, 0.3); transition: transform 0.2s, box-shadow 0.2s;{% endif %}" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 8px rgba(255,215,0,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='{% if lazada_url == blank %}none{% else %}0 2px 4px rgba(15, 19, 109, 0.3){% endif %}'">
-          <img src="{{ 'logo-lazada.png' | asset_url }}" style="height:10px; min-width:10px; width:auto; max-width:28px; background:#fff; border-radius:2px; padding:1px 2px; object-fit:contain;" alt="Lazada">
-          Lazada
+           style="text-decoration: none; display: inline-flex; transition: transform 0.2s; {% if lazada_url == blank %}opacity: 0.2; pointer-events: none; filter: grayscale(1);{% endif %}" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+          <img src="{{ 'logo-lazada.png' | asset_url }}" style="height:20px; width:auto; object-fit:contain; border-radius:4px;" alt="Lazada">
         </a>
         <a {% if tiktok_url != blank %}href="{{ tiktok_url }}" target="_blank" rel="noopener"{% endif %} 
-           style="padding: 3px 8px; font-size: 0.65rem; font-weight: 700; border-radius: 4px; border: 1px solid var(--color-accent); text-decoration: none; color: #fff; background-color: #000; display: inline-flex; align-items: center; gap: 4px; {% if tiktok_url == blank %}opacity: 0.2; pointer-events: none; filter: grayscale(1);{% else %}box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); transition: transform 0.2s, box-shadow 0.2s;{% endif %}" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 8px rgba(255,215,0,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='{% if tiktok_url == blank %}none{% else %}0 2px 4px rgba(0, 0, 0, 0.5){% endif %}'">
-          <img src="{{ 'logo-tiktok.png' | asset_url }}" style="height:10px; min-width:10px; width:auto; max-width:28px; background:#fff; border-radius:2px; padding:1px 2px; object-fit:contain;" alt="TikTok">
-          TikTok
+           style="text-decoration: none; display: inline-flex; transition: transform 0.2s; {% if tiktok_url == blank %}opacity: 0.2; pointer-events: none; filter: grayscale(1);{% endif %}" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+          <img src="{{ 'logo-tiktok.png' | asset_url }}" style="height:20px; width:auto; object-fit:contain; border-radius:4px;" alt="TikTok">
         </a>
       </div>
     </div>
