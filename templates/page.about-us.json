@@ -63,6 +63,44 @@
         "layout": "left"
       }
     },
+    "core_values": {
+      "type": "core-values",
+      "settings": {
+        "eyebrow": "NILAI KAMI",
+        "heading": "Prinsip Montana"
+      },
+      "blocks": {
+        "val_1": {
+          "type": "value",
+          "settings": {
+            "icon": "users",
+            "title": "Accessible",
+            "text": "Alat berkualitas yang mudah dijangkau oleh semua kalangan—karena setiap orang berhak mendapatkan yang terbaik."
+          }
+        },
+        "val_2": {
+          "type": "value",
+          "settings": {
+            "icon": "heart",
+            "title": "Reliable",
+            "text": "Produk yang bisa diandalkan setiap hari, dari pagi hingga malam, dari sekolah hingga kantor."
+          }
+        },
+        "val_3": {
+          "type": "value",
+          "settings": {
+            "icon": "book",
+            "title": "Smart Value",
+            "text": "Kualitas premium tanpa harga premium. Investasi cerdas untuk kebutuhan sehari-hari Anda."
+          }
+        }
+      },
+      "block_order": [
+        "val_1",
+        "val_2",
+        "val_3"
+      ]
+    },
     "beliefs": {
       "type": "about-foundation",
       "settings": {
@@ -107,6 +145,7 @@
     "intro",
     "metrics",
     "story",
+    "core_values",
     "beliefs"
   ]
 }

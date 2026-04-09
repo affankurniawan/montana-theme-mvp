@@ -1,0 +1,81 @@
+<section class="section" style="padding: 120px 0 64px; background: var(--color-background);">
+  <div class="page-width">
+    
+    <!-- Header -->
+    <div style="text-align: center; margin-bottom: 64px;">
+      <div style="font-family: var(--font-heading); color: var(--color-accent); font-size: 0.85rem; letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 12px; font-weight: 800;">
+        {{ section.settings.eyebrow }}
+      </div>
+      <h2 style="font-family: var(--font-heading); font-size: clamp(2rem, 4vw, 3rem); color: #fff; margin: 0; line-height: 1.1; letter-spacing: -0.01em;">
+        {{ section.settings.heading }}
+      </h2>
+    </div>
+
+    <!-- 3-Column Card Layout -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+      {%- for block in section.blocks -%}
+        <div {{ block.shopify_attributes }} class="core-value-card" 
+             style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04); border-radius: 12px; padding: 48px 40px; text-align: center; transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); height: 100%; display: flex; flex-direction: column; align-items: center;" 
+             onmouseover="this.style.transform='translateY(-10px)'; this.style.borderColor='rgba(255,255,255,0.1)'; this.style.background='rgba(255,255,255,0.03)';" 
+             onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255,255,255,0.04)'; this.style.background='rgba(255,255,255,0.02)';">
+          
+          <!-- Native Feather SVG injection based on selection -->
+          <div style="width: 44px; height: 44px; margin-bottom: 24px; color: var(--color-accent); display: flex; align-items: center; justify-content: center;">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              {%- if block.settings.icon == 'users' -%}
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              {%- elsif block.settings.icon == 'heart' -%}
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              {%- elsif block.settings.icon == 'book' -%}
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              {%- else -%}
+                <circle cx="12" cy="12" r="10"></circle>
+              {%- endif -%}
+            </svg>
+          </div>
+
+          <h3 style="font-family: var(--font-heading); font-size: 1.5rem; color: #fff; margin: 0 0 16px; letter-spacing: -0.01em;">
+            {{ block.settings.title }}
+          </h3>
+          <p style="font-size: 1rem; line-height: 1.65; color: #888; margin: 0;">
+            {{ block.settings.text }}
+          </p>
+          
+        </div>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+   "name": "Core Values",
+   "settings": [
+     {"type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "NILAI KAMI"},
+     {"type": "text", "id": "heading", "label": "Heading", "default": "Prinsip Montana"}
+   ],
+   "blocks": [
+     {
+       "type": "value",
+       "name": "Value",
+       "settings": [
+         {
+           "type": "select",
+           "id": "icon",
+           "label": "Icon",
+           "options": [
+             {"value": "users", "label": "Users/Accessible"},
+             {"value": "heart", "label": "Heart/Reliable"},
+             {"value": "book", "label": "Book/Value"}
+           ],
+           "default": "users"
+         },
+         {"type": "text", "id": "title", "label": "Title", "default": "Title"},
+         {"type": "textarea", "id": "text", "label": "Text", "default": "Text"}
+       ]
+     }
+   ],
+   "presets": [{"name": "Core Values"}]
+}
+{% endschema %}
