@@ -1,0 +1,58 @@
+<section class="section" style="background:var(--color-surface); padding: 80px 0; border-bottom: 1px solid rgba(255,255,255,0.03); border-top: 1px solid rgba(255,255,255,0.03);">
+  <div class="page-width">
+    <!-- Minimalist Data Grid -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: center;">
+      
+      {%- for block in section.blocks -%}
+        <div {{ block.shopify_attributes }} style="display: flex; flex-direction: column; align-items: center; justify-content: center; transform: translateY(0); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';" onmouseout="this.style.transform='translateY(0)';">
+          
+          <div style="font-family: var(--font-heading); font-size: clamp(2.5rem, 4.5vw, 3.5rem); font-weight: 800; color: var(--color-accent); margin-bottom: 12px; line-height: 1; letter-spacing: -0.02em;">
+            {{ block.settings.number }}
+          </div>
+          
+          <div style="font-size: 0.85rem; font-weight: 700; color: #888; letter-spacing: 0.15em; text-transform: uppercase;">
+            {{ block.settings.label }}
+          </div>
+
+        </div>
+      {%- endfor -%}
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Metrics strip",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "metric",
+      "name": "Metric",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Number (e.g. 500+)"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label (e.g. PRODUK SKU)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Metrics strip",
+      "blocks": [
+        {"type": "metric", "settings": {"number": "500+", "label": "PRODUK SKU"}},
+        {"type": "metric", "settings": {"number": "50K+", "label": "PELANGGAN"}},
+        {"type": "metric", "settings": {"number": "100+", "label": "KOTA TERJANGKAU"}},
+        {"type": "metric", "settings": {"number": "4.8★", "label": "RATING PELANGGAN"}}
+      ]
+    }
+  ]
+}
+{% endschema %}
