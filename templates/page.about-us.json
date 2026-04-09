@@ -53,6 +53,16 @@
         "metric_4"
       ]
     },
+    "story": {
+      "type": "brand-story",
+      "settings": {
+        "asset_image": "about_mission.png",
+        "eyebrow": "ASAL USUL",
+        "heading": "Cerita Kami",
+        "text": "<p>Montana dibangun dengan keyakinan sederhana: alat yang lebih baik menciptakan kebiasaan yang lebih baik, dan kebiasaan yang lebih baik membangun generasi yang lebih cerdas.</p><p>Di sekolah, di tempat kerja, di rumah, dan di usaha kecil, orang mengandalkan kebutuhan sehari-hari untuk menulis, mengatur, belajar, bersiap, dan terus bergerak.</p><p><strong>Montana hadir untuk menyelesaikan ini.</strong> Kami membuat kebutuhan dasar yang tahan lama, dapat diandalkan, dan terjangkau.</p>",
+        "layout": "left"
+      }
+    },
     "beliefs": {
       "type": "about-foundation",
       "settings": {
@@ -96,6 +106,7 @@
   "order": [
     "intro",
     "metrics",
+    "story",
     "beliefs"
   ]
 }
