@@ -138,16 +138,22 @@
           align-items: center;
           justify-content: center;
           gap: 10px;
-          background: rgba(255, 255, 255, 0.03);
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          transition: all 0.3s ease;
+          border: 1px solid transparent;
+          transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
         .btn-market:hover {
-          background: rgba(255, 255, 255, 0.08);
-          border-color: rgba(255, 255, 255, 0.15);
           transform: translateY(-2px);
-          box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+          filter: brightness(1.1);
         }
+        .btn-shopee { background-color: #EE4D2D; box-shadow: 0 4px 12px rgba(238, 77, 45, 0.2); }
+        .btn-tokopedia { background-color: #00AA5B; box-shadow: 0 4px 12px rgba(0, 170, 91, 0.2); }
+        .btn-lazada { background-color: #0F136D; box-shadow: 0 4px 12px rgba(15, 19, 109, 0.3); }
+        .btn-tiktok { background-color: #222222; border-color: rgba(255,255,255,0.1); box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05); }
+        .btn-shopee:hover { box-shadow: 0 6px 16px rgba(238, 77, 45, 0.4); }
+        .btn-tokopedia:hover { box-shadow: 0 6px 16px rgba(0, 170, 91, 0.4); }
+        .btn-lazada:hover { box-shadow: 0 6px 16px rgba(15, 19, 109, 0.5); }
+        .btn-tiktok:hover { box-shadow: 0 6px 16px rgba(255, 255, 255, 0.1); border-color: rgba(255,255,255,0.2); }
+
         .market-img {
           height: 22px;
           width: 22px;
