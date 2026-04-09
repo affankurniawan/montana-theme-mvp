@@ -1,25 +1,52 @@
 <section class="section section--spacious">
   <div class="page-width">
-    {%- render 'section-heading', eyebrow: section.settings.eyebrow, title: section.settings.heading, text: section.settings.text, alignment: 'center' -%}
-    {%- assign collection = collections[section.settings.collection] -%}
-    <div class="product-grid">
-      {%- if collection != blank and collection.products_count > 0 -%}
-        {%- for product in collection.products limit: section.settings.products_to_show -%}
-          {%- render 'product-card', product: product -%}
-        {%- endfor -%}
-      {%- else -%}
-        {%- for i in (1..4) -%}
-          <article class="card product-card">
-            <div class="product-card__media"><div class="placeholder-box" style="background:#f0f0f0; color:#171717;">Featured product</div></div>
-            <div class="product-card__content" style="text-align: center; padding: 16px;">
-              <span class="badge" style="background-color: var(--color-accent); color: #000; font-weight: 700; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; text-transform: uppercase; display: inline-block; margin-bottom: 8px;">Best seller</span>
-              <h3 style="color: #fff; margin: 0 0 8px 0; font-family: var(--font-heading); font-size: 1.25rem; letter-spacing: 0.05em;">Placeholder product {{ i }}</h3>
-              <div class="price" style="color: var(--color-accent); font-weight: 700; margin-bottom: 8px;">Rp 0</div>
-              <p style="color: #aaa; font-size: 0.9rem; margin: 0;">Replace with real Shopify products.</p>
-            </div>
-          </article>
-        {%- endfor -%}
-      {%- endif -%}
+    <div style="display: flex; flex-direction: row; gap: 48px; align-items: flex-start; flex-wrap: wrap;">
+      
+      <!-- Left Header Area -->
+      <div style="flex: 1 1 300px; position: sticky; top: 120px;">
+        {%- if section.settings.eyebrow != blank -%}
+          <span style="font-size:0.85rem; color:#888; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; margin:0; display:block;">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+        
+        <h2 style="font-size: 3rem; line-height: 1.1; font-family: var(--font-heading); color: #fff; margin: 16px 0; font-weight: 800; letter-spacing: 0.02em;">
+          {{ section.settings.heading }}
+        </h2>
+        
+        {%- if section.settings.text != blank -%}
+          <p style="color: #ccc; font-size: 1rem; line-height: 1.6; margin: 0 0 32px 0;">
+            {{ section.settings.text }}
+          </p>
+        {%- endif -%}
+
+        {%- assign coll = collections[section.settings.collection] -%}
+        <a href="{{ coll.url | default: '/collections/all' }}" style="display:inline-block; border-radius:999px; background:var(--color-accent); color:#000; padding:16px 32px; font-weight:800; text-decoration:none; font-size:0.95rem; text-transform:uppercase; letter-spacing:0.05em; transition:all 0.3s ease; box-shadow: 0 4px 12px rgba(255,216,0,0.2);" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 24px rgba(255,216,0,0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(255,216,0,0.2)';">Lihat Semua Katalog</a>
+      </div>
+
+      <!-- Right Product Grid Area -->
+      <div style="flex: 3 1 800px;">
+        <!-- Overriding standard grid with inline custom 4-column layout for strict adherence to user request -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 24px;">
+          {%- if coll != blank and coll.products_count > 0 -%}
+            {%- for product in coll.products limit: section.settings.products_to_show -%}
+              {%- render 'product-card', product: product -%}
+            {%- endfor -%}
+          {%- else -%}
+            {%- for i in (1..8) -%}
+              <article class="card product-card" style="border: 1px solid var(--glass-border); border-radius: var(--radius); background: var(--glass-bg); overflow: hidden;">
+                <div class="product-card__media" style="width: 100%; aspect-ratio: 1; background: #222; display: flex; align-items: center; justify-content: center; color: #555;">
+                  Gambar Produk
+                </div>
+                <div class="product-card__content" style="padding: 16px;">
+                  <span class="badge" style="background-color: var(--color-accent); color: #000; font-weight: 800; padding: 4px 8px; border-radius: 4px; font-size: 0.7rem; text-transform: uppercase; display: inline-block; margin-bottom: 8px;">Terlaris</span>
+                  <h3 style="color: #fff; margin: 0 0 8px 0; font-family: var(--font-heading); font-size: 1.1rem; letter-spacing: 0.05em;">Produk Dummy {{ i }}</h3>
+                  <div class="price" style="color: var(--color-accent); font-weight: 700; margin-bottom: 8px;">Rp 25.000</div>
+                </div>
+              </article>
+            {%- endfor -%}
+          {%- endif -%}
+        </div>
+      </div>
+      
     </div>
   </div>
 </section>
@@ -28,11 +55,11 @@
 {
   "name": "Featured collection grid",
   "settings": [
-    {"type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Best sellers"},
-    {"type": "text", "id": "heading", "label": "Heading", "default": "Featured essentials"},
-    {"type": "textarea", "id": "text", "label": "Text", "default": "Show practical products that prove Montana quality fast."},
+    {"type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Terlaris"},
+    {"type": "text", "id": "heading", "label": "Heading", "default": "Koleksi Unggulan"},
+    {"type": "textarea", "id": "text", "label": "Text", "default": "Jelajahi produk-produk yang paling disukai dari Montana yang terbukti tangguh dengan harga rasional."},
     {"type": "collection", "id": "collection", "label": "Collection"},
-    {"type": "range", "id": "products_to_show", "min": 2, "max": 8, "step": 1, "label": "Products to show", "default": 4}
+    {"type": "range", "id": "products_to_show", "min": 2, "max": 12, "step": 1, "label": "Products to show", "default": 8}
   ],
   "presets": [{"name": "Featured collection grid"}]
 }

@@ -173,9 +173,9 @@
     "featured": {
       "type": "featured-collection-grid",
       "settings": {
-        "eyebrow": "Best sellers",
-        "heading": "Featured essentials",
-        "text": "Explore our most loved products that deliver premium quality at an honest price.",
+        "eyebrow": "Terlaris",
+        "heading": "Koleksi Unggulan",
+        "text": "Jelajahi produk-produk yang paling disukai dari Montana yang terbukti tangguh dengan harga rasional.",
         "collection": "frontpage",
         "products_to_show": 8
       }
