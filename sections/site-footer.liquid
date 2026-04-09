@@ -2,52 +2,52 @@
   <div class="page-width footer__inner" style="display:block;">
     <div class="footer__grid" style="gap:48px;">
       <div>
-        <a href="{{ routes.root_url }}" style="display:inline-block; margin-bottom: 20px;">
-          <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" style="max-height: 48px; width: auto;" loading="lazy">
+        <a href="{{ routes.root_url }}" style="display:inline-block; margin-bottom: 16px;">
+          <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" style="max-height: 28px; width: auto;" loading="lazy">
         </a>
-        <h3 style="margin-top:0; color: var(--color-primary);">{{ section.settings.footer_heading }}</h3>
-        <p style="color: rgba(255,255,255,0.7);">{{ section.settings.footer_text }}</p>
+        <h3 style="margin-top:0; font-size: 0.9rem; color: #ccc; margin-bottom: 6px; font-weight: normal;">{{ section.settings.footer_heading }}</h3>
+        <p style="margin: 0; font-size: 0.85rem; line-height: 1.6; color: #888;">{{ section.settings.footer_text }}</p>
         <div style="margin-top: 24px; display: flex; gap: 16px; align-items: center;">
-          <a href="https://www.instagram.com/montanastationeryid/" target="_blank" rel="noopener" aria-label="Instagram" style="display:inline-flex; align-items:center; justify-content:center; width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: #fff; transition: all 0.3s ease;" onmouseover="this.style.background='var(--color-accent)'; this.style.color='#000'; this.style.transform='translateY(-6px)';" onmouseout="this.style.background='rgba(255,255,255,0.05)'; this.style.color='#fff'; this.style.transform='translateY(0)';">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          <a href="https://www.instagram.com/montanastationeryid/" target="_blank" rel="noopener" aria-label="Instagram" style="display:inline-flex; align-items:center; justify-content:center; width: 32px; height: 32px; border-radius: 50%; background: transparent; border: 1px solid rgba(255,255,255,0.1); color: #888; transition: all 0.3s ease;" onmouseover="this.style.color='#fff'; this.style.borderColor='rgba(255,255,255,0.3)';" onmouseout="this.style.color='#888'; this.style.borderColor='rgba(255,255,255,0.1)';">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
           </a>
-          <a href="https://www.tiktok.com/@montanastationeryid" target="_blank" rel="noopener" aria-label="TikTok" style="display:inline-flex; align-items:center; justify-content:center; width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: #fff; transition: all 0.3s ease;" onmouseover="this.style.background='var(--color-accent)'; this.style.color='#000'; this.style.transform='translateY(-6px)';" onmouseout="this.style.background='rgba(255,255,255,0.05)'; this.style.color='#fff'; this.style.transform='translateY(0)';">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+          <a href="https://www.tiktok.com/@montanastationeryid" target="_blank" rel="noopener" aria-label="TikTok" style="display:inline-flex; align-items:center; justify-content:center; width: 32px; height: 32px; border-radius: 50%; background: transparent; border: 1px solid rgba(255,255,255,0.1); color: #888; transition: all 0.3s ease;" onmouseover="this.style.color='#fff'; this.style.borderColor='rgba(255,255,255,0.3)';" onmouseout="this.style.color='#888'; this.style.borderColor='rgba(255,255,255,0.1)';">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
           </a>
-          <a href="https://wa.me/{{ settings.whatsapp_number }}" target="_blank" rel="noopener" aria-label="WhatsApp" style="display:inline-flex; align-items:center; justify-content:center; width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: #fff; transition: all 0.3s ease;" onmouseover="this.style.background='var(--color-accent)'; this.style.color='#000'; this.style.transform='translateY(-6px)';" onmouseout="this.style.background='rgba(255,255,255,0.05)'; this.style.color='#fff'; this.style.transform='translateY(0)';">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          <a href="https://wa.me/{{ settings.whatsapp_number }}" target="_blank" rel="noopener" aria-label="WhatsApp" style="display:inline-flex; align-items:center; justify-content:center; width: 32px; height: 32px; border-radius: 50%; background: transparent; border: 1px solid rgba(255,255,255,0.1); color: #888; transition: all 0.3s ease;" onmouseover="this.style.color='#fff'; this.style.borderColor='rgba(255,255,255,0.3)';" onmouseout="this.style.color='#888'; this.style.borderColor='rgba(255,255,255,0.1)';">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
           </a>
-          <a href="mailto:{{ settings.contact_email }}" aria-label="Email" style="display:inline-flex; align-items:center; justify-content:center; width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: #fff; transition: all 0.3s ease;" onmouseover="this.style.background='var(--color-accent)'; this.style.color='#000'; this.style.transform='translateY(-6px)';" onmouseout="this.style.background='rgba(255,255,255,0.05)'; this.style.color='#fff'; this.style.transform='translateY(0)';">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          <a href="mailto:{{ settings.contact_email }}" aria-label="Email" style="display:inline-flex; align-items:center; justify-content:center; width: 32px; height: 32px; border-radius: 50%; background: transparent; border: 1px solid rgba(255,255,255,0.1); color: #888; transition: all 0.3s ease;" onmouseover="this.style.color='#fff'; this.style.borderColor='rgba(255,255,255,0.3)';" onmouseout="this.style.color='#888'; this.style.borderColor='rgba(255,255,255,0.1)';">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
           </a>
         </div>
       </div>
       <div>
-        <h4 style="color: var(--color-accent); font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: 16px; margin-top: 0; letter-spacing: 0.05em; text-transform: uppercase;">PRODUK</h4>
-        <div class="grid" style="gap:12px;">
-          <a href="/pages/katalog">Katalog Produk</a>
-          <a href="/pages/about-us?view=about-us">Tentang Montana</a>
-          <a href="/blogs/news">Blog</a>
+        <h4 style="color: #fff; font-family: var(--font-heading); font-size: 0.85rem; margin-bottom: 16px; margin-top: 0; letter-spacing: 0.05em; text-transform: uppercase;">PRODUK</h4>
+        <div class="grid" style="gap:12px; display: flex; flex-direction: column;">
+          <a href="/pages/katalog" style="color: #888; font-size: 0.85rem; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#888'">Katalog Produk</a>
+          <a href="/pages/about-us?view=about-us" style="color: #888; font-size: 0.85rem; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#888'">Tentang Montana</a>
+          <a href="/blogs/news" style="color: #888; font-size: 0.85rem; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#888'">Blog</a>
         </div>
       </div>
       <div>
-        <h4 style="color: var(--color-accent); font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: 16px; margin-top: 0; letter-spacing: 0.05em; text-transform: uppercase;">LAYANAN</h4>
-        <div class="grid" style="gap:12px;">
-          <a href="/pages/contact-us?view=contact">Hubungi Kami</a>
-          <a href="/pages/contact-us?view=contact">Pesanan Grosir (B2B)</a>
+        <h4 style="color: #fff; font-family: var(--font-heading); font-size: 0.85rem; margin-bottom: 16px; margin-top: 0; letter-spacing: 0.05em; text-transform: uppercase;">LAYANAN</h4>
+        <div class="grid" style="gap:12px; display: flex; flex-direction: column;">
+          <a href="/pages/contact-us?view=contact" style="color: #888; font-size: 0.85rem; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#888'">Hubungi Kami</a>
+          <a href="/pages/contact-us?view=contact" style="color: #888; font-size: 0.85rem; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#888'">Pesanan Grosir (B2B)</a>
         </div>
       </div>
       <div>
-        <h4 style="color: var(--color-accent); font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: 16px; margin-top: 0; letter-spacing: 0.05em; text-transform: uppercase;">PLATFORM BELANJA</h4>
-        <div class="grid" style="gap:12px;">
-          <a href="https://shopee.co.id/montanaid" target="_blank" rel="noopener">Shopee</a>
-          <a href="https://www.tokopedia.com/montanaid" target="_blank" rel="noopener">Tokopedia</a>
-          <a href="https://www.tiktok.com/@montanastationeryid" target="_blank" rel="noopener">TikTok Shop</a>
-          <a href="https://www.lazada.co.id/shop/montana-id/" target="_blank" rel="noopener">Lazada</a>
+        <h4 style="color: #fff; font-family: var(--font-heading); font-size: 0.85rem; margin-bottom: 16px; margin-top: 0; letter-spacing: 0.05em; text-transform: uppercase;">MARKETPLACE</h4>
+        <div class="grid" style="gap:12px; display: flex; flex-direction: column;">
+          <a href="https://shopee.co.id/montanaid" target="_blank" rel="noopener" style="color: #888; font-size: 0.85rem; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#888'">Shopee</a>
+          <a href="https://www.tokopedia.com/montanaid" target="_blank" rel="noopener" style="color: #888; font-size: 0.85rem; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#888'">Tokopedia</a>
+          <a href="https://www.tiktok.com/@montanastationeryid" target="_blank" rel="noopener" style="color: #888; font-size: 0.85rem; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#888'">TikTok Shop</a>
+          <a href="https://www.lazada.co.id/shop/montana-id/" target="_blank" rel="noopener" style="color: #888; font-size: 0.85rem; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#888'">Lazada</a>
         </div>
       </div>
     </div>
-    <div class="footer__small" style="border-top: 1px solid var(--glass-border); padding-top: 24px; display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+    <div class="footer__small" style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 24px; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; font-size: 0.75rem; color: #666;">
       <span>&copy; {{ 'now' | date: '%Y' }} Montana. Hak cipta dilindungi.</span>
     </div>
   </div>
