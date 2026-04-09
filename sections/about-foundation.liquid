@@ -14,27 +14,26 @@
       </p>
     </div>
 
-    <!-- Exclusive Editorial Grid Stack -->
+    <!-- 2x2 Premium Quadrant Grid -->
     <style>
-      .foundation-stack {
-        display: flex;
-        flex-direction: column;
-      }
-      .foundation-row {
+      .foundation-grid {
         display: grid;
-        grid-template-columns: 1fr 1.5fr;
-        gap: 64px;
-        padding: 48px 0;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0; /* Handled by padding and inline borders */
+        max-width: 1000px;
+        margin: 0 auto;
         border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .f-card {
+        padding: 48px 48px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         transition: background 0.4s ease;
       }
-      .foundation-row:hover {
-        background: rgba(255, 255, 255, 0.02);
+      .f-card:nth-child(odd) {
+        border-right: 1px solid rgba(255, 255, 255, 0.08);
       }
-      .f-meta {
-        display: flex;
-        align-items: flex-start;
-        gap: 24px;
+      .f-card:hover {
+        background: rgba(255, 255, 255, 0.02);
       }
       .f-number {
         font-family: var(--font-heading);
@@ -42,56 +41,46 @@
         color: var(--color-accent);
         font-weight: 300;
         line-height: 1;
-        margin-top: 4px;
-        min-width: 60px;
+        margin-bottom: 16px;
+        opacity: 0.8;
       }
       .f-title {
         color: #fff;
         font-family: var(--font-heading);
-        font-size: 2.2rem;
+        font-size: 2rem;
         font-weight: 800;
-        margin: 0;
+        margin: 0 0 16px 0;
         letter-spacing: 0.01em;
       }
       .f-text {
-        color: #bbb;
-        font-size: 1.15rem;
-        line-height: 1.8;
+        color: #aaa;
+        font-size: 1.05rem;
+        line-height: 1.7;
         font-weight: 400;
         margin: 0;
-        padding-top: 8px; /* Align visual baseline with title */
       }
 
-      @media (max-width: 800px) {
-        .foundation-row {
+      @media (max-width: 768px) {
+        .foundation-grid {
           grid-template-columns: 1fr;
-          gap: 24px;
-          padding: 40px 0;
         }
-        .f-meta {
-          flex-direction: column;
-          gap: 12px;
+        .f-card {
+          padding: 32px 0;
         }
-        .f-number { font-size: 2rem; margin-top: 0; }
-        .f-title { font-size: 1.8rem; }
-        .f-text { padding-top: 0; font-size: 1.05rem; }
+        .f-card:nth-child(odd) {
+          border-right: none;
+        }
       }
     </style>
 
-    <div class="foundation-stack">
+    <div class="foundation-grid">
       {%- for block in section.blocks -%}
-        <div class="foundation-row" {{ block.shopify_attributes }}>
-          <div class="f-meta">
-            <div class="f-number">0{{ forloop.index }}.</div>
-            <h3 class="f-title">{{ block.settings.title }}</h3>
-          </div>
-          <div class="f-content">
-            <p class="f-text">{{ block.settings.text }}</p>
-          </div>
+        <div class="f-card" {{ block.shopify_attributes }}>
+          <div class="f-number">0{{ forloop.index }}.</div>
+          <h3 class="f-title">{{ block.settings.title }}</h3>
+          <p class="f-text">{{ block.settings.text }}</p>
         </div>
       {%- endfor -%}
-      <!-- Final closing border -->
-      <div style="border-top: 1px solid rgba(255, 255, 255, 0.08);"></div>
     </div>
   </div>
 </section>
