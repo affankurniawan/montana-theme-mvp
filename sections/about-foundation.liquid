@@ -1,15 +1,30 @@
 <section class="section section--spacious surface" style="background: transparent;">
   <div class="page-width">
     
-    <!-- Editorial Section Header -->
-    <div style="max-width: 800px; margin: 0 auto 64px auto; text-align: center;">
-      <h2 style="color: #fff; font-family: var(--font-heading); font-size: 3rem; font-weight: 800; letter-spacing: -0.02em; margin: 0 0 24px 0; line-height: 1.1;">
-        {{ section.settings.heading }}
-      </h2>
-      <p style="color: #aaa; font-size: 1.15rem; line-height: 1.6; margin: 0;">
-        {{ section.settings.text }}
-      </p>
+    <!-- Split Typography Header Variant -->
+    {%- if section.settings.heading != blank -%}
+    <div class="f-split-header" style="max-width: 1200px; margin: 0 auto 48px auto; display: flex; align-items: flex-end; justify-content: space-between; gap: 48px;">
+      <div style="flex: 1; max-width: 600px;">
+        <h2 style="color: #fff; font-family: var(--font-heading); font-size: 2.6rem; font-weight: 800; letter-spacing: -0.01em; margin: 0; line-height: 1.1;">
+          {{ section.settings.heading }}
+        </h2>
+      </div>
+      <div style="flex: 1; max-width: 500px;">
+        <p style="color: #aaa; font-size: 1.05rem; line-height: 1.6; margin: 0;">
+          {{ section.settings.text }}
+        </p>
+      </div>
     </div>
+    <style>
+      @media (max-width: 768px) {
+        .f-split-header {
+          flex-direction: column;
+          align-items: flex-start !important;
+          gap: 16px !important;
+        }
+      }
+    </style>
+    {%- endif -%}
 
     <!-- Cinematic Image Bento Variant -->
     <style>
