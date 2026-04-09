@@ -124,36 +124,36 @@
         "c1": {
           "type": "card",
           "settings": {
-            "title": "School",
-            "text": "Reliable basics, attractive price, clean look, and easy access.",
-            "link_label": "Browse school",
+            "title": "Sekolah",
+            "text": "Kebutuhan dasar yang dapat diandalkan, harga terjangkau, tampilan rapi, dan mudah didapatkan.",
+            "link_label": "Cari Keperluan Sekolah",
             "link": "/pages/katalog"
           }
         },
         "c2": {
           "type": "card",
           "settings": {
-            "title": "Office",
-            "text": "Products that feel neat, dependable, and efficient.",
-            "link_label": "Browse office",
+            "title": "Kantor",
+            "text": "Produk yang membuat ruang kerja terasa rapi, efisien, dan dapat diandalkan.",
+            "link_label": "Cari Keperluan Kantor",
             "link": "/pages/katalog"
           }
         },
         "c3": {
           "type": "card",
           "settings": {
-            "title": "Home",
-            "text": "Practical everyday items for family use and household restock.",
-            "link_label": "Browse home",
+            "title": "Rumah",
+            "text": "Barang kebutuhan sehari-hari yang praktis untuk digunakan oleh keluarga di rumah.",
+            "link_label": "Cari Keperluan Rumah",
             "link": "/pages/katalog"
           }
         },
         "c4": {
           "type": "card",
           "settings": {
-            "title": "Business",
-            "text": "Consistent quality and easy repeat buying for practical buyers.",
-            "link_label": "Browse business",
+            "title": "Bisnis",
+            "text": "Kualitas konsisten dan mudah untuk pembelian ulang bagi Anda yang sangat praktis.",
+            "link_label": "Cari Keperluan Bisnis",
             "link": "/pages/katalog"
           }
         }
@@ -165,9 +165,9 @@
         "c4"
       ],
       "settings": {
-        "eyebrow": "Browse faster",
-        "heading": "Shop by need",
-        "text": "Make the shopping experience easy, clean, and useful."
+        "eyebrow": "",
+        "heading": "Belanja Sesuai Kebutuhan",
+        "text": "Buat pengalaman belanja menjadi mudah, bersih, dan bermanfaat."
       }
     },
     "featured": {

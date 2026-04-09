@@ -5,14 +5,14 @@
       {%- for block in section.blocks -%}
         <div class="icon-card" style="display: flex; flex-direction: column; height: 100%;" {{ block.shopify_attributes }}>
           {%- if block.settings.image != blank -%}
-            <img src="{{ block.settings.image | image_url: width: 400 }}" alt="{{ block.settings.title }}" style="width:100%; height:180px; object-fit:cover; border-radius:8px; margin-bottom:16px;" loading="lazy">
+            <img src="{{ block.settings.image | image_url: width: 400 }}" alt="{{ block.settings.title }}" style="width:100%; height:140px; object-fit:cover; border-radius:8px; margin-bottom:16px;" loading="lazy">
           {%- else -%}
             {%- assign downcase_title = block.settings.title | downcase -%}
             {%- assign fallback_img = 'notebook.png' -%}
-            {%- if downcase_title contains 'school' -%}{%- assign fallback_img = 'cat-school.png' -%}
-            {%- elsif downcase_title contains 'office' -%}{%- assign fallback_img = 'cat-office.png' -%}
-            {%- elsif downcase_title contains 'home' -%}{%- assign fallback_img = 'cat-home.png' -%}
-            {%- elsif downcase_title contains 'business' -%}{%- assign fallback_img = 'cat-business.png' -%}
+            {%- if downcase_title contains 'sekolah' or downcase_title contains 'school' -%}{%- assign fallback_img = 'cat-school.png' -%}
+            {%- elsif downcase_title contains 'kantor' or downcase_title contains 'office' -%}{%- assign fallback_img = 'cat-office.png' -%}
+            {%- elsif downcase_title contains 'rumah' or downcase_title contains 'home' -%}{%- assign fallback_img = 'cat-home.png' -%}
+            {%- elsif downcase_title contains 'bisnis' or downcase_title contains 'business' -%}{%- assign fallback_img = 'cat-business.png' -%}
             {%- elsif downcase_title contains 'smart value' -%}{%- assign fallback_img = 'why-value.png' -%}
             {%- elsif downcase_title contains 'built to last' -%}{%- assign fallback_img = 'why-durable.png' -%}
             {%- elsif downcase_title contains 'everyday' -%}{%- assign fallback_img = 'why-progress.png' -%}
@@ -22,13 +22,13 @@
             {%- elsif downcase_title contains 'promise' -%}{%- assign fallback_img = 'about_promise.png' -%}
             {%- elsif downcase_title contains 'role' -%}{%- assign fallback_img = 'about_role.png' -%}
             {%- endif -%}
-            <img src="{{ fallback_img | asset_url }}" alt="{{ block.settings.title }}" style="width:100%; height:180px; object-fit:cover; border-radius:8px; margin-bottom:16px;" loading="lazy">
+            <img src="{{ fallback_img | asset_url }}" alt="{{ block.settings.title }}" style="width:100%; height:140px; object-fit:cover; border-radius:8px; margin-bottom:16px;" loading="lazy">
           {%- endif -%}
           <div style="text-align: center; display: flex; flex-direction: column; flex-grow: 1;">
-            <h3 style="color: var(--color-accent); font-family: var(--font-heading); margin: 0 0 12px 0; font-size: 1.5rem; letter-spacing: 0.05em;">{{ block.settings.title }}</h3>
-            <p style="color: #ccc; line-height: 1.6; font-size: 0.95rem; margin: 0 0 24px 0; flex-grow: 1;">{{ block.settings.text }}</p>
+            <h3 style="color: var(--color-accent); font-family: var(--font-heading); margin: 0 0 8px 0; font-size: 1.25rem; font-weight: 800; letter-spacing: 0.05em;">{{ block.settings.title }}</h3>
+            <p style="color: #ccc; line-height: 1.6; font-size: 0.85rem; margin: 0 0 20px 0; flex-grow: 1;">{{ block.settings.text }}</p>
             {%- if block.settings.link_label != blank -%}
-              <a href="{{ block.settings.link }}" style="color: #fff; text-decoration: none; font-weight: 700; border-bottom: 2px solid var(--color-accent); padding-bottom: 4px; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.05em; display: inline-block; margin: auto auto 0 auto;">{{ block.settings.link_label }}</a>
+              <a href="{{ block.settings.link }}" style="color: #fff; text-decoration: none; font-weight: 700; border-bottom: 2px solid var(--color-accent); padding-bottom: 4px; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; display: inline-block; margin: auto auto 0 auto;">{{ block.settings.link_label }}</a>
             {%- endif -%}
           </div>
         </div>
