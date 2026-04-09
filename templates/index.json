@@ -285,10 +285,10 @@
   },
   "order": [
     "hero",
-    "marketplaces",
     "values",
     "shop_need",
     "featured",
+    "marketplaces",
     "why",
     "purpose",
     "testimonials"
