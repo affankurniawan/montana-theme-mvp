@@ -69,13 +69,15 @@ a { color: inherit; text-decoration: none; }
   color: var(--color-primary);
 }
 .button--accent {
-  background: var(--color-accent);
-  border-color: var(--color-accent);
-  color: var(--color-background);
+  background: linear-gradient(135deg, var(--color-accent) 0%, #d6ad15 100%);
+  border: 1px solid transparent;
+  color: #121315;
+  box-shadow: 0 4px 15px rgba(230, 197, 51, 0.25);
+  text-shadow: 0 1px 0 rgba(255,255,255,0.3);
 }
 .button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(255, 216, 0, 0.4);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(230, 197, 51, 0.4);
 }
 .eyebrow {
   display: inline-flex;
