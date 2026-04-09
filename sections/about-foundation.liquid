@@ -1,106 +1,97 @@
 <section class="section section--spacious surface" style="background: transparent;">
   <div class="page-width">
     
-    <!-- Minimalist Section Header -->
-    <div style="text-align: center; max-width: 800px; margin: 0 auto 64px auto;">
+    <!-- Editorial Section Header -->
+    <div style="max-width: 800px; margin: 0 0 80px 0;">
       {%- if section.settings.eyebrow != blank -%}
         <span style="font-size:0.85rem; color:var(--color-accent); font-weight:800; text-transform:uppercase; letter-spacing:0.15em; display:block; margin-bottom:12px;">{{ section.settings.eyebrow }}</span>
       {%- endif -%}
-      <h2 style="color: #fff; font-family: var(--font-heading); font-size: 2.8rem; font-weight: 800; letter-spacing: 0.02em; margin: 0 0 20px 0; line-height: 1.1;">
+      <h2 style="color: #fff; font-family: var(--font-heading); font-size: 3.5rem; font-weight: 800; letter-spacing: -0.02em; margin: 0 0 24px 0; line-height: 1.1;">
         {{ section.settings.heading }}
       </h2>
-      <p style="color: #aaa; font-size: 1.05rem; line-height: 1.6; margin: 0;">
+      <p style="color: #aaa; font-size: 1.15rem; line-height: 1.6; margin: 0; max-width: 600px;">
         {{ section.settings.text }}
       </p>
     </div>
 
-    <!-- Numbered Timeline Alternating Layout -->
+    <!-- Exclusive Editorial Grid Stack -->
     <style>
-      .foundation-timeline {
+      .foundation-stack {
         display: flex;
         flex-direction: column;
-        gap: 24px;
-        max-width: 900px;
-        margin: 0 auto;
       }
-      .foundation-card {
-        background: var(--glass-bg, #111);
-        border: 1px solid var(--glass-border, #222);
-        border-radius: var(--radius, 12px);
-        padding: 40px;
+      .foundation-row {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 64px;
+        padding: 48px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        transition: background 0.4s ease;
+      }
+      .foundation-row:hover {
+        background: rgba(255, 255, 255, 0.02);
+      }
+      .f-meta {
         display: flex;
-        align-items: center;
-        gap: 48px;
-        transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.4s ease;
-        position: relative;
-        overflow: hidden;
-      }
-      .foundation-card:hover {
-        transform: translateY(-4px) scale(1.01);
-        border-color: rgba(255, 216, 0, 0.5);
-      }
-      .foundation-card::before {
-        content: '';
-        position: absolute;
-        top: 0; left: 0; width: 4px; height: 100%;
-        background: transparent;
-        transition: background 0.3s ease;
-      }
-      .foundation-card:hover::before {
-        background: var(--color-accent);
+        align-items: flex-start;
+        gap: 24px;
       }
       .f-number {
         font-family: var(--font-heading);
-        font-size: 5rem;
-        font-weight: 900;
-        color: rgba(255,255,255,0.03);
-        line-height: 0.8;
-        letter-spacing: -0.05em;
-        transition: color 0.4s ease;
-      }
-      .foundation-card:hover .f-number {
-        color: rgba(255, 216, 0, 0.15);
-      }
-      .f-content {
-        flex: 1;
+        font-size: 2.5rem;
+        color: var(--color-accent);
+        font-weight: 300;
+        line-height: 1;
+        margin-top: 4px;
+        min-width: 60px;
       }
       .f-title {
         color: #fff;
         font-family: var(--font-heading);
-        font-size: 1.5rem;
+        font-size: 2.2rem;
         font-weight: 800;
-        margin: 0 0 12px 0;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
+        margin: 0;
+        letter-spacing: 0.01em;
       }
       .f-text {
-        color: #ccc;
-        font-size: 1rem;
-        line-height: 1.6;
+        color: #bbb;
+        font-size: 1.15rem;
+        line-height: 1.8;
+        font-weight: 400;
         margin: 0;
+        padding-top: 8px; /* Align visual baseline with title */
       }
 
-      @media (max-width: 768px) {
-        .foundation-card {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 20px;
-          padding: 32px 24px;
+      @media (max-width: 800px) {
+        .foundation-row {
+          grid-template-columns: 1fr;
+          gap: 24px;
+          padding: 40px 0;
         }
-        .f-number { font-size: 3.5rem; }
+        .f-meta {
+          flex-direction: column;
+          gap: 12px;
+        }
+        .f-number { font-size: 2rem; margin-top: 0; }
+        .f-title { font-size: 1.8rem; }
+        .f-text { padding-top: 0; font-size: 1.05rem; }
       }
     </style>
 
-    <div class="foundation-timeline">
+    <div class="foundation-stack">
       {%- for block in section.blocks -%}
-        <div class="foundation-card" {{ block.shopify_attributes }}>
-          <div class="f-number">0{{ forloop.index }}</div>
-          <div class="f-content">
+        <div class="foundation-row" {{ block.shopify_attributes }}>
+          <div class="f-meta">
+            <div class="f-number">0{{ forloop.index }}.</div>
             <h3 class="f-title">{{ block.settings.title }}</h3>
+          </div>
+          <div class="f-content">
             <p class="f-text">{{ block.settings.text }}</p>
           </div>
         </div>
       {%- endfor -%}
+      <!-- Final closing border -->
+      <div style="border-top: 1px solid rgba(255, 255, 255, 0.08);"></div>
     </div>
   </div>
 </section>
@@ -109,9 +100,9 @@
 {
   "name": "About Foundation",
   "settings": [
-    {"type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Pondasi Merek"},
+    {"type": "text", "id": "eyebrow", "label": "Eyebrow"},
     {"type": "text", "id": "heading", "label": "Heading", "default": "Memberdayakan Kemajuan Harian Anda"},
-    {"type": "textarea", "id": "text", "label": "Text", "default": "Kami yakin kualitas premium bukanlah keistimewaan yang eksklusif."}
+    {"type": "textarea", "id": "text", "label": "Text", "default": "Kami yakin kualitas premium bukanlah keistimewaan eksklusif."}
   ],
   "blocks": [
     {
