@@ -10,7 +10,8 @@
         "primary_link": "",
         "secondary_label": "",
         "secondary_link": "",
-        "asset_image": "notebook.png"
+        "asset_image": "notebook.png",
+        "heading_size": "medium"
       }
     },
     "beliefs": {
