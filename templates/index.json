@@ -281,6 +281,18 @@
         "eyebrow": "Testimoni",
         "heading": "Kata Mereka"
       }
+    },
+    "final_cta": {
+      "type": "rich-text-cta",
+      "settings": {
+        "eyebrow": "Mulai Perjalanan Anda",
+        "heading": "Temukan Standar Terbaru Hari Ini.",
+        "text": "Jelajahi seluruh rangkaian produk cerdas dengan harga rasional langsung di lorong inventaris kami.",
+        "surface": true,
+        "use_accent": true,
+        "button_label": "Lihat Semua Katalog",
+        "button_link": "/pages/katalog"
+      }
     }
   },
   "order": [
@@ -291,6 +303,7 @@
     "marketplaces",
     "why",
     "purpose",
-    "testimonials"
+    "testimonials",
+    "final_cta"
   ]
 }
