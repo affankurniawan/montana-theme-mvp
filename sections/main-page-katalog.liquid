@@ -10,9 +10,9 @@
   <div style="display: flex; gap: 32px; align-items: flex-start;" class="catalog-layout">
     
     <!-- Sidebar -->
-    <aside class="catalog-sidebar" style="width: 250px; flex-shrink: 0; display: flex; flex-direction: column; gap: 32px; position: sticky; top: 100px;">
+    <aside class="catalog-sidebar" style="width: 250px; flex-shrink: 0; display: flex; flex-direction: column; gap: 24px; position: sticky; top: 100px; max-height: calc(100vh - 120px);">
       
-      <form action="{{ routes.search_url }}" method="get" role="search" style="display: flex; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden; height: 44px; transition: border-color 0.2s;" onfocusin="this.style.borderColor='rgba(255,255,255,0.3)'" onfocusout="this.style.borderColor='rgba(255,255,255,0.1)'">
+      <form action="{{ routes.search_url }}" method="get" role="search" style="display: flex; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden; height: 44px; flex-shrink: 0; transition: border-color 0.2s;" onfocusin="this.style.borderColor='rgba(255,255,255,0.3)'" onfocusout="this.style.borderColor='rgba(255,255,255,0.1)'">
         <input type="hidden" name="type" value="product">
         <div style="display: flex; align-items: center; justify-content: center; padding-left: 12px; color: #888;">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
@@ -20,7 +20,7 @@
         <input type="search" name="q" placeholder="Cari produk..." style="flex-grow: 1; padding: 0 12px; border: none; background: transparent; color: #fff; font-size: 0.9rem; outline: none;">
       </form>
 
-      <div>
+      <div style="overflow-y: auto; flex-grow: 1; padding-right: 8px;" class="custom-scrollbar">
         <h4 style="font-size: 0.85rem; color: #fff; font-weight: 700; letter-spacing: 1px; margin: 0 0 16px; display: flex; align-items: center; gap: 8px; text-transform: uppercase;">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" style="opacity:0.8;"><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>
           Kategori
@@ -47,7 +47,7 @@
         </div>
         
         <div style="position: relative;">
-           <select name="sort_by" id="CatalogSortBy" onchange="window.location.search = '?sort_by=' + this.value;" style="appearance: none; background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.2); padding: 10px 40px 10px 16px; border-radius: 8px; font-size: 0.9rem; font-weight: 500; cursor: pointer; outline: none; transition: background 0.2s;">
+           <select name="sort_by" id="CatalogSortBy" style="appearance: none; background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.2); padding: 10px 40px 10px 16px; border-radius: 8px; font-size: 0.9rem; font-weight: 500; cursor: pointer; outline: none; transition: background 0.2s;">
              <option value="manual" style="background: #111;">Unggulan</option>
              <option value="best-selling" style="background: #111;">Terlaris</option>
              <option value="price-ascending" style="background: #111;">Harga Terendah</option>
@@ -55,12 +55,28 @@
              <option value="created-descending" style="background: #111;">Terbaru</option>
            </select>
            <script>
-             const urlParams = new URLSearchParams(window.location.search);
-             const currentSort = urlParams.get('sort_by');
-             if (currentSort) {
+             document.addEventListener('DOMContentLoaded', function() {
+               const urlParams = new URLSearchParams(window.location.search);
+               const currentSort = urlParams.get('sort_by');
                const sortSelect = document.getElementById('CatalogSortBy');
-               sortSelect.value = currentSort;
-             }
+               
+               if (currentSort) {
+                 sortSelect.value = currentSort;
+               }
+
+               sortSelect.addEventListener('change', function() {
+                 let params = new URLSearchParams(window.location.search);
+                 params.set('sort_by', this.value);
+                 
+                 // If the user attempts to sort on the static /pages/katalog, 
+                 // we route them to the native sortable collection route.
+                 if (window.location.pathname.includes('/pages/')) {
+                   window.location.href = '/collections/all?' + params.toString();
+                 } else {
+                   window.location.search = params.toString();
+                 }
+               });
+             });
            </script>
            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="position: absolute; right: 14px; top: 12px; pointer-events: none;"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </div>
