@@ -71,25 +71,41 @@
         "i1": {
           "type": "item",
           "settings": {
-            "title": "Durable"
+            "icon": "shield",
+            "title": "Kualitas Tahan Lama",
+            "text": "Produk yang dirancang untuk penggunaan jangka panjang dengan material premium."
           }
         },
         "i2": {
           "type": "item",
           "settings": {
-            "title": "Affordable"
+            "icon": "star",
+            "title": "Harga Terjangkau",
+            "text": "Kualitas tinggi dengan harga yang ramah di kantong untuk semua kalangan."
           }
         },
         "i3": {
           "type": "item",
           "settings": {
-            "title": "Practical"
+            "icon": "lightning",
+            "title": "Desain Praktis",
+            "text": "Dirancang ergonomis untuk kemudahan dan kenyamanan penggunaan sehari-hari."
           }
         },
         "i4": {
           "type": "item",
           "settings": {
-            "title": "Everyday-ready"
+            "icon": "clock",
+            "title": "Siap Setiap Hari",
+            "text": "Stok selalu tersedia dan siap kirim ke seluruh Indonesia."
+          }
+        },
+        "i5": {
+          "type": "item",
+          "settings": {
+            "icon": "ribbon",
+            "title": "Garansi Kepuasan",
+            "text": "Jaminan kualitas dan layanan purna jual terbaik untuk pelanggan."
           }
         }
       },
@@ -97,11 +113,10 @@
         "i1",
         "i2",
         "i3",
-        "i4"
+        "i4",
+        "i5"
       ],
-      "settings": {
-        "heading": "The Montana Standard"
-      }
+      "settings": {}
     },
     "shop_need": {
       "type": "icon-cards",
