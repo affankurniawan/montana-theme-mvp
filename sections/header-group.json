@@ -5,7 +5,7 @@
     "announcement": {
       "type": "announcement-bar",
       "settings": {
-        "text": "Durable essentials at smart prices.",
+        "text": "Koleksi tangguh nan esensial dengan harga cerdas.",
         "link": "/pages/katalog"
       }
     },
@@ -14,7 +14,7 @@
       "settings": {
         "menu": "main-menu",
         "show_search": false,
-        "cta_label": "Shop now",
+        "cta_label": "Beli Sekarang",
         "cta_link": "/pages/katalog"
       }
     }
