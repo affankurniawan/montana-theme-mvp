@@ -19,8 +19,36 @@
     {%- endif -%}
   </div>
 
-  <!-- Overlay -->
-  <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.8) 100%); z-index:2;"></div>
+  <!-- Overlay & Ethereal Beams Background Effect -->
+  <style>
+    @keyframes ethereal-beam-sweep {
+      0% { transform: translateX(-100%) skewX(-25deg) scale(1); opacity: 0; }
+      20% { opacity: 0.6; }
+      80% { opacity: 0.6; }
+      100% { transform: translateX(250vw) skewX(-25deg) scale(1.5); opacity: 0; }
+    }
+    .ethereal-light-beam {
+      position: absolute;
+      top: -50%;
+      bottom: -50%;
+      width: 40vw;
+      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%);
+      animation: ethereal-beam-sweep 12s infinite cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 2;
+      pointer-events: none;
+      filter: blur(40px);
+    }
+    .ethereal-light-beam:nth-child(2) {
+      animation-delay: 6s;
+      width: 60vw;
+      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.03) 50%, transparent 100%);
+      top: -10%;
+    }
+  </style>
+  <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.9) 100%); z-index:2; overflow:hidden;">
+    <div class="ethereal-light-beam"></div>
+    <div class="ethereal-light-beam"></div>
+  </div>
 
   <!-- Content Layer -->
   <div class="page-width" style="position:relative; z-index:3; text-align:center; color:#fff; max-width:800px;">
@@ -35,7 +63,7 @@
       {%- endif -%}
 
       <div class="gsap-hero-eyebrow" style="font-family:var(--font-heading); color:var(--color-accent); font-size:{{ font_eyebrow }}; letter-spacing:0.1em; margin-bottom:12px; text-transform:uppercase;">{{ section.settings.eyebrow }}</div>
-      <h1 class="gsap-hero-heading" style="font-family:var(--font-heading); font-size:{{ font_heading }}; margin:0 0 20px; line-height:1.1; letter-spacing:0.02em;">{{ section.settings.heading }}</h1>
+      <h1 class="gsap-hero-heading" style="font-family:var(--font-heading); font-size:{{ font_heading }}; margin:0 0 20px; line-height:1.1; letter-spacing:0.02em; background: linear-gradient(to right, #ffffff 0%, #e2e8f0 50%, #9ca3af 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 4px 32px rgba(255,255,255,0.15);">{{ section.settings.heading }}</h1>
       <p class="gsap-hero-text" style="font-size:{{ font_text }}; color:rgba(255,255,255,0.85); margin:0 auto 32px; max-width: 750px; line-height:1.6;">{{ section.settings.text }}</p>
       
       <div class="gsap-hero-buttons" style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
