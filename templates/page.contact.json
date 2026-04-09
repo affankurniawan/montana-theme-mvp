@@ -2,37 +2,7 @@
   "sections": {
     "main": {"type": "main-contact"},
     "map": {"type": "contact-map"},
-    "support": {"type": "contact-support-cards"},
-    "faq": {
-      "type": "faq-accordion", 
-      "settings": {
-        "text": "Temukan jawaban cepat mengenai operasional, pengiriman, dan garansi produk kami."
-      }, 
-      "blocks": {
-        "f1": {
-          "type": "faq", 
-          "settings": {
-            "question": "Apakah Montana melayani pesanan grosir untuk sekolah atau kantor?", 
-            "answer": "Ya, kami menawarkan harga khusus untuk pembelian volume tinggi (B2B). Silakan hubungi kami melalui formulir di atas untuk berdiskusi."
-          }
-        }, 
-        "f2": {
-          "type": "faq", 
-          "settings": {
-            "question": "Bagaimana kebijakan pengirimannya?", 
-            "answer": "Pesanan diproses pada hari kerja (Senin - Jumat). Kami melakukan pengiriman ke seluruh nusantara melalui mitra logistik resmi kami."
-          }
-        }, 
-        "f3": {
-          "type": "faq", 
-          "settings": {
-            "question": "Apakah ada garansi jika saya menerima produk yang rusak?", 
-            "answer": "Tentu saja. Kepuasan Anda adalah prioritas kami. Jika Anda menerima barang cacat atau rusak, Anda dapat mengajukan retur maksimal 3 hari sejak barang diterima dengan melampirkan video unboxing."
-          }
-        }
-      }, 
-      "block_order": ["f1", "f2", "f3"]
-    }
+    "support": {"type": "contact-support-cards"}
   },
-  "order": ["main", "map", "support", "faq"]
+  "order": ["main", "map", "support"]
 }
