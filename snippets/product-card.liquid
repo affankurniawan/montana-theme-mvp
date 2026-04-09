@@ -6,9 +6,9 @@
       <img src="{{ 'pen-set.png' | asset_url }}" alt="{{ product.title | default: 'Montana Product' }}" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
     {%- endif -%}
   </a>
-  <div class="product-card__content" style="display:flex; flex-direction:column; flex-grow:1; text-align: center; padding: 16px;">
-    {%- if product.tags contains 'promo' -%}<span class="badge" style="background-color: var(--color-accent); color: #000; font-weight: 700; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; text-transform: uppercase; display: inline-block; margin-bottom: 8px;">Promo</span>{%- endif -%}
-    <h3 style="margin: 0 0 12px 0; font-family: var(--font-body); font-weight: 600; font-size: 1rem; line-height: 1.4;"><a href="{{ product.url }}" style="color: #fff; text-decoration: none;">{{ product.title }}</a></h3>
+  <div class="product-card__content" style="display:flex; flex-direction:column; flex-grow:1; text-align: center; padding: 12px;">
+    {%- if product.tags contains 'promo' -%}<span class="badge" style="background-color: var(--color-accent); color: #000; font-weight: 700; padding: 2px 6px; border-radius: 4px; font-size: 0.65rem; text-transform: uppercase; display: inline-block; margin-bottom: 6px;">Promo</span>{%- endif -%}
+    <h3 style="margin: 0 0 10px 0; font-family: var(--font-body); font-weight: 600; font-size: 0.9rem; line-height: 1.4;"><a href="{{ product.url }}" style="color: #fff; text-decoration: none;">{{ product.title }}</a></h3>
     
     <div style="margin-top:auto; display:flex; flex-direction:column; gap: 12px;">
       <div class="price" style="color: var(--color-accent); font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 6px;">
