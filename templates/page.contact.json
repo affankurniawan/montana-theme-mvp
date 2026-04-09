@@ -1,7 +1,38 @@
 {
   "sections": {
     "main": {"type": "main-contact"},
-    "faq": {"type": "faq-accordion", "settings": {"text": "Find quick answers regarding our operations, shipping, and product warranties."}, "blocks": {"f1": {"type": "faq", "settings": {"question": "Does Montana support bulk orders for schools or offices?", "answer": "Yes, we offer special pricing for high-volume purchases (B2B). Please contact us via the form above or WhatsApp to discuss your needs."}}, "f2": {"type": "faq", "settings": {"question": "What is your shipping policy?", "answer": "Orders are processed on business days (Monday - Friday). We ship nationwide via our official courier and marketplace partners."}}, "f3": {"type": "faq", "settings": {"question": "Is there a warranty if I receive a damaged product?", "answer": "Absolutely. Your satisfaction is our priority. If you receive a defective or damaged item, you may request a return within 3 days of receipt by providing an unboxing video."}}}, "block_order": ["f1", "f2", "f3"]}
+    "map": {"type": "contact-map"},
+    "support": {"type": "contact-support-cards"},
+    "faq": {
+      "type": "faq-accordion", 
+      "settings": {
+        "text": "Temukan jawaban cepat mengenai operasional, pengiriman, dan garansi produk kami."
+      }, 
+      "blocks": {
+        "f1": {
+          "type": "faq", 
+          "settings": {
+            "question": "Apakah Montana melayani pesanan grosir untuk sekolah atau kantor?", 
+            "answer": "Ya, kami menawarkan harga khusus untuk pembelian volume tinggi (B2B). Silakan hubungi kami melalui formulir di atas untuk berdiskusi."
+          }
+        }, 
+        "f2": {
+          "type": "faq", 
+          "settings": {
+            "question": "Bagaimana kebijakan pengirimannya?", 
+            "answer": "Pesanan diproses pada hari kerja (Senin - Jumat). Kami melakukan pengiriman ke seluruh nusantara melalui mitra logistik resmi kami."
+          }
+        }, 
+        "f3": {
+          "type": "faq", 
+          "settings": {
+            "question": "Apakah ada garansi jika saya menerima produk yang rusak?", 
+            "answer": "Tentu saja. Kepuasan Anda adalah prioritas kami. Jika Anda menerima barang cacat atau rusak, Anda dapat mengajukan retur maksimal 3 hari sejak barang diterima dengan melampirkan video unboxing."
+          }
+        }
+      }, 
+      "block_order": ["f1", "f2", "f3"]
+    }
   },
-  "order": ["main", "faq"]
+  "order": ["main", "map", "support", "faq"]
 }

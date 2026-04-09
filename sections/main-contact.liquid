@@ -1,125 +1,114 @@
-<section class="section section--spacious">
+<section class="section">
   <style>
-    .contact-layout { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: start; margin-top: 32px; }
+    .contact-layout { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: start; }
     @media (max-width: 989px) { .contact-layout { grid-template-columns: 1fr; gap: 32px; } }
   </style>
   <div class="page-width">
-    {%- render 'section-heading', eyebrow: 'Contact Us', title: page.title, text: 'Use this page for retail questions, partnerships, and bulk inquiries.', alignment: 'center' -%}
     
+    <div style="position: relative; margin-bottom: 48px; padding-top: 24px;">
+      <h1 style="margin: 0; font-family: var(--font-heading); font-size: clamp(4rem, 10vw, 8rem); font-weight: 800; font-style: italic; color: transparent; -webkit-text-stroke: 1px rgba(255, 0, 0, 0.2); text-transform: uppercase; line-height: 0.8; letter-spacing: 0.05em; position: absolute; top: -10px; left: -10px; z-index: 0; pointer-events: none;">CONTACT</h1>
+      <h2 style="margin: 0; position: relative; z-index: 1; font-family: var(--font-heading); font-size: 3rem; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: 0.05em;">HUBUNGI KAMI</h2>
+      <div style="width: 80px; height: 4px; background: #ff0000; margin-top: 12px; margin-bottom: 24px; position: relative; z-index: 1;"></div>
+      <p style="margin: 0; position: relative; z-index: 1; color: #aaa; font-size: 1rem; max-width: 600px; line-height: 1.6;">Kami siap membantu kebutuhan stationery Anda. Hubungi tim kami atau gunakan formulir di bawah untuk konsultasi produk dan layanan Montana.</p>
+    </div>
+
     <div class="contact-layout">
       <!-- Left Column: Form -->
-      <div>
-        <h2 style="font-family: var(--font-heading); color: var(--color-primary); letter-spacing: 0.05em; margin-top:0; margin-bottom: 24px;">Send a Message</h2>
+      <div class="card" style="padding: 32px; background: #111; border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; display: flex; flex-direction: column; gap: 24px;">
+        <h3 style="margin: 0; font-family: var(--font-heading); color: #fff; font-size: 1.2rem; display: flex; align-items: center; gap: 8px; text-transform: uppercase; font-weight: 800;">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#ff0000" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> KIRIM PESAN
+        </h3>
+        
         {%- form 'contact', class: 'contact-form' -%}
           {%- if form.posted_successfully? -%}
-            <div class="card" style="padding:16px; margin-bottom:24px; background: rgba(0, 255, 0, 0.1); color: #4ade80; border: 1px solid #4ade80;">Thank you. Your message has been sent successfully.</div>
+            <div style="padding:16px; margin-bottom:24px; background: rgba(0, 255, 0, 0.1); color: #4ade80; border: 1px solid #4ade80; border-radius: 6px;">Pesan Anda telah berhasil dikirim. Tim kami akan merespons secepatnya.</div>
           {%- endif -%}
           {%- if form.errors -%}
-            <div class="card" style="padding:16px; margin-bottom:24px; background: rgba(255, 0, 0, 0.1); color: #f87171; border: 1px solid #f87171;">{{ form.errors | default_errors }}</div>
+            <div style="padding:16px; margin-bottom:24px; background: rgba(255, 0, 0, 0.1); color: #f87171; border: 1px solid #f87171; border-radius: 6px;">{{ form.errors | default_errors }}</div>
           {%- endif -%}
-          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+          
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:24px;">
             <div class="field">
-              <label for="ContactFormName" style="font-size:14px; font-weight:700; margin-bottom:4px;">Full Name</label>
-              <input id="ContactFormName" name="contact[name]" type="text" placeholder="Enter your name" value="{{ form.name }}" required>
+              <label for="ContactFormName" style="font-size:11px; font-weight:700; color:#aaa; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px; display:block;">Nama Lengkap</label>
+              <input id="ContactFormName" name="contact[name]" type="text" placeholder="John Doe" value="{{ form.name }}" required style="width: 100%; background: #1a1a1a; border: 1px solid rgba(255,255,255,0.1); padding: 14px 16px; color: #fff; border-radius: 6px; font-size: 0.9rem; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='#555'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
             </div>
             <div class="field">
-              <label for="ContactFormEmail" style="font-size:14px; font-weight:700; margin-bottom:4px;">Email Address</label>
-              <input id="ContactFormEmail" name="contact[email]" type="email" placeholder="Enter your email" value="{{ form.email }}" required>
+              <label for="ContactFormEmail" style="font-size:11px; font-weight:700; color:#aaa; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px; display:block;">Alamat Email</label>
+              <input id="ContactFormEmail" name="contact[email]" type="email" placeholder="email@example.com" value="{{ form.email }}" required style="width: 100%; background: #1a1a1a; border: 1px solid rgba(255,255,255,0.1); padding: 14px 16px; color: #fff; border-radius: 6px; font-size: 0.9rem; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='#555'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
+            </div>
+            <div class="field" style="grid-column: 1 / -1; position: relative;">
+              <label for="ContactFormSubject" style="font-size:11px; font-weight:700; color:#aaa; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px; display:block;">Subjek</label>
+              <select id="ContactFormSubject" name="contact[subject]" style="appearance: none; width: 100%; background: #1a1a1a; border: 1px solid rgba(255,255,255,0.1); padding: 14px 40px 14px 16px; color: #fff; border-radius: 6px; font-size: 0.9rem; outline: none; cursor: pointer; transition: border-color 0.2s;" onfocus="this.style.borderColor='#555'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
+                <option value="Pilih Subjek" disabled selected>Pilih Subjek</option>
+                <option value="Kerjasama Grosir (B2B)">Kerjasama Grosir (B2B)</option>
+                <option value="Dukungan Teknis">Dukungan Teknis</option>
+                <option value="Keluhan Pengiriman">Keluhan Pengiriman</option>
+                <option value="Lainnya">Lainnya</option>
+              </select>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="position: absolute; right: 16px; top: 40px; pointer-events: none; color: #aaa;"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </div>
             <div class="field" style="grid-column: 1 / -1;">
-              <label for="ContactFormSubject" style="font-size:14px; font-weight:700; margin-bottom:4px;">Subject</label>
-              <input id="ContactFormSubject" name="contact[subject]" type="text" placeholder="What is this regarding?">
-            </div>
-            <div class="field" style="grid-column: 1 / -1;">
-              <label for="ContactFormBody" style="font-size:14px; font-weight:700; margin-bottom:4px;">Message</label>
-              <textarea id="ContactFormBody" name="contact[body]" placeholder="Write your message here..." required>{{ form.body }}</textarea>
+              <label for="ContactFormBody" style="font-size:11px; font-weight:700; color:#aaa; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px; display:block;">Pesan</label>
+              <textarea id="ContactFormBody" name="contact[body]" placeholder="Bagaimana kami bisa membantu Anda?" required style="width: 100%; background: #1a1a1a; border: 1px solid rgba(255,255,255,0.1); padding: 16px; color: #fff; border-radius: 6px; font-size: 0.9rem; outline: none; min-height: 120px; resize: vertical; transition: border-color 0.2s;" onfocus="this.style.borderColor='#555'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'">{{ form.body }}</textarea>
             </div>
             <div style="grid-column: 1 / -1; margin-top: 8px;">
-              <button type="button" onclick="sendToWhatsApp()" style="width:100%; display:flex; align-items:center; justify-content:center; gap:8px; font-size:16px; font-family: var(--font-body); font-weight:700; padding:16px; background:var(--color-accent); color:#000; border:none; border-radius:12px; cursor:pointer; transition: transform 0.2s;">
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg> 
-                Send via WhatsApp
-              </button>
-              <div style="text-align:center; margin: 16px 0; color: rgba(255,255,255,0.4); font-size:12px;">OR</div>
-              <button type="submit" style="width:100%; display:flex; align-items:center; justify-content:center; gap:8px; font-size:15px; font-weight:700; font-family:var(--font-body); padding:14px; background:rgba(255,255,255,0.05); color:var(--color-primary); border:1px solid rgba(255,255,255,0.2); border-radius:12px; cursor:pointer; transition: background 0.2s;">
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                Send via Email
+              <button type="submit" style="width:100%; display:flex; align-items:center; justify-content:center; gap:8px; font-size:15px; font-family: var(--font-body); font-weight:800; padding:16px; background: #ff0000; color:#fff; border:none; border-radius:6px; cursor:pointer; text-transform: uppercase; letter-spacing: 1px; transition: background 0.2s;" onmouseover="this.style.background='#cc0000'" onmouseout="this.style.background='#ff0000'">
+                KIRIM PERMINTAAN
               </button>
             </div>
           </div>
         {%- endform -%}
       </div>
 
-      <!-- Right Column: Info Cards -->
-      <div>
-        <h2 style="font-family: var(--font-heading); color: var(--color-primary); letter-spacing: 0.05em; margin-top:0; margin-bottom: 24px;">Contact Information</h2>
-
-        <div class="card" style="padding: 24px; margin-bottom: 24px; display: grid; gap: 24px;">
-          <!-- WhatsApp -->
-          <div style="display:flex; gap:16px; align-items:center;">
-            <div style="background: rgba(255, 216, 0, 0.15); color: var(--color-accent); width:48px; height:48px; border-radius:50%; display:grid; place-items:center;">
-              <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-            </div>
-            <div>
-              <div style="font-weight:700;">WhatsApp</div>
-              <div style="color: rgba(255,255,255,0.6); font-size:14px;">+{{ settings.whatsapp_number }}</div>
-            </div>
+      <!-- Right Column -->
+      <div style="display: flex; flex-direction: column; gap: 24px;">
+        
+        <div class="card" style="padding: 32px; background: #111; border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; display: flex; flex-direction: column; gap: 24px;">
+          <h3 style="margin: 0; font-family: var(--font-heading); color: #fff; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; text-transform: uppercase; font-weight: 800;">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#ffd800" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> STUDIO & WORKSHOP
+          </h3>
+          <div>
+            <h4 style="margin: 0 0 8px; color: #fff; font-size: 1rem; font-weight: 700; text-transform: uppercase;">MONTANA STATIONERY HQ</h4>
+            <p style="margin: 0; color: #aaa; font-size: 0.9rem; line-height: 1.6;">Kawasan Industri Pulogadung, Blok C-14,<br>Jakarta Timur, DKI Jakarta 13920<br>Indonesia</p>
           </div>
-          <!-- Email -->
-          <div style="display:flex; gap:16px; align-items:center;">
-            <div style="background: rgba(255, 216, 0, 0.15); color: var(--color-accent); width:48px; height:48px; border-radius:50%; display:grid; place-items:center;">
-              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          <div style="display: flex; flex-direction: column; gap: 16px; margin-top: 8px;">
+            <div style="display: flex; align-items: center; gap: 12px; font-size: 0.95rem; color: #ccc;">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#ffd800" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path></svg>
+              +62 21 5550 9982
             </div>
-            <div>
-              <div style="font-weight:700;">Email</div>
-              <div style="color: rgba(255,255,255,0.6); font-size:14px;">{{ settings.contact_email }}</div>
-            </div>
-          </div>
-          <!-- Hours -->
-          <div style="display:flex; gap:16px; align-items:center;">
-            <div style="background: rgba(255, 216, 0, 0.15); color: var(--color-accent); width:48px; height:48px; border-radius:50%; display:grid; place-items:center;">
-              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/></svg>
-            </div>
-            <div>
-              <div style="font-weight:700;">Business Hours</div>
-              <div style="color: rgba(255,255,255,0.6); font-size:14px;">{{ settings.business_hours }}</div>
-            </div>
-          </div>
-          <!-- Location -->
-          <div style="display:flex; gap:16px; align-items:center;">
-            <div style="background: rgba(255, 216, 0, 0.15); color: var(--color-accent); width:48px; height:48px; border-radius:50%; display:grid; place-items:center;">
-              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
-            <div>
-              <div style="font-weight:700;">Location</div>
-              <div style="color: rgba(255,255,255,0.6); font-size:14px;">Indonesia</div>
+            <div style="display: flex; align-items: center; gap: 12px; font-size: 0.95rem; color: #ccc;">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#ffd800" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              contact@montana-stationery.id
             </div>
           </div>
         </div>
 
-        <div class="card" style="padding: 24px;">
-          <h3 style="margin-top:0; font-family: var(--font-body); font-weight: 700;">Bulk Orders</h3>
-          <p style="color: rgba(255,255,255,0.6); font-size:14px; line-height:1.6;">Looking to supply your entire office or school? We offer special pricing for high-volume orders.</p>
-          <a href="#" style="display:inline-block; text-align:center; text-decoration:none; width:100%; border:1px solid var(--color-primary); background:transparent; color:var(--color-primary); font-weight:700; padding:14px; border-radius:12px; margin-top:8px;">Download Catalog (PDF)</a>
+        <div class="card" style="padding: 32px; background: #111; border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; display: flex; flex-direction: column; gap: 24px;">
+          <h3 style="margin: 0; font-family: var(--font-heading); color: #fff; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; text-transform: uppercase; font-weight: 800;">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#ffd800" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> WAKTU OPERASIONAL
+          </h3>
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: #aaa; text-transform: uppercase; letter-spacing: 1px;">
+              <span>Senin - Jumat</span>
+              <span style="font-weight: 800; color: #fff;">08:00 - 17:00</span>
+            </div>
+            <div style="width: 100%; height: 1px; background: rgba(255,255,255,0.05);"></div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: #aaa; text-transform: uppercase; letter-spacing: 1px;">
+              <span>Sabtu</span>
+              <span style="font-weight: 800; color: #fff;">09:00 - 14:00</span>
+            </div>
+            <div style="width: 100%; height: 1px; background: rgba(255,255,255,0.05);"></div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: #aaa; text-transform: uppercase; letter-spacing: 1px;">
+              <span>Minggu</span>
+              <span style="font-weight: 800; color: #ff0000;">Tutup</span>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
   </div>
 </section>
-
-<script>
-  function sendToWhatsApp() {
-    const name = document.getElementById('ContactFormName').value;
-    const email = document.getElementById('ContactFormEmail').value;
-    const subject = document.getElementById('ContactFormSubject').value || 'Tanya info';
-    const body = document.getElementById('ContactFormBody').value;
-    
-    let text = `Hello Montana! 👋\n\nName: ${name}\nEmail: ${email}\nSubject: ${subject}\n\n${body}`;
-    const encodedText = encodeURIComponent(text);
-    const waNumber = "{{ settings.whatsapp_number }}";
-    
-    window.open(`https://wa.me/${waNumber}?text=${encodedText}`, '_blank');
-  }
-</script>
 
 {% schema %}
 {
