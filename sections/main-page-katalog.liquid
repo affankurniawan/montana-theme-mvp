@@ -67,14 +67,7 @@
                sortSelect.addEventListener('change', function() {
                  let params = new URLSearchParams(window.location.search);
                  params.set('sort_by', this.value);
-                 
-                 // If the user attempts to sort on the static /pages/katalog, 
-                 // we route them to the native sortable collection route.
-                 if (window.location.pathname.includes('/pages/')) {
-                   window.location.href = '/collections/all?' + params.toString();
-                 } else {
-                   window.location.search = params.toString();
-                 }
+                 window.location.search = params.toString();
                });
              });
            </script>
