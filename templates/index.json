@@ -181,41 +181,41 @@
       }
     },
     "why": {
-      "type": "icon-cards",
+      "type": "why-montana-bento",
       "blocks": {
         "w1": {
           "type": "card",
           "settings": {
-            "title": "Smart value",
-            "text": "Quality that makes sense for the price.",
-            "link_label": "Browse",
+            "title": "Nilai Cerdas",
+            "text": "Kualitas tangguh yang sepadan dengan harganya.",
+            "link_label": "Lihat Promo",
             "link": ""
           }
         },
         "w2": {
           "type": "card",
           "settings": {
-            "title": "Built to last",
-            "text": "Durable essentials for real daily use.",
-            "link_label": "Browse",
+            "title": "Tahan Lama",
+            "text": "Esensial andal untuk penggunaan intens setiap hari.",
+            "link_label": "Jelajahi Produk",
             "link": ""
           }
         },
         "w3": {
           "type": "card",
           "settings": {
-            "title": "Everyday progress",
-            "text": "Products that help people learn, work, and stay prepared.",
-            "link_label": "Browse",
+            "title": "Kemajuan Harian",
+            "text": "Produk yang membantu Anda belajar, bekerja, dan selalu siap.",
+            "link_label": "Cari Keperluan",
             "link": ""
           }
         },
         "w4": {
           "type": "card",
           "settings": {
-            "title": "Purpose beyond product",
-            "text": "A brand with a bigger educational ambition.",
-            "link_label": "Browse",
+            "title": "Lebih Dari Produk",
+            "text": "Merek dengan ambisi besar memajukan edukasi.",
+            "link_label": "Tentang Kami",
             "link": ""
           }
         }
@@ -227,9 +227,9 @@
         "w4"
       ],
       "settings": {
-        "eyebrow": "Why Montana",
-        "heading": "Quality that works. Value that makes sense.",
-        "text": "We believe that great quality shouldn't come with a luxury price tag."
+        "eyebrow": "Mengapa Montana",
+        "heading": "Kualitas Nyata. Harga Pantas.",
+        "text": "Kami yakin kualitas luar biasa tidak harus dibayar dengan harga mewah."
       }
     },
     "purpose": {
