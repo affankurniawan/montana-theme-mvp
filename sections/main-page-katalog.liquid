@@ -82,7 +82,14 @@
                    return 0;
                  });
                  
-                 cards.forEach(card => grid.appendChild(card));
+                 const pagination = grid.querySelector('.pagination');
+                 cards.forEach(card => {
+                   if (pagination) {
+                     grid.insertBefore(card, pagination);
+                   } else {
+                     grid.appendChild(card);
+                   }
+                 });
                });
                
                if (currentSort === 'price-ascending' || currentSort === 'price-descending') {
