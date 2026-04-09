@@ -1,8 +1,7 @@
 {
   "sections": {
     "main": {"type": "main-contact"},
-    "map": {"type": "contact-map"},
-    "support": {"type": "contact-support-cards"}
+    "map": {"type": "contact-map"}
   },
-  "order": ["main", "map", "support"]
+  "order": ["main", "map"]
 }
