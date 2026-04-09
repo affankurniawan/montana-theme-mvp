@@ -1,7 +1,7 @@
-<article class="card product-card" style="display:flex; flex-direction:column; height:100%; position: relative;">
+<article class="card product-card" style="display:flex; flex-direction:column; height:100%; position: relative; overflow: hidden;">
   <a href="{{ product.url }}" class="product-card__media quickview-trigger" style="position: relative; display: block;">
     {%- assign downcased_tags = product.tags | join: ',' | downcase -%}
-    <div style="position: absolute; top: -10px; left: -10px; z-index: 2; display: flex; flex-direction: column; gap: 4px;">
+    <div style="position: absolute; top: 10px; left: 10px; z-index: 2; display: flex; flex-direction: column; gap: 4px;">
       {%- if downcased_tags contains 'terlaris' -%}<span style="background-color: var(--color-accent); color: #000; font-weight: 800; padding: 4px 10px; border-radius: 999px; font-size: 0.65rem; text-transform: uppercase; box-shadow: 0 4px 10px rgba(0,0,0,0.3); border: 2px solid #111;">Terlaris</span>{%- endif -%}
       {%- if downcased_tags contains 'promo' -%}<span style="background-color: #ff3333; color: #fff; font-weight: 800; padding: 4px 10px; border-radius: 999px; font-size: 0.65rem; text-transform: uppercase; box-shadow: 0 4px 10px rgba(0,0,0,0.3); border: 2px solid #111;">Promo</span>{%- endif -%}
       {%- if downcased_tags contains 'terbaru' -%}<span style="background-color: #00bfff; color: #fff; font-weight: 800; padding: 4px 10px; border-radius: 999px; font-size: 0.65rem; text-transform: uppercase; box-shadow: 0 4px 10px rgba(0,0,0,0.3); border: 2px solid #111;">Terbaru</span>{%- endif -%}
@@ -24,7 +24,7 @@
       <a href="{{ product.url }}" class="quickview-trigger" style="color: #fff; text-decoration: none;">{{ product.title | escape }}</a>
     </h3>
     
-    <div style="margin-top:auto; display:flex; flex-direction:column; gap: 16px;">
+    <div style="margin-top:auto; display:flex; flex-direction:column; gap: 12px;">
       <div class="price" style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;">
         <span style="color: #ff3333; font-weight: 800; font-size: 1.1rem;">{{ product.price | money }}</span>
         {%- if product.compare_at_price > product.price -%}
@@ -32,7 +32,59 @@
         {%- endif -%}
       </div>
       
-      <a href="{{ product.url }}" class="quickview-trigger" style="display: block; width: 100%; padding: 10px; border: 1px solid rgba(255,255,255,0.15); border-radius: 999px; background: transparent; color: #fff; font-size: 0.85rem; font-weight: 600; text-align: center; text-decoration: none; transition: all 0.2s; box-shadow: 0 2px 4px rgba(0,0,0,0.2);" onmouseover="this.style.background='rgba(255,255,255,0.05)'; this.style.borderColor='rgba(255,255,255,0.3)'" onmouseout="this.style.background='transparent'; this.style.borderColor='rgba(255,255,255,0.15)'">Tambah +</a>
+      <style>
+        .product-card .marketplace-buttons-wrapper { opacity: 0; max-height: 0; overflow: hidden; transform: translateY(10px); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .product-card:hover .marketplace-buttons-wrapper { opacity: 1; max-height: 50px; transform: translateY(0); margin-top: 4px; }
+        @media (max-width: 768px) { .product-card .marketplace-buttons-wrapper { opacity: 1; max-height: 50px; transform: translateY(0); margin-top: 4px; } }
+      </style>
+      <div class="marketplace-buttons-wrapper" style="display: flex; gap: 6px; flex-wrap: wrap;">
+        {%- assign downcased_tags = product.tags | join: ',' | downcase -%}
+
+        {%- assign shopee_url = blank -%}
+        {%- if product.metafields.custom.shopee_url != blank -%}
+          {%- assign shopee_url = product.metafields.custom.shopee_url -%}
+        {%- elsif downcased_tags contains 'shopee' -%}
+          {%- assign shopee_url = 'https://shopee.co.id/search?keyword=' | append: product.title | url_param_escape -%}
+        {%- endif -%}
+
+        {%- assign tokped_url = blank -%}
+        {%- if product.metafields.custom.tokopedia_url != blank -%}
+          {%- assign tokped_url = product.metafields.custom.tokopedia_url -%}
+        {%- elsif downcased_tags contains 'tokopedia' -%}
+          {%- assign tokped_url = 'https://www.tokopedia.com/montanaid/product?q=' | append: product.title | url_param_escape -%}
+        {%- endif -%}
+
+        {%- assign lazada_url = blank -%}
+        {%- if product.metafields.custom.lazada_url != blank -%}
+          {%- assign lazada_url = product.metafields.custom.lazada_url -%}
+        {%- elsif downcased_tags contains 'lazada' -%}
+          {%- assign lazada_url = 'https://www.lazada.co.id/montana-id/?q=' | append: product.title | url_param_escape -%}
+        {%- endif -%}
+
+        {%- assign tiktok_url = blank -%}
+        {%- if product.metafields.custom.tiktok_url != blank -%}
+          {%- assign tiktok_url = product.metafields.custom.tiktok_url -%}
+        {%- elsif downcased_tags contains 'tiktok' -%}
+          {%- assign tiktok_url = 'https://www.tiktok.com/@montanastationeryid' -%}
+        {%- endif -%}
+
+        <a {% if shopee_url != blank %}href="{{ shopee_url }}" target="_blank" rel="noopener"{% endif %} 
+           style="text-decoration: none; display: inline-flex; transition: transform 0.2s; {% if shopee_url == blank %}opacity: 0.15; pointer-events: none; filter: grayscale(1);{% endif %}" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'" title="Beli di Shopee">
+          <img src="{{ 'logo-shopee.png' | asset_url }}" style="height:28px; width:28px; object-fit:contain; background:#fff; padding:4px; border-radius:6px; box-shadow:0 2px 4px rgba(0,0,0,0.1); border: 1px solid rgba(238,77,25,0.2);" alt="Shopee">
+        </a>
+        <a {% if tokped_url != blank %}href="{{ tokped_url }}" target="_blank" rel="noopener"{% endif %} 
+           style="text-decoration: none; display: inline-flex; transition: transform 0.2s; {% if tokped_url == blank %}opacity: 0.15; pointer-events: none; filter: grayscale(1);{% endif %}" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'" title="Beli di Tokopedia">
+          <img src="{{ 'logo-tokopedia.png' | asset_url }}" style="height:28px; width:28px; object-fit:contain; background:#fff; padding:4px; border-radius:6px; box-shadow:0 2px 4px rgba(0,0,0,0.1); border: 1px solid rgba(3,172,14,0.2);" alt="Tokopedia">
+        </a>
+        <a {% if lazada_url != blank %}href="{{ lazada_url }}" target="_blank" rel="noopener"{% endif %} 
+           style="text-decoration: none; display: inline-flex; transition: transform 0.2s; {% if lazada_url == blank %}opacity: 0.15; pointer-events: none; filter: grayscale(1);{% endif %}" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'" title="Beli di Lazada">
+          <img src="{{ 'logo-lazada.png' | asset_url }}" style="height:28px; width:28px; object-fit:contain; background:#fff; padding:4px; border-radius:6px; box-shadow:0 2px 4px rgba(0,0,0,0.1); border: 1px solid rgba(15,20,109,0.2);" alt="Lazada">
+        </a>
+        <a {% if tiktok_url != blank %}href="{{ tiktok_url }}" target="_blank" rel="noopener"{% endif %} 
+           style="text-decoration: none; display: inline-flex; transition: transform 0.2s; {% if tiktok_url == blank %}opacity: 0.15; pointer-events: none; filter: grayscale(1);{% endif %}" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'" title="Beli di TikTok">
+          <img src="{{ 'logo-tiktok.png' | asset_url }}" style="height:28px; width:28px; object-fit:contain; background:#fff; padding:4px; border-radius:6px; box-shadow:0 2px 4px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.1);" alt="TikTok">
+        </a>
+      </div>
     </div>
   </div>
 </article>

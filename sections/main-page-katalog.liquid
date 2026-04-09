@@ -27,13 +27,11 @@
         </h4>
         <nav style="display: flex; flex-direction: column; gap: 4px;">
           <a href="/pages/katalog" style="padding: 10px 12px; background: rgba(255, 216, 0, 0.1); color: var(--color-accent); font-weight: 600; text-decoration: none; font-size: 0.9rem; border-radius: 6px;">Semua</a>
-          <a href="{{ routes.search_url }}?type=product&q=baru+OR+new" style="padding: 10px 12px; background: transparent; color: #aaa; font-weight: 500; text-decoration: none; font-size: 0.9rem; border-radius: 6px; transition: all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.05)'; this.style.color='#fff'" onmouseout="this.style.background='transparent'; this.style.color='#aaa'">Produk Baru</a>
-          <a href="{{ routes.search_url }}?type=product&q=bundel+OR+paket" style="padding: 10px 12px; background: transparent; color: #aaa; font-weight: 500; text-decoration: none; font-size: 0.9rem; border-radius: 6px; transition: all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.05)'; this.style.color='#fff'" onmouseout="this.style.background='transparent'; this.style.color='#aaa'">Paket Bundel</a>
-          <a href="{{ routes.search_url }}?type=product&q=kalkulator" style="padding: 10px 12px; background: transparent; color: #aaa; font-weight: 500; text-decoration: none; font-size: 0.9rem; border-radius: 6px; transition: all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.05)'; this.style.color='#fff'" onmouseout="this.style.background='transparent'; this.style.color='#aaa'">Kalkulator</a>
-          <a href="{{ routes.search_url }}?type=product&q=spidol+OR+marker" style="padding: 10px 12px; background: transparent; color: #aaa; font-weight: 500; text-decoration: none; font-size: 0.9rem; border-radius: 6px; transition: all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.05)'; this.style.color='#fff'" onmouseout="this.style.background='transparent'; this.style.color='#aaa'">Spidol</a>
-          <a href="{{ routes.search_url }}?type=product&q=pulpen+OR+pen+OR+tinta" style="padding: 10px 12px; background: transparent; color: #aaa; font-weight: 500; text-decoration: none; font-size: 0.9rem; border-radius: 6px; transition: all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.05)'; this.style.color='#fff'" onmouseout="this.style.background='transparent'; this.style.color='#aaa'">Pulpen</a>
-          <a href="{{ routes.search_url }}?type=product&q=gunting+OR+cutter" style="padding: 10px 12px; background: transparent; color: #aaa; font-weight: 500; text-decoration: none; font-size: 0.9rem; border-radius: 6px; transition: all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.05)'; this.style.color='#fff'" onmouseout="this.style.background='transparent'; this.style.color='#aaa'">Gunting</a>
-          <a href="{{ routes.search_url }}?type=product&q=lem" style="padding: 10px 12px; background: transparent; color: #aaa; font-weight: 500; text-decoration: none; font-size: 0.9rem; border-radius: 6px; transition: all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.05)'; this.style.color='#fff'" onmouseout="this.style.background='transparent'; this.style.color='#aaa'">Lem</a>
+          {%- for type in collections.all.all_types -%}
+            {%- if type != blank -%}
+              <a href="{{ routes.search_url }}?type=product&q={{ type | url_encode }}" style="padding: 10px 12px; background: transparent; color: #aaa; font-weight: 500; text-decoration: none; font-size: 0.9rem; border-radius: 6px; transition: all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.05)'; this.style.color='#fff'" onmouseout="this.style.background='transparent'; this.style.color='#aaa'">{{ type }}</a>
+            {%- endif -%}
+          {%- endfor -%}
         </nav>
       </div>
 
@@ -44,19 +42,27 @@
       
       <header style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
         <div>
-          <h1 style="font-family: var(--font-body); font-size: 1.8rem; font-weight: 700; margin: 0 0 4px; text-transform:none;">Semua Produk</h1>
+          <h1 style="font-family: var(--font-body); font-size: 1.8rem; font-weight: 700; margin: 0 0 4px; text-transform:none;">Katalog Produk</h1>
           <span style="color: #aaa; font-size: 0.9rem;">{{ collections.all.all_products_count }} produk ditemukan</span>
         </div>
         
         <div style="position: relative;">
-           <select name="sort_by" style="appearance: none; background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.2); padding: 10px 40px 10px 16px; border-radius: 8px; font-size: 0.9rem; font-weight: 500; cursor: pointer; outline: none; transition: background 0.2s;">
-             <option value="featured" style="background: #111;">Unggulan</option>
+           <select name="sort_by" id="CatalogSortBy" onchange="window.location.search = '?sort_by=' + this.value;" style="appearance: none; background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.2); padding: 10px 40px 10px 16px; border-radius: 8px; font-size: 0.9rem; font-weight: 500; cursor: pointer; outline: none; transition: background 0.2s;">
+             <option value="manual" style="background: #111;">Unggulan</option>
              <option value="best-selling" style="background: #111;">Terlaris</option>
              <option value="price-ascending" style="background: #111;">Harga Terendah</option>
              <option value="price-descending" style="background: #111;">Harga Tertinggi</option>
              <option value="created-descending" style="background: #111;">Terbaru</option>
            </select>
-           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="position: absolute; right: 14px; top: 50%; transform: translateY(-50%); pointer-events: none;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+           <script>
+             const urlParams = new URLSearchParams(window.location.search);
+             const currentSort = urlParams.get('sort_by');
+             if (currentSort) {
+               const sortSelect = document.getElementById('CatalogSortBy');
+               sortSelect.value = currentSort;
+             }
+           </script>
+           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="position: absolute; right: 14px; top: 12px; pointer-events: none;"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </div>
       </header>
 

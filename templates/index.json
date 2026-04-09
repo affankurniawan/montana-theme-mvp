@@ -12,12 +12,12 @@
     "hero": {
       "type": "hero-banner",
       "settings": {
-        "eyebrow": "Smart value essentials",
-        "heading": "Be Smart with Montana",
-        "text": "Durable, high-quality essentials at prices that make sense for school, work, home, and business.",
-        "primary_label": "Shop products",
-        "primary_link": "/collections/all",
-        "secondary_label": "About Montana",
+        "eyebrow": "Kualitas Esensial",
+        "heading": "Cerdas Bersama Montana",
+        "text": "Alat tulis tangguh nan premium dengan harga rasional untuk sekolah, kantor, rumah, dan bisnis Anda.",
+        "primary_label": "Belanja Produk",
+        "primary_link": "/pages/katalog",
+        "secondary_label": "Tentang Montana",
         "secondary_link": "/pages/about-us?view=about-us"
       }
     },

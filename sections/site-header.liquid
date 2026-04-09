@@ -11,16 +11,16 @@
     <nav class="nav" aria-label="Primary navigation">
       {%- assign current_path = request.path -%}
       {%- assign active_style = 'color: var(--color-accent); font-weight: 700; border-bottom: 2px solid var(--color-accent); padding-bottom: 4px;' -%}
-      <a href="{{ routes.root_url }}" {% if current_path == routes.root_url %}style="{{ active_style }}"{% endif %}>Home</a>
-      <a href="/pages/katalog" {% if current_path contains '/collections' or current_path contains '/products' or current_path contains '/pages/katalog' %}style="{{ active_style }}"{% endif %}>Product</a>
-      <a href="/blogs/news" {% if current_path contains '/blogs' or current_path contains '/articles' %}style="{{ active_style }}"{% endif %}>Blog</a>
-      <a href="/pages/about-us?view=about-us" {% if current_path == '/pages/about-us' %}style="{{ active_style }}"{% endif %}>About Us</a>
-      <a href="/pages/contact-us?view=contact" {% if current_path == '/pages/contact-us' %}style="{{ active_style }}"{% endif %}>Contact Us</a>
+      <a href="{{ routes.root_url }}" {% if current_path == routes.root_url %}style="{{ active_style }}"{% endif %}>Beranda</a>
+      <a href="/pages/katalog" {% if current_path contains '/collections' or current_path contains '/products' or current_path contains '/pages/katalog' %}style="{{ active_style }}"{% endif %}>Katalog</a>
+      <a href="/blogs/news" {% if current_path contains '/blogs' or current_path contains '/articles' %}style="{{ active_style }}"{% endif %}>Jurnal</a>
+      <a href="/pages/about-us?view=about-us" {% if current_path == '/pages/about-us' %}style="{{ active_style }}"{% endif %}>Tentang Kami</a>
+      <a href="/pages/contact-us?view=contact" {% if current_path == '/pages/contact-us' %}style="{{ active_style }}"{% endif %}>Hubungi Kami</a>
     </nav>
 
     <div class="header__actions" style="display:flex; gap:12px; align-items:center;">
       {%- if section.settings.show_search -%}
-        <a href="{{ routes.search_url }}">Search</a>
+        <a href="{{ routes.search_url }}">Cari</a>
       {%- endif -%}
       {%- if section.settings.cta_label != blank -%}
         <a href="/pages/katalog" class="button button--accent" style="display:inline-flex; align-items:center; gap:6px; font-size:0.8rem; padding:6px 20px; min-height:auto; font-weight:700;">
@@ -40,11 +40,11 @@
     </div>
     <nav class="mobile-nav">
       {%- assign mobile_active_style = 'color: var(--color-accent); font-weight: 700; border-bottom-color: var(--color-accent);' -%}
-      <a href="{{ routes.root_url }}" {% if current_path == routes.root_url %}style="{{ mobile_active_style }}"{% endif %}>Home</a>
-      <a href="/pages/katalog" {% if current_path contains '/collections' or current_path contains '/products' or current_path contains '/pages/katalog' %}style="{{ mobile_active_style }}"{% endif %}>Product Catalog</a>
-      <a href="/blogs/news" {% if current_path contains '/blogs' or current_path contains '/articles' %}style="{{ mobile_active_style }}"{% endif %}>Blog</a>
-      <a href="/pages/about-us?view=about-us" {% if current_path == '/pages/about-us' %}style="{{ mobile_active_style }}"{% endif %}>About Us</a>
-      <a href="/pages/contact-us?view=contact" {% if current_path == '/pages/contact-us' %}style="{{ mobile_active_style }}"{% endif %}>Contact Us</a>
+      <a href="{{ routes.root_url }}" {% if current_path == routes.root_url %}style="{{ mobile_active_style }}"{% endif %}>Beranda</a>
+      <a href="/pages/katalog" {% if current_path contains '/collections' or current_path contains '/products' or current_path contains '/pages/katalog' %}style="{{ mobile_active_style }}"{% endif %}>Katalog</a>
+      <a href="/blogs/news" {% if current_path contains '/blogs' or current_path contains '/articles' %}style="{{ mobile_active_style }}"{% endif %}>Jurnal</a>
+      <a href="/pages/about-us?view=about-us" {% if current_path == '/pages/about-us' %}style="{{ mobile_active_style }}"{% endif %}>Tentang Kami</a>
+      <a href="/pages/contact-us?view=contact" {% if current_path == '/pages/contact-us' %}style="{{ mobile_active_style }}"{% endif %}>Hubungi Kami</a>
     </nav>
   </div>
 
