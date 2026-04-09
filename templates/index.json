@@ -12,8 +12,8 @@
     "hero": {
       "type": "hero-banner",
       "settings": {
-        "eyebrow": "Kualitas Esensial",
-        "heading": "Cerdas Bersama Montana",
+        "eyebrow": "",
+        "heading": "Be Smart With Montana",
         "text": "Alat tulis tangguh nan premium dengan harga rasional untuk sekolah, kantor, rumah, dan bisnis Anda.",
         "primary_label": "Belanja Produk",
         "primary_link": "/pages/katalog",
