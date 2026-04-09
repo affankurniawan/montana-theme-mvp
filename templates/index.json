@@ -235,13 +235,13 @@
     "purpose": {
       "type": "rich-text-cta",
       "settings": {
-        "eyebrow": "Founder belief",
-        "heading": "Smart value today, bigger impact tomorrow.",
-        "text": "Montana was built on a simple belief: better tools create better habits, and better habits help build a smarter generation.",
+        "eyebrow": "Filosofi Kami",
+        "heading": "Kualitas Cerdas Hari Ini. Dampak Besar di Masa Depan.",
+        "text": "Montana dibangun di atas keyakinan sederhana: alat bantu yang lebih baik akan menciptakan kebiasaan yang unggul, dan kebiasaan yang unggul membantu mewujudkan generasi yang lebih cerdas.",
         "surface": true,
         "use_accent": true,
-        "button_label": "Explore products",
-        "button_link": "/collections/all"
+        "button_label": "",
+        "button_link": ""
       }
     },
     "testimonials": {
@@ -281,16 +281,6 @@
         "eyebrow": "Testimoni",
         "heading": "Kata Mereka"
       }
-    },
-    "blog": {
-      "type": "blog-preview",
-      "settings": {
-        "eyebrow": "Useful content",
-        "heading": "Article highlights",
-        "text": "Tips, inspiration, and stories on how to make the most out of your Montana essentials.",
-        "blog": "",
-        "posts_to_show": 3
-      }
     }
   },
   "order": [
@@ -301,7 +291,6 @@
     "featured",
     "why",
     "purpose",
-    "testimonials",
-    "blog"
+    "testimonials"
   ]
 }
