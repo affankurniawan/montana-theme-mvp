@@ -102,25 +102,46 @@
         {%- endif -%}
       </div>
 
-      {%- if product.variants.size > 1 -%}
-        <div class="product-form">
-          <strong>Variants</strong>
-          <div class="variant-list">
-            {%- for variant in product.variants -%}
-              <span class="variant-chip">{{ variant.title }}</span>
-            {%- endfor -%}
+      {%- form 'product', product, id: 'main-product-form' -%}
+        {%- if product.variants.size > 1 -%}
+          <div style="margin-bottom: 24px;">
+            <strong style="display:block; margin-bottom: 12px; font-family:var(--font-heading); color:#fff; text-transform:uppercase; font-size: 0.9rem; letter-spacing: 1px;">Variants</strong>
+            <div style="display:flex; flex-wrap:wrap; gap:10px;">
+              {%- for variant in product.variants -%}
+                <label style="cursor: pointer; margin: 0;">
+                  <input type="radio" name="id" value="{{ variant.id }}" {% if variant.id == product.selected_or_first_available_variant.id %}checked{% endif %} style="display: none;">
+                  <div class="variant-chip" style="margin:0;">{{ variant.title }}</div>
+                </label>
+              {%- endfor -%}
+            </div>
           </div>
-        </div>
-      {%- endif -%}
+        {%- else -%}
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+        {%- endif -%}
 
-      {%- form 'product', product, class: 'product-form' -%}
-        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-
-        <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
-          <input type="number" name="quantity" min="1" value="1" style="width:92px; padding:14px 12px; border-radius:999px; border:1px solid rgba(23,23,23,.16); text-align:center; font-weight:700; font-size:1.1rem; color:#000;">
+        <div style="display:flex; gap:16px; flex-wrap:wrap; align-items:center;">
+          <div style="display:flex; align-items:center; background:#fff; border-radius: 999px; padding: 4px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);">
+            <button type="button" onclick="var q=document.getElementById('QtyInput'); if(q.value>1) q.value--;" style="width: 36px; height: 36px; border: none; background: rgba(0,0,0,0.05); border-radius: 50%; cursor: pointer; font-size: 1.2rem; font-weight: 600; display:flex; align-items:center; justify-content:center; color:#000;">-</button>
+            <input type="number" id="QtyInput" name="quantity" min="1" value="1" style="width:48px; border:none; text-align:center; font-weight:700; font-size:1.1rem; color:#000; padding:0; background:transparent; -moz-appearance:textfield;" onkeydown="return false;">
+            <button type="button" onclick="var q=document.getElementById('QtyInput'); q.value++;" style="width: 36px; height: 36px; border: none; background: rgba(0,0,0,0.05); border-radius: 50%; cursor: pointer; font-size: 1.2rem; font-weight: 600; display:flex; align-items:center; justify-content:center; color:#000;">+</button>
+          </div>
           <button type="submit" class="button button--accent">Add to cart</button>
         </div>
       {%- endform -%}
+
+      <style>
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button { 
+          -webkit-appearance: none; 
+          margin: 0; 
+        }
+        input[type="radio"]:checked + .variant-chip {
+          background: var(--color-accent);
+          color: #000;
+          font-weight: 700;
+          box-shadow: 0 4px 12px rgba(230, 197, 51, 0.3);
+        }
+      </style>
 
       <style>
         .btn-market {
