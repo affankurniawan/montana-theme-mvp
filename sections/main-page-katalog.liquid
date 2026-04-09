@@ -2,7 +2,7 @@
   <div style="text-align: center; margin-bottom: 40px; display: flex; flex-direction: column; align-items: center;">
     <div class="breadcrumbs" style="color: #aaa; font-size: 0.9rem; margin-bottom: 12px; font-weight: 500;"><a href="/" style="color: #fff; text-decoration: none;">Home</a> <span style="margin: 0 4px;">/</span> <span style="color: var(--color-accent);">{{ page.title }}</span></div>
     {%- assign catalog_text = 'Browse our entire selection of ' | append: collections.all.all_products_count | append: ' durable essentials at smart prices.' -%}
-    {%- render 'section-heading', eyebrow: 'Product hub', title: page.title, text: catalog_text, alignment: 'center' -%}
+    {%- render 'section-heading', title: page.title, text: catalog_text, alignment: 'center' -%}
   </div>
 
   <div class="katalog-tools" style="max-width: 680px; margin: 0 auto 48px auto; padding: 0 20px;">
