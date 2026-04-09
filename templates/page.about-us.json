@@ -1,7 +1,56 @@
 {
   "sections": {
-    "intro": {"type": "rich-text-cta", "settings": {"eyebrow": "About Montana", "heading": "Better tools for a smarter generation.", "text": "Montana is a smart-value essentials brand that makes durable, high-quality everyday products more accessible so people can learn, work, and grow better.", "button_label": "Shop products", "button_link": "/collections/all", "surface": false, "use_accent": true}},
-    "beliefs": {"type": "icon-cards", "settings": {"eyebrow": "Brand foundation", "heading": "Empowering Your Everyday Progress", "text": "We believe that premium quality shouldn't be an exclusive privilege. By combining meticulous engineering with fair pricing, we support your daily ambition."}, "blocks": {"b1": {"type": "card", "settings": {"title": "Mission", "text": "Make reliable everyday essentials more reachable for this generation through fair pricing and quality that lasts.", "link_label": ""}}, "b2": {"type": "card", "settings": {"title": "Vision", "text": "Contribute to a smarter generation and, over time, grow that impact toward education-building initiatives.", "link_label": ""}}, "b3": {"type": "card", "settings": {"title": "Promise", "text": "Good tools should not be out of reach.", "link_label": ""}}, "b4": {"type": "card", "settings": {"title": "Role", "text": "A practical daily brand that respects both ambition and budget.", "link_label": ""}}}, "block_order": ["b1", "b2", "b3", "b4"]}
+    "intro": {
+      "type": "rich-text-cta",
+      "settings": {
+        "eyebrow": "TENTANG MONTANA",
+        "heading": "Kami percaya alat yang baik tidak boleh sulit dijangkau.",
+        "text": "Montana adalah merek bernilai cerdas yang dirancang untuk membuat produk sehari-hari berkualitas tinggi lebih mudah diakses oleh generasi ini.",
+        "button_label": "",
+        "button_link": "",
+        "surface": false,
+        "use_accent": true
+      }
+    },
+    "beliefs": {
+      "type": "about-foundation",
+      "settings": {
+        "eyebrow": "Pondasi Merek",
+        "heading": "Memberdayakan Kemajuan Harian Anda",
+        "text": "Kami yakin kualitas premium bukanlah keistimewaan eksklusif. Kami merakit esensial harian dengan memadukan presisi material kuat dan harga yang sangat adil untuk mendukung ambisi Anda."
+      },
+      "blocks": {
+        "b1": {
+          "type": "card",
+          "settings": {
+            "title": "Misi",
+            "text": "Menghadirkan produk esensial harian yang secara brilian lebih mudah dijangkau generasi saat ini melalui penetapan harga yang adil dan daya tahan yang mutlak."
+          }
+        },
+        "b2": {
+          "type": "card",
+          "settings": {
+            "title": "Visi",
+            "text": "Ke depan, berkontribusi penuh pada fondasi generasi yang lebih tajam dan menggunakan skala dampaknya demi membiayai inisiatif-inisiatif pembangunan pendidikan."
+          }
+        },
+        "b3": {
+          "type": "card",
+          "settings": {
+            "title": "Janji",
+            "text": "Peralatan andal tidak semestinya diletakkan jauh dari batas daya beli wajar."
+          }
+        },
+        "b4": {
+          "type": "card",
+          "settings": {
+            "title": "Peran Kami",
+            "text": "Sebaris merek terapan harian yang dengan tulus menghormati laju sepasang roda; ambisi dan anggaran Anda."
+          }
+        }
+      },
+      "block_order": ["b1", "b2", "b3", "b4"]
+    }
   },
   "order": ["intro", "beliefs"]
 }
