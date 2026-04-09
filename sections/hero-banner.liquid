@@ -27,10 +27,10 @@
       
       <div class="gsap-hero-buttons" style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
         {%- if section.settings.primary_label != blank -%}
-          <a href="/pages/katalog" class="button button--accent" style="font-size:1.1rem; padding: 14px 28px;">{{ section.settings.primary_label }}</a>
+          <a href="/pages/katalog" class="button button--accent" style="font-size:0.95rem; padding: 10px 24px; font-weight:700;">{{ section.settings.primary_label }}</a>
         {%- endif -%}
         {%- if section.settings.secondary_label != blank -%}
-          <a href="{{ section.settings.secondary_link }}" class="button button--secondary" style="font-size:1.1rem; padding: 14px 28px; border-color:#fff; color:#fff;">{{ section.settings.secondary_label }}</a>
+          <a href="{{ section.settings.secondary_link }}" class="button button--secondary" style="font-size:0.95rem; padding: 10px 24px; border-color:rgba(255,255,255,0.3); color:#fff; font-weight:600;">{{ section.settings.secondary_label }}</a>
         {%- endif -%}
       </div>
     </div>
