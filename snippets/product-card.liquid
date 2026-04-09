@@ -1,5 +1,5 @@
 <article class="card product-card" style="display:flex; flex-direction:column; height:100%;">
-  <a href="{{ product.url }}" class="product-card__media">
+  <a href="{{ product.url }}" class="product-card__media quickview-trigger">
     {%- if product.featured_image != blank -%}
       {{ product.featured_image | image_url: width: 640 | image_tag: widths: '320,480,640', loading: 'lazy', alt: product.title }}
     {%- else -%}
@@ -8,7 +8,7 @@
   </a>
   <div class="product-card__content" style="display:flex; flex-direction:column; flex-grow:1; text-align: center; padding: 12px;">
     {%- if product.tags contains 'promo' -%}<span class="badge" style="background-color: var(--color-accent); color: #000; font-weight: 700; padding: 2px 6px; border-radius: 4px; font-size: 0.65rem; text-transform: uppercase; display: inline-block; margin-bottom: 6px;">Promo</span>{%- endif -%}
-    <h3 style="margin: 0 0 10px 0; font-family: var(--font-body); font-weight: 600; font-size: 0.9rem; line-height: 1.4;"><a href="{{ product.url }}" style="color: #fff; text-decoration: none;">{{ product.title }}</a></h3>
+    <h3 style="margin: 0 0 10px 0; font-family: var(--font-body); font-weight: 600; font-size: 0.9rem; line-height: 1.4;"><a href="{{ product.url }}" class="quickview-trigger" style="color: #fff; text-decoration: none;">{{ product.title }}</a></h3>
     
     <div style="margin-top:auto; display:flex; flex-direction:column; gap: 12px;">
       <div class="price" style="color: var(--color-accent); font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 6px;">

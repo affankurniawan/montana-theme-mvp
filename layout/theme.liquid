@@ -68,5 +68,66 @@
     </main>
 
     {%- sections 'footer-group' -%}
+    <dialog id="QuickViewModal" style="padding: 0; border: none; border-radius: 16px; background: var(--color-surface, #1e1e1e); color: #fff; max-width: 1100px; width: 95%; max-height: 90vh; box-shadow: 0 24px 48px rgba(0,0,0,0.8); overflow: hidden;">
+      <button class="quickview-close" style="position: absolute; top: 16px; right: 16px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; z-index: 1000; font-size: 1.5rem; display:flex; align-items:center; justify-content:center; transition: background 0.2s;">&times;</button>
+      <div id="QuickViewContent" style="padding: 32px 24px; overflow-y: auto; max-height: 90vh; position: relative;">
+        <!-- Injected via JS -->
+      </div>
+    </dialog>
+    <style>
+      dialog::backdrop { background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); }
+      dialog[open] { animation: quickviewShow 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+      dialog .quickview-close:hover { background: rgba(255,255,255,0.2); }
+      @keyframes quickviewShow {
+        from { opacity: 0; transform: translateY(30px) scale(0.97); }
+        to { opacity: 1; transform: translateY(0) scale(1); }
+      }
+    </style>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const modal = document.getElementById('QuickViewModal');
+        const modalContent = document.getElementById('QuickViewContent');
+        const closeBtn = modal.querySelector('.quickview-close');
+
+        document.body.addEventListener('click', async (e) => {
+          const trigger = e.target.closest('.quickview-trigger');
+          if (!trigger) return;
+          e.preventDefault();
+          
+          modal.showModal();
+          document.body.style.overflow = 'hidden';
+          modalContent.innerHTML = '<div style="padding:80px;text-align:center;color:var(--color-accent);font-weight:700;font-size:1.2rem;letter-spacing:1px;animation:pulse 1.5s infinite;">LOADING...</div>';
+          
+          try {
+            const response = await fetch(trigger.href);
+            if (!response.ok) throw new Error('Network response failed');
+            const html = await response.text();
+            
+            const doc = new DOMParser().parseFromString(html, 'text/html');
+            const productLayout = doc.querySelector('.product-layout');
+            
+            if (productLayout) {
+              modalContent.innerHTML = productLayout.outerHTML;
+            } else {
+              modalContent.innerHTML = '<div style="padding:60px;text-align:center;">Failed to parse product.</div>';
+            }
+          } catch (err) {
+            console.error(err);
+            modalContent.innerHTML = '<div style="padding:60px;text-align:center;">Failed to load product details.</div>';
+          }
+        });
+
+        const closeModal = () => {
+          modal.close();
+          document.body.style.overflow = '';
+          setTimeout(() => { modalContent.innerHTML = ''; }, 300);
+        };
+
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) closeModal();
+        });
+      });
+    </script>
   </body>
 </html>
