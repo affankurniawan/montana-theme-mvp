@@ -48,11 +48,9 @@
         
         <div style="position: relative;">
            <select name="sort_by" id="CatalogSortBy" style="appearance: none; background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.2); padding: 10px 40px 10px 16px; border-radius: 8px; font-size: 0.9rem; font-weight: 500; cursor: pointer; outline: none; transition: background 0.2s;">
-             <option value="manual" style="background: #111;">Unggulan</option>
-             <option value="best-selling" style="background: #111;">Terlaris</option>
+             <option value="" disabled selected style="background: #111;">Urutkan Harga</option>
              <option value="price-ascending" style="background: #111;">Harga Terendah</option>
              <option value="price-descending" style="background: #111;">Harga Tertinggi</option>
-             <option value="created-descending" style="background: #111;">Terbaru</option>
            </select>
            <script>
              document.addEventListener('DOMContentLoaded', function() {
@@ -67,8 +65,29 @@
                sortSelect.addEventListener('change', function() {
                  let params = new URLSearchParams(window.location.search);
                  params.set('sort_by', this.value);
-                 window.location.search = params.toString();
+                 window.history.replaceState(null, null, '?' + params.toString());
+                 
+                 const grid = document.querySelector('.product-grid');
+                 const cards = Array.from(grid.querySelectorAll('.product-card'));
+                 
+                 cards.sort((a, b) => {
+                   const priceA = parseInt(a.getAttribute('data-price')) || 0;
+                   const priceB = parseInt(b.getAttribute('data-price')) || 0;
+                   
+                   if (this.value === 'price-ascending') {
+                     return priceA - priceB;
+                   } else if (this.value === 'price-descending') {
+                     return priceB - priceA;
+                   }
+                   return 0;
+                 });
+                 
+                 cards.forEach(card => grid.appendChild(card));
                });
+               
+               if (currentSort === 'price-ascending' || currentSort === 'price-descending') {
+                 sortSelect.dispatchEvent(new Event('change'));
+               }
              });
            </script>
            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="position: absolute; right: 14px; top: 12px; pointer-events: none;"><polyline points="6 9 12 15 18 9"></polyline></svg>
