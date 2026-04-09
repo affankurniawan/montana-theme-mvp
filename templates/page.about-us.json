@@ -1,15 +1,15 @@
 {
   "sections": {
     "intro": {
-      "type": "rich-text-cta",
+      "type": "hero-banner",
       "settings": {
         "eyebrow": "TENTANG MONTANA",
         "heading": "Kami percaya alat yang baik tidak boleh sulit dijangkau.",
         "text": "Montana adalah merek bernilai cerdas yang dirancang untuk membuat produk sehari-hari berkualitas tinggi lebih mudah diakses oleh generasi ini.",
-        "button_label": "",
-        "button_link": "",
-        "surface": false,
-        "use_accent": true
+        "primary_label": "",
+        "primary_link": "",
+        "secondary_label": "",
+        "secondary_link": ""
       }
     },
     "beliefs": {
