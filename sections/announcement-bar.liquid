@@ -1,10 +1,56 @@
-<div class="announcement-bar">
-  <div class="page-width announcement-bar__inner">
-    {%- if section.settings.link != blank -%}
-      <a href="{{ section.settings.link }}">{{ section.settings.text }}</a>
-    {%- else -%}
-      <p>{{ section.settings.text }}</p>
-    {%- endif -%}
+<style>
+  .marquee-wrapper {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    height: 38px;
+    background: var(--color-accent);
+    color: #111;
+  }
+  .marquee-content {
+    display: flex;
+    animation: scroll-left 40s linear infinite;
+  }
+  .marquee-item {
+    padding: 0 4rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: inherit;
+    flex-shrink: 0;
+  }
+  .marquee-wrapper:hover .marquee-content {
+    animation-play-state: paused;
+  }
+  @keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+</style>
+
+<div class="announcement-bar marquee-wrapper">
+  <div class="marquee-content">
+    {%- capture announcement_item -%}
+      {%- if section.settings.link != blank -%}
+        <a href="{{ section.settings.link }}" class="marquee-item">{{ section.settings.text }}</a>
+      {%- else -%}
+        <span class="marquee-item">{{ section.settings.text }}</span>
+      {%- endif -%}
+    {%- endcapture -%}
+    
+    <!-- Render multiple loops to guarantee uninterrupted 50% translation on ultrawide monitors -->
+    {{ announcement_item }}
+    {{ announcement_item }}
+    {{ announcement_item }}
+    {{ announcement_item }}
+    {{ announcement_item }}
+    {{ announcement_item }}
+    {{ announcement_item }}
+    {{ announcement_item }}
   </div>
 </div>
 
