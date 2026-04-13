@@ -187,29 +187,29 @@
           {%- assign downcased_tags = product.tags | join: ',' | downcase -%}
           
           {%- assign shopee_link = blank -%}
-          {%- if product.metafields.custom.shopee_url != blank -%}
-            {%- assign shopee_link = product.metafields.custom.shopee_url -%}
+          {%- if product.metafields.custom.link_shopee != blank -%}
+            {%- assign shopee_link = product.metafields.custom.link_shopee -%}
           {%- elsif downcased_tags contains 'shopee' -%}
             {%- assign shopee_link = 'https://shopee.co.id/search?keyword=' | append: product.title | url_param_escape -%}
           {%- endif -%}
 
           {%- assign tokped_link = blank -%}
-          {%- if product.metafields.custom.tokopedia_url != blank -%}
-            {%- assign tokped_link = product.metafields.custom.tokopedia_url -%}
+          {%- if product.metafields.custom.link_tokopedia != blank -%}
+            {%- assign tokped_link = product.metafields.custom.link_tokopedia -%}
           {%- elsif downcased_tags contains 'tokopedia' -%}
             {%- assign tokped_link = 'https://www.tokopedia.com/montanaid/product?q=' | append: product.title | url_param_escape -%}
           {%- endif -%}
 
           {%- assign lazada_link = blank -%}
-          {%- if product.metafields.custom.lazada_url != blank -%}
-            {%- assign lazada_link = product.metafields.custom.lazada_url -%}
+          {%- if product.metafields.custom.link_lazada != blank -%}
+            {%- assign lazada_link = product.metafields.custom.link_lazada -%}
           {%- elsif downcased_tags contains 'lazada' -%}
             {%- assign lazada_link = 'https://www.lazada.co.id/montana-id/?q=' | append: product.title | url_param_escape -%}
           {%- endif -%}
 
           {%- assign tiktok_link = blank -%}
-          {%- if product.metafields.custom.tiktok_url != blank -%}
-            {%- assign tiktok_link = product.metafields.custom.tiktok_url -%}
+          {%- if product.metafields.custom.link_tiktok != blank -%}
+            {%- assign tiktok_link = product.metafields.custom.link_tiktok -%}
           {%- elsif downcased_tags contains 'tiktok' -%}
             {%- assign tiktok_link = 'https://www.tiktok.com/@montanastationeryid' -%}
           {%- endif -%}
