@@ -1,17 +1,23 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "intro": {
       "type": "hero-image-banner",
       "settings": {
-        "image": "shopify:\/\/shop_images\/about-us.jpg",
-        "heading": "Kami percaya alat yang baik tidak boleh sulit dijangkau.",
-        "text": "Montana adalah merek bernilai cerdas yang dirancang untuk membuat produk sehari-hari berkualitas tinggi lebih mudah diakses oleh generasi ini.",
+        "image": "shopify://shop_images/about-us.jpg",
+        "image_mobile": "shopify://shop_images/about-us.jpg",
         "primary_label": "",
         "primary_link": "",
         "secondary_label": "",
-        "secondary_link": "",
-        "asset_image": "notebook.png",
-        "heading_size": "medium"
+        "secondary_link": ""
       }
     },
     "metrics": {
@@ -51,7 +57,8 @@
         "metric_2",
         "metric_3",
         "metric_4"
-      ]
+      ],
+      "settings": {}
     },
     "story": {
       "type": "brand-story",
@@ -65,10 +72,6 @@
     },
     "core_values": {
       "type": "core-values",
-      "settings": {
-        "eyebrow": "NILAI KAMI",
-        "heading": "Prinsip Montana"
-      },
       "blocks": {
         "val_1": {
           "type": "value",
@@ -99,15 +102,14 @@
         "val_1",
         "val_2",
         "val_3"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "NILAI KAMI",
+        "heading": "Prinsip Montana"
+      }
     },
     "beliefs": {
       "type": "about-foundation",
-      "settings": {
-        "eyebrow": "",
-        "heading": "VISI KAMI",
-        "text": "Menjadi mitra alat tulis pilihan utama bagi keluarga dan profesional di Indonesia, melalui penyediaan solusi cerdas berkualitas tinggi yang memberikan nilai tambah di setiap fase kehidupan."
-      },
       "blocks": {
         "b1": {
           "type": "card",
@@ -138,7 +140,16 @@
           }
         }
       },
-      "block_order": ["b1", "b2", "b3", "b4"]
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ],
+      "settings": {
+        "heading": "VISI KAMI",
+        "text": "Menjadi mitra alat tulis pilihan utama bagi keluarga dan profesional di Indonesia, melalui penyediaan solusi cerdas berkualitas tinggi yang memberikan nilai tambah di setiap fase kehidupan."
+      }
     }
   },
   "order": [
