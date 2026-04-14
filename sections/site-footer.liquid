@@ -1,4 +1,19 @@
 <footer class="footer" style="background-color: #080808; padding-top: 80px; padding-bottom: 32px; border-top: 1px solid rgba(255,255,255,0.03);">
+  <style>
+    @media (max-width: 767px) {
+      .footer__inner { padding-left: 24px; padding-right: 24px; }
+      .footer__grid > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+      }
+      .footer__grid > div > img { margin: 0 auto 16px auto; }
+      .footer-socials { justify-content: center; width: 100%; }
+      .footer-links { align-items: center; }
+    }
+  </style>
   <div class="page-width footer__inner" style="display:block;">
     <div class="footer__grid" style="gap:48px;">
       <div>
@@ -7,7 +22,7 @@
         </a>
         <h3 style="margin-top:0; font-size: 0.9rem; color: #ccc; margin-bottom: 6px; font-weight: normal;">{{ section.settings.footer_heading }}</h3>
         <p style="margin: 0; font-size: 0.85rem; line-height: 1.6; color: #888;">{{ section.settings.footer_text }}</p>
-        <div style="margin-top: 24px; display: flex; gap: 16px; align-items: center;">
+        <div class="footer-socials" style="margin-top: 24px; display: flex; gap: 16px; align-items: center;">
           <a href="https://www.instagram.com/montanastationeryid/" target="_blank" rel="noopener" aria-label="Instagram" style="display:inline-flex; align-items:center; justify-content:center; width: 32px; height: 32px; border-radius: 50%; background: transparent; border: 1px solid rgba(255,255,255,0.1); color: #888; transition: all 0.3s ease;" onmouseover="this.style.color='#fff'; this.style.borderColor='rgba(255,255,255,0.3)';" onmouseout="this.style.color='#888'; this.style.borderColor='rgba(255,255,255,0.1)';">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
           </a>
@@ -24,7 +39,7 @@
       </div>
       <div>
         <h4 style="color: #fff; font-family: var(--font-heading); font-size: 0.85rem; margin-bottom: 16px; margin-top: 0; letter-spacing: 0.05em; text-transform: uppercase;">PRODUK</h4>
-        <div class="grid" style="gap:12px; display: flex; flex-direction: column;">
+        <div class="grid footer-links" style="gap:12px; display: flex; flex-direction: column;">
           <a href="/pages/katalog" style="color: #888; font-size: 0.85rem; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#888'">Katalog Produk</a>
           <a href="/pages/about-us?view=about-us" style="color: #888; font-size: 0.85rem; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#888'">Tentang Montana</a>
           <a href="/blogs/news" style="color: #888; font-size: 0.85rem; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#888'">Blog</a>
@@ -32,14 +47,14 @@
       </div>
       <div>
         <h4 style="color: #fff; font-family: var(--font-heading); font-size: 0.85rem; margin-bottom: 16px; margin-top: 0; letter-spacing: 0.05em; text-transform: uppercase;">LAYANAN</h4>
-        <div class="grid" style="gap:12px; display: flex; flex-direction: column;">
+        <div class="grid footer-links" style="gap:12px; display: flex; flex-direction: column;">
           <a href="/pages/contact-us?view=contact" style="color: #888; font-size: 0.85rem; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#888'">Hubungi Kami</a>
           <a href="/pages/contact-us?view=contact" style="color: #888; font-size: 0.85rem; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#888'">Pesanan Grosir (B2B)</a>
         </div>
       </div>
       <div>
         <h4 style="color: #fff; font-family: var(--font-heading); font-size: 0.85rem; margin-bottom: 16px; margin-top: 0; letter-spacing: 0.05em; text-transform: uppercase;">MARKETPLACE</h4>
-        <div class="grid" style="gap:12px; display: flex; flex-direction: column;">
+        <div class="grid footer-links" style="gap:12px; display: flex; flex-direction: column;">
           <a href="https://shopee.co.id/montanaid" target="_blank" rel="noopener" style="color: #888; font-size: 0.85rem; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#888'">Shopee</a>
           <a href="https://www.tokopedia.com/montanaid" target="_blank" rel="noopener" style="color: #888; font-size: 0.85rem; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#888'">Tokopedia</a>
           <a href="https://www.tiktok.com/@montanastationeryid" target="_blank" rel="noopener" style="color: #888; font-size: 0.85rem; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#888'">TikTok Shop</a>
