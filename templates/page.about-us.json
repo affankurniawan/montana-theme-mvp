@@ -1,9 +1,9 @@
 {
   "sections": {
     "intro": {
-      "type": "hero-banner",
+      "type": "hero-image-banner",
       "settings": {
-        "eyebrow": "TENTANG MONTANA",
+        "image": "shopify:\/\/shop_images\/about-us.jpg",
         "heading": "Kami percaya alat yang baik tidak boleh sulit dijangkau.",
         "text": "Montana adalah merek bernilai cerdas yang dirancang untuk membuat produk sehari-hari berkualitas tinggi lebih mudah diakses oleh generasi ini.",
         "primary_label": "",
