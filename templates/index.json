@@ -10,7 +10,7 @@
 {
   "sections": {
     "hero": {
-      "type": "hero-banner",
+      "type": "hero-image-banner",
       "settings": {
         "eyebrow": "",
         "heading": "Be Smart With Montana",
