@@ -1,9 +1,20 @@
 <section class="section section--spacious">
+  <style>
+    .fc-container { display: flex; flex-direction: row; gap: 48px; align-items: flex-start; flex-wrap: wrap; }
+    .fc-header-col { flex: 1 1 300px; position: sticky; top: 120px; z-index: 10; }
+    .fc-grid-col { flex: 3 1 800px; width: 100%; }
+    
+    @media (max-width: 767px) {
+      .fc-container { gap: 24px; flex-direction: column; }
+      .fc-header-col { position: relative; top: 0; width: 100%; text-align: center; }
+    }
+  </style>
+
   <div class="page-width">
-    <div style="display: flex; flex-direction: row; gap: 48px; align-items: flex-start; flex-wrap: wrap;">
+    <div class="fc-container">
       
       <!-- Left Header Area -->
-      <div style="flex: 1 1 300px; position: sticky; top: 120px;">
+      <div class="fc-header-col">
         {%- if section.settings.eyebrow != blank -%}
           <span style="font-size:0.85rem; color:#888; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; margin:0; display:block;">{{ section.settings.eyebrow }}</span>
         {%- endif -%}
@@ -23,7 +34,7 @@
       </div>
 
       <!-- Right Product Grid Area -->
-      <div style="flex: 3 1 800px;">
+      <div class="fc-grid-col">
         <!-- Overriding standard grid with inline custom 4-column layout for strict adherence to user request -->
         <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 24px;">
           {%- if coll != blank and coll.products_count > 0 -%}
