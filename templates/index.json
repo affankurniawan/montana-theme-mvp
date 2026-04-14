@@ -12,7 +12,7 @@
     "hero": {
       "type": "hero-image-banner",
       "settings": {
-        "image": "shopify://shop_images/hero.jpg",
+        "image": "shopify://shop_images/hero_d62618ef-1d99-4056-bfc9-b39c14c06fb2.jpg",
         "primary_label": "Belanja Produk",
         "primary_link": "/pages/katalog",
         "secondary_label": "Tentang Montana",
