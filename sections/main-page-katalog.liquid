@@ -20,19 +20,43 @@
         <input type="search" name="q" placeholder="Cari produk..." style="flex-grow: 1; padding: 0 12px; border: none; background: transparent; color: #fff; font-size: 0.9rem; outline: none;">
       </form>
 
-      <div style="overflow-y: auto; flex-grow: 1; padding-right: 8px;" class="custom-scrollbar">
-        <h4 style="font-size: 0.85rem; color: #fff; font-weight: 700; letter-spacing: 1px; margin: 0 0 16px; display: flex; align-items: center; gap: 8px; text-transform: uppercase;">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" style="opacity:0.8;"><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>
-          Kategori
-        </h4>
-        <nav style="display: flex; flex-direction: column; gap: 4px;">
-          <a href="/pages/katalog" style="padding: 10px 12px; background: rgba(255, 216, 0, 0.1); color: var(--color-accent); font-weight: 600; text-decoration: none; font-size: 0.9rem; border-radius: 6px;">Semua</a>
-          {%- for type in collections.all.all_types -%}
-            {%- if type != blank -%}
-              <a href="{{ routes.search_url }}?type=product&q={{ type | url_encode }}" style="padding: 10px 12px; background: transparent; color: #aaa; font-weight: 500; text-decoration: none; font-size: 0.9rem; border-radius: 6px; transition: all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.05)'; this.style.color='#fff'" onmouseout="this.style.background='transparent'; this.style.color='#aaa'">{{ type }}</a>
-            {%- endif -%}
-          {%- endfor -%}
-        </nav>
+      <div style="overflow-y: auto; flex-grow: 1; padding-right: 8px;" class="custom-scrollbar catalog-categories-wrapper">
+        <!-- Desktop Category Menu (Persistent) -->
+        <div class="sidebar-categories-desktop">
+          <h4 style="font-size: 0.85rem; color: #fff; font-weight: 700; letter-spacing: 1px; margin: 0 0 16px; display: flex; align-items: center; gap: 8px; text-transform: uppercase;">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" style="opacity:0.8;"><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>
+            Kategori
+          </h4>
+          <nav style="display: flex; flex-direction: column; gap: 4px;">
+            <a href="/pages/katalog" style="padding: 10px 12px; background: rgba(255, 216, 0, 0.1); color: var(--color-accent); font-weight: 600; text-decoration: none; font-size: 0.9rem; border-radius: 6px;">Semua</a>
+            {%- for type in collections.all.all_types -%}
+              {%- if type != blank -%}
+                <a href="{{ routes.search_url }}?type=product&q={{ type | url_encode }}" style="padding: 10px 12px; background: transparent; color: #aaa; font-weight: 500; text-decoration: none; font-size: 0.9rem; border-radius: 6px; transition: all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.05)'; this.style.color='#fff'" onmouseout="this.style.background='transparent'; this.style.color='#aaa'">{{ type }}</a>
+              {%- endif -%}
+            {%- endfor -%}
+          </nav>
+        </div>
+
+        <!-- Mobile Category Menu (Dropdown / Accordion) -->
+        <details class="sidebar-categories-mobile">
+          <summary style="font-size: 0.9rem; color: #fff; font-weight: 700; padding: 12px 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; text-transform: uppercase; list-style: none;">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" style="opacity:0.8;"><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>
+              Saring Kategori  
+            </div>
+            <svg class="chevron-ico" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </summary>
+          <div style="padding-top: 16px;">
+            <nav style="display: flex; flex-direction: row; flex-wrap: wrap; gap: 8px;">
+              <a href="/pages/katalog" style="padding: 8px 16px; background: rgba(255, 216, 0, 0.1); color: var(--color-accent); font-weight: 600; text-decoration: none; font-size: 0.85rem; border-radius: 6px; border: 1px solid var(--color-accent);">Semua</a>
+              {%- for type in collections.all.all_types -%}
+                {%- if type != blank -%}
+                  <a href="{{ routes.search_url }}?type=product&q={{ type | url_encode }}" style="padding: 8px 16px; background: transparent; color: #aaa; font-weight: 500; text-decoration: none; font-size: 0.85rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); transition: all 0.2s;">{{ type }}</a>
+                {%- endif -%}
+              {%- endfor -%}
+            </nav>
+          </div>
+        </details>
       </div>
 
     </aside>
@@ -139,11 +163,17 @@
   </div>
   
   <style>
+    .sidebar-categories-mobile { display: none; }
+    .sidebar-categories-desktop { display: block; }
+    
     @media (max-width: 900px) {
       .catalog-layout { flex-direction: column; gap: 24px; }
       .catalog-sidebar { width: 100% !important; position: static !important; }
-      .catalog-sidebar nav { flex-direction: row !important; flex-wrap: wrap; gap: 8px; }
-      .catalog-sidebar nav a { padding: 8px 16px !important; font-size: 0.85rem !important; border: 1px solid rgba(255,255,255,0.1); }
+      
+      .sidebar-categories-desktop { display: none; }
+      .sidebar-categories-mobile { display: block; }
+      details.sidebar-categories-mobile[open] summary .chevron-ico { transform: rotate(180deg); }
+      details.sidebar-categories-mobile summary::-webkit-details-marker { display: none; }
     }
   </style>
 </section>
