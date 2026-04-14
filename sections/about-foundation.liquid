@@ -118,10 +118,10 @@
       {%- for block in section.blocks -%}
         {%- assign downcase_title = block.settings.title | downcase -%}
         {%- assign fallback_img = 'notebook.png' -%}
-        {%- if downcase_title contains 'misi' -%}{%- assign fallback_img = 'about_mission.png' -%}
-        {%- elsif downcase_title contains 'visi' -%}{%- assign fallback_img = 'about_vision.png' -%}
-        {%- elsif downcase_title contains 'janji' -%}{%- assign fallback_img = 'about_promise.png' -%}
-        {%- elsif downcase_title contains 'peran' -%}{%- assign fallback_img = 'about_role.png' -%}
+        {%- if downcase_title contains 'pendidikan' -%}{%- assign fallback_img = 'about_mission.png' -%}
+        {%- elsif downcase_title contains 'kerja' -%}{%- assign fallback_img = 'about_vision.png' -%}
+        {%- elsif downcase_title contains 'aksesibilitas' -%}{%- assign fallback_img = 'about_role.png' -%}
+        {%- elsif downcase_title contains 'integritas' -%}{%- assign fallback_img = 'about_promise.png' -%}
         {%- endif -%}
 
         <div class="f-bento-card" {{ block.shopify_attributes }}>

@@ -105,36 +105,36 @@
       "type": "about-foundation",
       "settings": {
         "eyebrow": "",
-        "heading": "Memberdayakan Kemajuan Harian Anda",
-        "text": "Kami yakin kualitas premium bukanlah keistimewaan eksklusif. Kami merakit esensial harian dengan memadukan presisi material kuat dan harga yang sangat adil untuk mendukung ambisi Anda."
+        "heading": "VISI KAMI",
+        "text": "Menjadi mitra alat tulis pilihan utama bagi keluarga dan profesional di Indonesia, melalui penyediaan solusi cerdas berkualitas tinggi yang memberikan nilai tambah di setiap fase kehidupan."
       },
       "blocks": {
         "b1": {
           "type": "card",
           "settings": {
-            "title": "Misi",
-            "text": "Menghadirkan produk esensial harian yang secara brilian lebih mudah dijangkau generasi saat ini melalui penetapan harga yang adil dan daya tahan yang mutlak."
+            "title": "Solusi Pendidikan",
+            "text": "Mendukung perkembangan generasi penerus dengan menyediakan alat tulis sekolah yang andal, aman, dan dirancang khusus untuk memotivasi semangat belajar melalui desain yang inspiratif."
           }
         },
         "b2": {
           "type": "card",
           "settings": {
-            "title": "Visi",
-            "text": "Ke depan, berkontribusi penuh pada fondasi generasi yang lebih tajam dan menggunakan skala dampaknya demi membiayai inisiatif-inisiatif pembangunan pendidikan."
+            "title": "Efisiensi Kerja",
+            "text": "Menyediakan perlengkapan kantor fungsional yang dikembangkan untuk meningkatkan produktivitas serta menunjang profesionalisme di lingkungan kerja."
           }
         },
         "b3": {
           "type": "card",
           "settings": {
-            "title": "Janji",
-            "text": "Peralatan andal tidak semestinya diletakkan jauh dari batas daya beli wajar."
+            "title": "Aksesibilitas Luas",
+            "text": "Memastikan ketersediaan produk berkualitas unggul dengan harga kompetitif guna menjamin aksesibilitas yang merata bagi seluruh lapisan masyarakat Indonesia."
           }
         },
         "b4": {
           "type": "card",
           "settings": {
-            "title": "Peran Kami",
-            "text": "Sebaris merek terapan harian yang dengan tulus menghormati laju sepasang roda; ambisi dan anggaran Anda."
+            "title": "Integritas Produk",
+            "text": "Menjaga kepercayaan konsumen melalui komitmen terhadap konsistensi kualitas dan inovasi berkelanjutan yang relevan dengan kebutuhan gaya hidup sehari-hari."
           }
         }
       },
