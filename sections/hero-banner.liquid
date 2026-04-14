@@ -1,59 +1,12 @@
-<section class="hero-banner-video" style="position:relative; width:100%; min-height:85vh; padding: 80px 24px 100px 24px; box-sizing: border-box; display:flex; align-items:center; justify-content:center; overflow:hidden; background: var(--color-background);">
-  <!-- WebGL 3D Canvas Background (Ethereal Beams) -->
-  <canvas id="ethereal-canvas" style="position:absolute; top:0; left:0; width:100%; height:120%; z-index:1; transform-origin:center top; object-fit: cover;"></canvas>
+<section class="hero-banner-video" style="position:relative; width:100%; min-height:600px; aspect-ratio: 21/9; padding: 40px 24px; box-sizing: border-box; display:flex; align-items:flex-end; justify-content:center; overflow:hidden; background: #000;">
+  <!-- Static Image Background -->
+  <img src="{{ 'hero.png' | asset_url }}" alt="Montana Essentials" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit: cover; object-position: center; z-index: 1;">
+  
+  <!-- Subtle Gradient Overlay to ensure buttons are readable at the bottom -->
+  <div style="position:absolute; bottom:0; left:0; width:100%; height:40%; background:linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%); z-index:2; pointer-events:none;"></div>
 
-
-  <!-- Overlay & Ethereal Beams Background Effect -->
-  <style>
-    @keyframes ethereal-beam-sweep {
-      0% { transform: translateX(-100%) skewX(-25deg) scale(1); opacity: 0; }
-      20% { opacity: 0.6; }
-      80% { opacity: 0.6; }
-      100% { transform: translateX(250vw) skewX(-25deg) scale(1.5); opacity: 0; }
-    }
-    .ethereal-light-beam {
-      position: absolute;
-      top: -50%;
-      bottom: -50%;
-      width: 40vw;
-      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%);
-      animation: ethereal-beam-sweep 12s infinite cubic-bezier(0.4, 0, 0.2, 1);
-      z-index: 2;
-      pointer-events: none;
-      filter: blur(40px);
-    }
-    .ethereal-light-beam:nth-child(2) {
-      animation-delay: 6s;
-      width: 60vw;
-      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.03) 50%, transparent 100%);
-      top: -10%;
-    }
-  </style>
-  <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.9) 100%); z-index:2; overflow:hidden;">
-    <div class="ethereal-light-beam"></div>
-    <div class="ethereal-light-beam"></div>
-  </div>
-
-  <!-- Content Layer -->
-  <div class="page-width" style="position:relative; z-index:3; text-align:center; color:#fff; max-width:800px;">
-      {%- if section.settings.heading_size == 'huge' -%}
-        {%- assign font_eyebrow = 'clamp(1.2rem, 2vw, 1.5rem)' -%}
-        {%- assign font_heading = 'clamp(3.5rem, 6vw, 7rem)' -%}
-        {%- assign font_text = 'clamp(1rem, 2vw, 1.25rem)' -%}
-      {%- else -%}
-        {%- assign font_eyebrow = 'clamp(1rem, 1.5vw, 1.25rem)' -%}
-        {%- assign font_heading = 'clamp(2.5rem, 4.5vw, 5.5rem)' -%}
-        {%- assign font_text = 'clamp(1rem, 1.5vw, 1.15rem)' -%}
-      {%- endif -%}
-
-      <!-- Minimal Eyebrow -->
-      <div class="gsap-hero-eyebrow" style="font-family:var(--font-body); color:var(--color-accent); font-size:{{ font_eyebrow }}; font-weight:700; letter-spacing:0.15em; margin-bottom:16px; text-transform:uppercase;">{{ section.settings.eyebrow }}</div>
-      
-      <!-- Ultra-Giant Headline -->
-      <h1 class="gsap-hero-heading" style="font-family:var(--font-heading); font-size:{{ font_heading }}; font-weight:900; margin:0 0 16px; line-height:1; letter-spacing:-0.03em; color:#fff; background: radial-gradient(circle, #fff 40%, rgba(255,216,0,0.8) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 10px 40px rgba(0,0,0,0.8);">{{ section.settings.heading }}</h1>
-      
-      <!-- Thin Elegant Sub-headline -->
-      <p class="gsap-hero-text" style="font-size:{{ font_text }}; color:rgba(255,255,255,0.7); font-weight:300; font-family:var(--font-body); letter-spacing:0.02em; margin:0 auto 40px; max-width: 600px; line-height:1.5;">{{ section.settings.text }}</p>
+  <!-- Content Layer (Buttons Only) -->
+  <div class="page-width" style="position:relative; z-index:3; text-align:center; width:100%;">
       
       <!-- Pill Buttons (Double Stack) -->
       <div class="gsap-hero-buttons" style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
@@ -64,7 +17,6 @@
           <a href="{{ section.settings.secondary_link }}" class="button button--secondary" style="display:inline-flex; align-items:center; justify-content:center; font-size:1rem; padding: 14px 32px; font-weight:800; border-radius: 999px; background: rgba(0,0,0,0.5); color: var(--color-accent); text-decoration: none; border: 2px solid rgba(255, 216, 0, 0.5); backdrop-filter: blur(10px); transition: transform 0.2s, border-color 0.2s, background 0.2s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.borderColor='var(--color-accent)'; this.style.background='rgba(255,216,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255, 216, 0, 0.5)'; this.style.background='rgba(0,0,0,0.5)'">{{ section.settings.secondary_label }}</a>
         {%- endif -%}
       </div>
-    </div>
   </div>
 </section>
 
@@ -72,245 +24,12 @@
   document.addEventListener("DOMContentLoaded", () => {
     gsap.registerPlugin(ScrollTrigger);
 
-    // Floating SVG Icons Background Animation
-    const icons = gsap.utils.toArray('.bg-icon');
-    if (icons.length > 0) {
-      icons.forEach((icon, i) => {
-        gsap.to(icon, {
-          y: "random(-150, -50)",
-          x: "random(-50, 50)",
-          rotation: "random(-45, 45)",
-          duration: "random(12, 25)",
-          repeat: -1,
-          yoyo: true,
-          ease: "sine.inOut"
-        });
-      });
-    }
-
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-    tl.fromTo(".gsap-hero-eyebrow", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1 }, "+=0.2")
-      .fromTo(".gsap-hero-heading", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 1.2, ease: "expo.out" }, "-=0.6")
-      .fromTo(".gsap-hero-text", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1 }, "-=0.8")
-      .fromTo(".gsap-hero-buttons", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1 }, "-=0.8");
-
-    // ScrollTrigger Parallax for Video/SVG/WebGL Background
-    gsap.to("#ethereal-canvas", {
-      yPercent: 25,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".hero-banner-video",
-        start: "top top",
-        end: "bottom top",
-        scrub: true
-      }
-    });
-
-    // ScrollTrigger Fade & Slide for Content Overlay
-    gsap.to(".gsap-hero-content", {
-      y: -100,
-      opacity: 0,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".hero-banner-video",
-        start: "top top",
-        end: "center top",
-        scrub: true
-      }
-    });
+    tl.fromTo(".gsap-hero-buttons", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1, delay: 0.2 });
   });
 </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const canvas = document.getElementById("ethereal-canvas");
-    if (!canvas || typeof THREE === 'undefined') return;
-    
-    const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: false, antialias: true, powerPreference: "high-performance" });
-    const scene = new THREE.Scene();
-    scene.background = new THREE.Color("#000000");
-    scene.fog = new THREE.FogExp2(0x000000, 0.05);
 
-    const camera = new THREE.PerspectiveCamera(30, canvas.clientWidth / canvas.clientHeight, 0.1, 100);
-    camera.position.set(0, 0, 20);
-
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1);
-    scene.add(ambientLight);
-
-    const dirLight = new THREE.DirectionalLight(0xffffff, 1);
-    dirLight.position.set(0, 3, 10);
-    scene.add(dirLight);
-
-    const noise = `
-    vec4 permute(vec4 x){return mod(((x*34.0)+1.0)*x, 289.0);}
-    vec4 taylorInvSqrt(vec4 r){return 1.79284291400159 - 0.85373472095314 * r;}
-    vec3 fade(vec3 t) {return t*t*t*(t*(t*6.0-15.0)+10.0);}
-    float cnoise(vec3 P){
-      vec3 Pi0 = floor(P); vec3 Pi1 = Pi0 + vec3(1.0);
-      Pi0 = mod(Pi0, 289.0); Pi1 = mod(Pi1, 289.0);
-      vec3 Pf0 = fract(P); vec3 Pf1 = Pf0 - vec3(1.0);
-      vec4 ix = vec4(Pi0.x, Pi1.x, Pi0.x, Pi1.x);
-      vec4 iy = vec4(Pi0.yy, Pi1.yy);
-      vec4 iz0 = Pi0.zzzz; vec4 iz1 = Pi1.zzzz;
-      vec4 ixy = permute(permute(ix) + iy);
-      vec4 ixy0 = permute(ixy + iz0); vec4 ixy1 = permute(ixy + iz1);
-      vec4 gx0 = ixy0 / 7.0; vec4 gy0 = fract(floor(gx0) / 7.0) - 0.5;
-      gx0 = fract(gx0); vec4 gz0 = vec4(0.5) - abs(gx0) - abs(gy0);
-      vec4 sz0 = step(gz0, vec4(0.0));
-      gx0 -= sz0 * (step(0.0, gx0) - 0.5); gy0 -= sz0 * (step(0.0, gy0) - 0.5);
-      vec4 gx1 = ixy1 / 7.0; vec4 gy1 = fract(floor(gx1) / 7.0) - 0.5;
-      gx1 = fract(gx1); vec4 gz1 = vec4(0.5) - abs(gx1) - abs(gy1);
-      vec4 sz1 = step(gz1, vec4(0.0));
-      gx1 -= sz1 * (step(0.0, gx1) - 0.5); gy1 -= sz1 * (step(0.0, gy1) - 0.5);
-      vec3 g000 = vec3(gx0.x,gy0.x,gz0.x); vec3 g100 = vec3(gx0.y,gy0.y,gz0.y);
-      vec3 g010 = vec3(gx0.z,gy0.z,gz0.z); vec3 g110 = vec3(gx0.w,gy0.w,gz0.w);
-      vec3 g001 = vec3(gx1.x,gy1.x,gz1.x); vec3 g101 = vec3(gx1.y,gy1.y,gz1.y);
-      vec3 g011 = vec3(gx1.z,gy1.z,gz1.z); vec3 g111 = vec3(gx1.w,gy1.w,gz1.w);
-      vec4 norm0 = taylorInvSqrt(vec4(dot(g000,g000),dot(g010,g010),dot(g100,g100),dot(g110,g110)));
-      g000 *= norm0.x; g010 *= norm0.y; g100 *= norm0.z; g110 *= norm0.w;
-      vec4 norm1 = taylorInvSqrt(vec4(dot(g001,g001),dot(g011,g011),dot(g101,g101),dot(g111,g111)));
-      g001 *= norm1.x; g011 *= norm1.y; g101 *= norm1.z; g111 *= norm1.w;
-      float n000 = dot(g000, Pf0); float n100 = dot(g100, vec3(Pf1.x,Pf0.yz));
-      float n010 = dot(g010, vec3(Pf0.x,Pf1.y,Pf0.z)); float n110 = dot(g110, vec3(Pf1.xy,Pf0.z));
-      float n001 = dot(g001, vec3(Pf0.xy,Pf1.z)); float n101 = dot(g101, vec3(Pf1.x,Pf0.y,Pf1.z));
-      float n011 = dot(g011, vec3(Pf0.x,Pf1.yz)); float n111 = dot(g111, Pf1);
-      vec3 fade_xyz = fade(Pf0);
-      vec4 n_z = mix(vec4(n000,n100,n010,n110),vec4(n001,n101,n011,n111),fade_xyz.z);
-      vec2 n_yz = mix(n_z.xy,n_z.zw,fade_xyz.y);
-      float n_xyz = mix(n_yz.x,n_yz.y,fade_xyz.x);
-      return 2.2 * n_xyz;
-    }
-    float random (in vec2 st) { return fract(sin(dot(st.xy, vec2(12.9898,78.233)))* 43758.5453123); }
-    float snoise (in vec2 st) {
-      vec2 i = floor(st); vec2 f = fract(st);
-      float a = random(i); float b = random(i + vec2(1.0, 0.0));
-      float c = random(i + vec2(0.0, 1.0)); float d = random(i + vec2(1.0, 1.0));
-      vec2 u = f * f * (3.0 - 2.0 * f);
-      return mix(a, b, u.x) + (c - a)* u.y * (1.0 - u.x) + (d - b) * u.x * u.y;
-    }
-    `;
-
-    const uniforms = {
-      time: { value: 0 }, uSpeed: { value: 2.5 },
-      uNoiseIntensity: { value: 2.0 }, uScale: { value: 0.15 }
-    };
-
-    const material = new THREE.MeshStandardMaterial({ color: 0x000000, roughness: 0.3, metalness: 0.3 });
-    
-    material.onBeforeCompile = (shader) => {
-      shader.uniforms.time = uniforms.time;
-      shader.uniforms.uSpeed = uniforms.uSpeed;
-      shader.uniforms.uNoiseIntensity = uniforms.uNoiseIntensity;
-      shader.uniforms.uScale = uniforms.uScale;
-
-      shader.vertexShader = `
-        varying vec3 vPosition;
-        uniform float time;
-        uniform float uSpeed;
-        uniform float uScale;
-        ${noise}
-        float getPos(vec3 pos) {
-          vec3 noisePos = vec3(pos.x * 0., pos.y - uv.y, pos.z + time * uSpeed * 3.) * uScale;
-          return cnoise(noisePos);
-        }
-        vec3 getCurrentPos(vec3 pos) {
-          vec3 newpos = pos; newpos.z += getPos(pos);
-          return newpos;
-        }
-        vec3 getNormal(vec3 pos) {
-          vec3 curpos = getCurrentPos(pos);
-          vec3 nextposX = getCurrentPos(pos + vec3(0.01, 0.0, 0.0));
-          vec3 nextposZ = getCurrentPos(pos + vec3(0.0, -0.01, 0.0));
-          vec3 tangentX = normalize(nextposX - curpos);
-          vec3 tangentZ = normalize(nextposZ - curpos);
-          return normalize(cross(tangentZ, tangentX));
-        }
-        ${shader.vertexShader}
-      `;
-
-      shader.vertexShader = shader.vertexShader.replace(
-        '#include <begin_vertex>',
-        `vec3 transformed = vec3( position ); transformed.z += getPos(transformed.xyz);`
-      );
-      shader.vertexShader = shader.vertexShader.replace(
-        '#include <beginnormal_vertex>',
-        `vec3 objectNormal = getNormal(position.xyz);`
-      );
-      shader.fragmentShader = `
-        uniform float uNoiseIntensity;
-        ${noise}
-        ${shader.fragmentShader}
-      `;
-      shader.fragmentShader = shader.fragmentShader.replace(
-        '#include <dithering_fragment>',
-        `#include <dithering_fragment>\n float randomNoise = snoise(gl_FragCoord.xy);\n gl_FragColor.rgb -= randomNoise / 15. * uNoiseIntensity;`
-      );
-    };
-
-    function createStackedPlanesBufferGeometry(n, width, height, spacing, heightSegments) {
-      const geometry = new THREE.BufferGeometry();
-      const numVertices = n * (heightSegments + 1) * 2;
-      const numFaces = n * heightSegments * 2;
-      const positions = new Float32Array(numVertices * 3);
-      const indices = new Uint32Array(numFaces * 3);
-      const uvs = new Float32Array(numVertices * 2);
-      
-      let vertexOffset = 0, indexOffset = 0, uvOffset = 0;
-      const totalWidth = n * width + (n - 1) * spacing;
-      const xOffsetBase = -totalWidth / 2;
-
-      for (let i = 0; i < n; i++) {
-        const xOffset = xOffsetBase + i * (width + spacing);
-        const uvXOffset = Math.random() * 300;
-        const uvYOffset = Math.random() * 300;
-        for (let j = 0; j <= heightSegments; j++) {
-          const y = height * (j / heightSegments - 0.5);
-          positions.set([xOffset, y, 0], vertexOffset * 3);
-          positions.set([xOffset + width, y, 0], (vertexOffset + 1) * 3);
-          const uvY = j / heightSegments;
-          uvs.set([uvXOffset, uvY + uvYOffset, uvXOffset + 1, uvY + uvYOffset], uvOffset);
-          if (j < heightSegments) {
-            indices.set([vertexOffset, vertexOffset + 1, vertexOffset + 2, vertexOffset + 2, vertexOffset + 1, vertexOffset + 3], indexOffset);
-            indexOffset += 6;
-          }
-          vertexOffset += 2; uvOffset += 4;
-        }
-      }
-      geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-      geometry.setAttribute('uv', new THREE.BufferAttribute(uvs, 2));
-      geometry.setIndex(new THREE.BufferAttribute(indices, 1));
-      geometry.computeVertexNormals();
-      return geometry;
-    }
-
-    const geometry = createStackedPlanesBufferGeometry(15, 2.5, 18, 0, 100);
-    const mesh = new THREE.Mesh(geometry, material);
-    const group = new THREE.Group();
-    group.rotation.set(0, 0, (43 * Math.PI) / 180);
-    group.add(mesh);
-    scene.add(group);
-
-    const resizeCanvasToDisplaySize = () => {
-      const width = canvas.clientWidth;
-      const height = canvas.clientHeight;
-      if (canvas.width !== width || canvas.height !== height) {
-        renderer.setSize(width, height, false);
-        camera.aspect = width / height;
-        camera.updateProjectionMatrix();
-      }
-    };
-
-    let clock = new THREE.Clock();
-    function animate() {
-      requestAnimationFrame(animate);
-      resizeCanvasToDisplaySize();
-      uniforms.time.value += 0.1 * clock.getDelta();
-      renderer.render(scene, camera);
-    }
-    animate();
-  });
-</script>
 
 
 {% schema %}
