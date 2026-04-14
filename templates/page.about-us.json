@@ -13,7 +13,7 @@
       "type": "hero-image-banner",
       "settings": {
         "image": "shopify://shop_images/about-us_5f36c730-1594-45fe-a3a7-76cd3da915ec.jpg",
-        "image_mobile": "shopify://shop_images/about-us_5f36c730-1594-45fe-a3a7-76cd3da915ec.jpg",
+        "image_mobile": "shopify://shop_images/about-us-mobile.jpg",
         "primary_label": "",
         "primary_link": "",
         "secondary_label": "",
