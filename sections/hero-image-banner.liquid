@@ -1,9 +1,25 @@
 <section class="hero-banner-image" style="position:relative; width:100%; min-height:600px; aspect-ratio: 21/9; padding: 40px 24px; box-sizing: border-box; display:flex; align-items:flex-end; justify-content:center; overflow:hidden; background: #000;">
-  <!-- Static Image Background -->
+  <style>
+    .hero-desktop-img { display: block; }
+    .hero-mobile-img { display: none; }
+    @media screen and (max-width: 767px) {
+      .hero-desktop-img { display: none; }
+      .hero-mobile-img { display: block; }
+    }
+  </style>
+
+  <!-- Desktop Image -->
   {%- if section.settings.image != blank -%}
-    <img src="{{ section.settings.image | img_url: 'master' }}" alt="{{ section.settings.image.alt | default: 'Montana Essentials' }}" loading="eager" fetchpriority="high" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit: cover; object-position: center; z-index: 1;">
+    <img src="{{ section.settings.image | img_url: 'master' }}" alt="{{ section.settings.image.alt | default: 'Montana Essentials Desktop' }}" class="hero-desktop-img" loading="eager" fetchpriority="high" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit: cover; object-position: center; z-index: 1;">
   {%- else -%}
-    <img src="{{ 'hero.jpg' | asset_url }}" alt="Montana Essentials" loading="eager" fetchpriority="high" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit: cover; object-position: center; z-index: 1;">
+    <img src="{{ 'hero.jpg' | asset_url }}" alt="Montana Essentials" class="hero-desktop-img" loading="eager" fetchpriority="high" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit: cover; object-position: center; z-index: 1;">
+  {%- endif -%}
+
+  <!-- Mobile Image -->
+  {%- if section.settings.image_mobile != blank -%}
+    <img src="{{ section.settings.image_mobile | img_url: 'master' }}" alt="{{ section.settings.image_mobile.alt | default: 'Montana Essentials Mobile' }}" class="hero-mobile-img" loading="eager" fetchpriority="high" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit: cover; object-position: center; z-index: 1;">
+  {%- else -%}
+    <img src="{{ 'hero.jpg' | asset_url }}" alt="Montana Essentials Mobile" class="hero-mobile-img" loading="eager" fetchpriority="high" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit: cover; object-position: center; z-index: 1;">
   {%- endif -%}
   
   <!-- Subtle Gradient Overlay to ensure buttons are readable at the bottom -->
@@ -37,7 +53,8 @@
 {
   "name": "Hero Image Banner",
   "settings": [
-    {"type": "image_picker", "id": "image", "label": "Background Image"},
+    {"type": "image_picker", "id": "image", "label": "Background Image (Desktop)"},
+    {"type": "image_picker", "id": "image_mobile", "label": "Background Image (Mobile 9:16)"},
     {"type": "text", "id": "primary_label", "label": "Primary button label", "default": "Belanja Produk"},
     {"type": "url", "id": "primary_link", "label": "Primary button link"},
     {"type": "text", "id": "secondary_label", "label": "Secondary button label", "default": "Tentang Montana"},
