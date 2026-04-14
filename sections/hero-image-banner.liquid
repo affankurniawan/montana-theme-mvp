@@ -10,15 +10,15 @@
   <div style="position:absolute; bottom:0; left:0; width:100%; height:40%; background:linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%); z-index:2; pointer-events:none;"></div>
 
   <!-- Content Layer (Buttons Only) -->
-  <div class="page-width" style="position:relative; z-index:3; text-align:center; width:100%;">
+  <div class="page-width" style="position:absolute; top:58%; left:50%; transform: translateX(-50%); z-index:3; text-align:center; width:100%;">
       
       <!-- Pill Buttons (Double Stack) -->
-      <div class="gsap-hero-buttons" style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
+      <div class="gsap-hero-buttons" style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
         {%- if section.settings.primary_label != blank -%}
-          <a href="/pages/katalog" class="button button--accent" style="display:inline-flex; align-items:center; justify-content:center; font-size:1rem; padding: 14px 32px; font-weight:800; border-radius: 999px; background: var(--color-accent); color: #000; text-decoration: none; border: 2px solid var(--color-accent); box-shadow: 0 4px 14px rgba(255, 216, 0, 0.25); transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(255, 216, 0, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 14px rgba(255, 216, 0, 0.25)'">{{ section.settings.primary_label }}</a>
+          <a href="/pages/katalog" class="button button--accent" style="display:inline-flex; align-items:center; justify-content:center; font-size:0.85rem; padding: 10px 24px; font-weight:800; border-radius: 999px; background: var(--color-accent); color: #000; text-decoration: none; border: 2px solid var(--color-accent); box-shadow: 0 4px 14px rgba(255, 216, 0, 0.25); transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(255, 216, 0, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 14px rgba(255, 216, 0, 0.25)'">{{ section.settings.primary_label }}</a>
         {%- endif -%}
         {%- if section.settings.secondary_label != blank -%}
-          <a href="{{ section.settings.secondary_link }}" class="button button--secondary" style="display:inline-flex; align-items:center; justify-content:center; font-size:1rem; padding: 14px 32px; font-weight:800; border-radius: 999px; background: rgba(0,0,0,0.5); color: var(--color-accent); text-decoration: none; border: 2px solid rgba(255, 216, 0, 0.5); backdrop-filter: blur(10px); transition: transform 0.2s, border-color 0.2s, background 0.2s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.borderColor='var(--color-accent)'; this.style.background='rgba(255,216,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255, 216, 0, 0.5)'; this.style.background='rgba(0,0,0,0.5)'">{{ section.settings.secondary_label }}</a>
+          <a href="{{ section.settings.secondary_link }}" class="button button--secondary" style="display:inline-flex; align-items:center; justify-content:center; font-size:0.85rem; padding: 10px 24px; font-weight:800; border-radius: 999px; background: rgba(0,0,0,0.5); color: var(--color-accent); text-decoration: none; border: 2px solid rgba(255, 216, 0, 0.5); backdrop-filter: blur(10px); transition: transform 0.2s, border-color 0.2s, background 0.2s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.borderColor='var(--color-accent)'; this.style.background='rgba(255,216,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255, 216, 0, 0.5)'; this.style.background='rgba(0,0,0,0.5)'">{{ section.settings.secondary_label }}</a>
         {%- endif -%}
       </div>
   </div>
