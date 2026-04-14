@@ -12,57 +12,11 @@
     "hero": {
       "type": "hero-image-banner",
       "settings": {
-        "eyebrow": "",
-        "heading": "Be Smart With Montana",
-        "text": "Alat tulis tangguh premium dengan harga rasional untuk sekolah, kantor, rumah, dan bisnis Anda.",
+        "image": "shopify://shop_images/hero.jpg",
         "primary_label": "Belanja Produk",
         "primary_link": "/pages/katalog",
         "secondary_label": "Tentang Montana",
         "secondary_link": "/pages/about-us?view=about-us"
-      }
-    },
-    "marketplaces": {
-      "type": "marketplaces",
-      "blocks": {
-        "shopee": {
-          "type": "marketplace",
-          "settings": {
-            "title": "Shopee",
-            "link": "https://shopee.co.id/montanaid"
-          }
-        },
-        "tokopedia": {
-          "type": "marketplace",
-          "settings": {
-            "title": "Tokopedia",
-            "link": "https://www.tokopedia.com/montanaid"
-          }
-        },
-        "lazada": {
-          "type": "marketplace",
-          "settings": {
-            "title": "Lazada",
-            "link": "https://www.lazada.co.id/shop/montana-id/"
-          }
-        },
-        "tiktok": {
-          "type": "marketplace",
-          "settings": {
-            "title": "TikTok Shop",
-            "link": "https://www.tiktok.com/@montanastationeryid"
-          }
-        }
-      },
-      "block_order": [
-        "shopee",
-        "tokopedia",
-        "lazada",
-        "tiktok"
-      ],
-      "settings": {
-        "eyebrow": "Official Stores",
-        "heading": "Belanja di Official Store Kami",
-        "text": "Tersedia di marketplace favorit Anda — produk resmi, harga terbaik."
       }
     },
     "values": {
@@ -178,6 +132,49 @@
         "text": "Jelajahi produk-produk yang paling disukai dari Montana yang terbukti tangguh dengan harga rasional.",
         "collection": "frontpage",
         "products_to_show": 8
+      }
+    },
+    "marketplaces": {
+      "type": "marketplaces",
+      "blocks": {
+        "shopee": {
+          "type": "marketplace",
+          "settings": {
+            "title": "Shopee",
+            "link": "https://shopee.co.id/montanaid"
+          }
+        },
+        "tokopedia": {
+          "type": "marketplace",
+          "settings": {
+            "title": "Tokopedia",
+            "link": "https://www.tokopedia.com/montanaid"
+          }
+        },
+        "lazada": {
+          "type": "marketplace",
+          "settings": {
+            "title": "Lazada",
+            "link": "https://www.lazada.co.id/shop/montana-id/"
+          }
+        },
+        "tiktok": {
+          "type": "marketplace",
+          "settings": {
+            "title": "TikTok Shop",
+            "link": "https://www.tiktok.com/@montanastationeryid"
+          }
+        }
+      },
+      "block_order": [
+        "shopee",
+        "tokopedia",
+        "lazada",
+        "tiktok"
+      ],
+      "settings": {
+        "heading": "Belanja di Official Store Kami",
+        "text": "Tersedia di marketplace favorit Anda — produk resmi, harga terbaik."
       }
     },
     "why": {
