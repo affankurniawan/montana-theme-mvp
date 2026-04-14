@@ -1,10 +1,22 @@
 <section class="section" style="background:var(--color-surface); padding-top: 64px; padding-bottom: 64px;">
+  <style>
+    .mp-container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 32px; }
+    .mp-text-col { flex: 1 1 400px; text-align: left; }
+    .mp-pill-col { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: flex-start; }
+    
+    @media (max-width: 767px) {
+      .mp-container { flex-direction: column; justify-content: center; text-align: center; }
+      .mp-text-col { flex: 1 1 auto; width: 100%; text-align: center; }
+      .mp-pill-col { justify-content: center; width: 100%; }
+    }
+  </style>
+
   <div class="page-width">
     <!-- Flex Container -->
-    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 32px;">
+    <div class="mp-container">
       
       <!-- Left: Title & Subtitle -->
-      <div style="flex: 1 1 400px;">
+      <div class="mp-text-col">
         <h2 style="margin: 0 0 8px; font-family: var(--font-heading); font-size: 1.75rem; color: #fff; font-weight: 800; letter-spacing: 0.02em;">
           {{ section.settings.heading }}
         </h2>
@@ -14,7 +26,7 @@
       </div>
 
       <!-- Right: Marketplace Pills -->
-      <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+      <div class="mp-pill-col">
         {%- for block in section.blocks -%}
           {%- assign downcase_title = block.settings.title | downcase -%}
           {%- assign fallback_img = '' -%}
