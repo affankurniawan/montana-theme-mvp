@@ -1,13 +1,41 @@
 <section class="hero-banner-image {% if section.settings.enable_bottom_align %}hero-banner-bottom{% else %}hero-banner-center{% endif %}" style="position:relative; width:100%; min-height:600px; padding: 40px 24px; box-sizing: border-box; display:flex; justify-content:center; overflow:hidden; background: #000;">
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;800&display=swap');
+    
     .hero-banner-center { align-items: center; aspect-ratio: 21/9; }
     .hero-banner-bottom { align-items: flex-end; aspect-ratio: inherit; }
     .hero-desktop-img { display: block; }
     .hero-mobile-img { display: none; }
+    
+    .gsap-hero-heading {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 78.6px;
+      line-height: 1.1;
+      margin: 0 0 16px 0;
+    }
+    
+    .gsap-hero-subtext {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+      font-size: 21px;
+      line-height: 1.5;
+      max-width: 650px;
+      margin: 0 auto 32px auto;
+    }
+
     @media screen and (max-width: 767px) {
       .hero-desktop-img { display: none; }
       .hero-mobile-img { display: block; }
       .hero-banner-center, .hero-banner-bottom { min-height: 80vh; aspect-ratio: inherit; }
+      
+      .gsap-hero-heading {
+        font-size: 56.8px;
+        line-height: 1.1;
+      }
+      .gsap-hero-subtext {
+        font-size: 21px;
+      }
     }
   </style>
 
@@ -40,14 +68,14 @@
         {%- endif -%}
 
         {%- if section.settings.heading != blank -%}
-          <h1 style="font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight:800; line-height:1.1; margin:0 0 20px 0; color: {{ section.settings.text_color }};">
-            {{ section.settings.heading }}
+          <h1 class="gsap-hero-heading" style="color: {{ section.settings.text_color }};">
+            {{ section.settings.heading | newline_to_br }}
           </h1>
         {%- endif -%}
 
         {%- if section.settings.text != blank -%}
-          <div style="font-size: clamp(1rem, 1.5vw, 1.25rem); font-weight:500; opacity: 0.9; max-width: 650px; margin: 0 auto 32px auto; line-height:1.5;">
-            {{ section.settings.text }}
+          <div class="gsap-hero-subtext" style="opacity: 0.9;">
+            {{ section.settings.text | newline_to_br }}
           </div>
         {%- endif -%}
 
@@ -119,7 +147,7 @@
       "type": "color",
       "id": "text_color",
       "label": "Text & Outline Color",
-      "default": "#ffffff"
+      "default": "#000000"
     },
     {
       "type": "header",
@@ -129,7 +157,7 @@
       "type": "color",
       "id": "overlay_color",
       "label": "Overlay Filter Color",
-      "default": "#000000"
+      "default": "#ffffff"
     },
     {
       "type": "range",
@@ -139,7 +167,7 @@
       "step": 5,
       "unit": "%",
       "label": "Overlay Filter Opacity",
-      "default": 30
+      "default": 0
     },
     {
       "type": "checkbox",
