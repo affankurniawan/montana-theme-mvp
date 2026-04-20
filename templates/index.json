@@ -12,8 +12,15 @@
     "hero": {
       "type": "hero-image-banner",
       "settings": {
-        "image": "shopify://shop_images/hero.jpg",
-        "image_mobile": "shopify://shop_images/hero-mobile_e69db7ab-0f25-4224-bd10-49beb5fcce2c.jpg",
+        "image": "shopify://shop_images/hero_5a8edbbf-7443-475a-a373-bc2466ef6dc0.jpg",
+        "image_mobile": "shopify://shop_images/hero-mobile.jpg",
+        "eyebrow": "",
+        "heading": "Be Smart With Montana",
+        "text": "",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30,
+        "enable_bottom_align": false,
         "primary_label": "Belanja Produk",
         "primary_link": "/pages/katalog",
         "secondary_label": "Tentang Montana",

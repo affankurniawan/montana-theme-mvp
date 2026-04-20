@@ -12,8 +12,15 @@
     "intro": {
       "type": "hero-image-banner",
       "settings": {
-        "image": "shopify://shop_images/about-us_5f36c730-1594-45fe-a3a7-76cd3da915ec.jpg",
-        "image_mobile": "shopify://shop_images/about-us-mobile.jpg",
+        "image": "shopify://shop_images/about-us_c093381f-1fb8-4142-89dd-548c01a94f5e.jpg",
+        "image_mobile": "shopify://shop_images/about-us-mobile_a958691e-612e-4e51-a854-e96d6715265f.jpg",
+        "eyebrow": "",
+        "heading": "Be Smart With Montana",
+        "text": "",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30,
+        "enable_bottom_align": false,
         "primary_label": "",
         "primary_link": "",
         "secondary_label": "",
