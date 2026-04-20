@@ -27,7 +27,12 @@
     @media screen and (max-width: 767px) {
       .hero-desktop-img { display: none; }
       .hero-mobile-img { display: block; }
-      .hero-banner-center, .hero-banner-bottom { min-height: 80vh; aspect-ratio: inherit; }
+      .hero-banner-center, .hero-banner-bottom { 
+        min-height: 90vh; 
+        aspect-ratio: inherit; 
+        align-items: flex-start; /* Forces content to stick to the top on mobile */
+        padding-top: 18vh;       /* Pushes content down slightly past the baked-in Montana logo */
+      }
       
       .gsap-hero-heading {
         font-size: 56.8px;
@@ -35,6 +40,9 @@
       }
       .gsap-hero-subtext {
         font-size: 21px;
+      }
+      .gsap-hero-text {
+        margin-bottom: 0 !important; /* Neutralize desktop lift */
       }
     }
   </style>
