@@ -4,28 +4,6 @@
     .mp-text-col { flex: 1 1 400px; text-align: left; }
     .mp-pill-col { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: flex-start; }
     
-    .mp-pill {
-      display: inline-flex; align-items: center; justify-content: flex-start;
-      width: 180px; box-sizing: border-box; gap: 12px;
-      background: #111; /* Monochrome Base */
-      border: 1px solid rgba(230, 197, 51, 0.3); /* Subtle yellow border */
-      border-radius: 999px; padding: 12px 20px;
-      color: #fff; text-decoration: none; font-size: 0.95rem; font-weight: 700;
-      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    }
-    .mp-pill img {
-      transition: filter 0.3s ease;
-      filter: grayscale(100%) opacity(0.85); /* Desaturated Logo */
-    }
-    .mp-pill:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.6);
-      border-color: transparent;
-    }
-    .mp-pill:hover img {
-      filter: grayscale(0%) opacity(1); /* Reveal full color logo */
-    }
-
     @media (max-width: 767px) {
       .mp-container { flex-direction: column; justify-content: center; text-align: center; }
       .mp-text-col { flex: 1 1 auto; width: 100%; text-align: center; }
@@ -70,13 +48,10 @@
             {%- assign border = '1px solid rgba(255,255,255,0.2)' -%}
           {%- endif -%}
 
-          <style>
-            .mp-pill-{{ block.id }}:hover {
-              background: {{ bg_color }} !important;
-            }
-          </style>
-          
-          <a href="{{ block.settings.link }}" target="_blank" rel="noopener" class="mp-pill mp-pill-{{ block.id }}" {{ block.shopify_attributes }}>
+          <a href="{{ block.settings.link }}" target="_blank" rel="noopener" {{ block.shopify_attributes }}
+             style="display: inline-flex; align-items: center; justify-content: flex-start; width: 180px; box-sizing: border-box; gap: 12px; background: {{ bg_color }}; border: {{ border }}; border-radius: 999px; padding: 12px 20px; color: #fff; text-decoration: none; font-size: 0.95rem; font-weight: 700; transition: transform 0.2s, filter 0.2s;"
+             onmouseover="this.style.transform='translateY(-3px)'; this.style.filter='brightness(1.1)';" 
+             onmouseout="this.style.transform='translateY(0)'; this.style.filter='brightness(1)';">
             
             <div style="display: flex; align-items: center; justify-content: center; width: 26px; height: 26px; background: #ffffff; border-radius: 4px; padding: 2px; flex-shrink: 0;">
               {%- if block.settings.image != blank -%}
