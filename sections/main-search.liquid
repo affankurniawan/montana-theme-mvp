@@ -1,10 +1,10 @@
 <section class="main-collection page-width" style="padding-top: 40px; padding-bottom: 80px;">
   
   <!-- Breadcrumbs -->
-  <div class="breadcrumbs" style="color: #aaa; font-size: 0.85rem; margin-bottom: 24px; font-weight: 500; display:flex; align-items:center; gap: 8px;">
-    <a href="/" style="color: #fff; text-decoration: none;">Beranda</a> 
+  <div class="breadcrumbs" style="color: rgba(18,19,21,0.6); font-size: 0.9rem; margin-bottom: 24px; font-weight: 500; display:flex; align-items:center; gap: 10px;">
+    <a href="/" style="color: rgba(18,19,21,0.6); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#121315'" onmouseout="this.style.color='rgba(18,19,21,0.6)'">Beranda</a> 
     <span>/</span> 
-    <span style="color: var(--color-accent);">Pencarian</span>
+    <span style="color: #121315; font-weight: 800;">Pencarian</span>
   </div>
 
   <div style="display: flex; gap: 32px; align-items: flex-start;" class="catalog-layout">
@@ -12,24 +12,28 @@
     <!-- Sidebar -->
     <aside class="catalog-sidebar" style="width: 250px; flex-shrink: 0; display: flex; flex-direction: column; gap: 24px; position: sticky; top: 100px; max-height: calc(100vh - 120px);">
       
-      <form action="{{ routes.search_url }}" method="get" role="search" style="display: flex; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden; height: 44px; flex-shrink: 0; transition: border-color 0.2s;" onfocusin="this.style.borderColor='rgba(255,255,255,0.3)'" onfocusout="this.style.borderColor='rgba(255,255,255,0.1)'">
+      <form action="{{ routes.search_url }}" method="get" role="search" style="display: flex; background: #fff; border: 2px solid #121315; border-radius: 8px; overflow: hidden; height: 44px; flex-shrink: 0; transition: box-shadow 0.2s;" onfocusin="this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)';" onfocusout="this.style.boxShadow='none';">
         <input type="hidden" name="type" value="product">
-        <div style="display: flex; align-items: center; justify-content: center; padding-left: 12px; color: #888;">
+        <div style="display: flex; align-items: center; justify-content: center; padding-left: 12px; color: #121315;">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
         </div>
-        <input type="search" name="q" placeholder="Cari lagi..." value="{{ search.terms | escape }}" style="flex-grow: 1; padding: 0 12px; border: none; background: transparent; color: #fff; font-size: 0.9rem; outline: none;">
+        <input type="search" name="q" placeholder="Cari lagi..." value="{{ search.terms | escape }}" style="flex-grow: 1; padding: 0 12px; border: none; background: transparent; color: #121315; font-size: 0.9rem; outline: none;">
       </form>
 
       <div style="overflow-y: auto; flex-grow: 1; padding-right: 8px;" class="custom-scrollbar">
-        <h4 style="font-size: 0.85rem; color: #fff; font-weight: 700; letter-spacing: 1px; margin: 0 0 16px; display: flex; align-items: center; gap: 8px; text-transform: uppercase;">
+        <h4 style="font-size: 0.85rem; color: #121315; font-weight: 800; letter-spacing: 1px; margin: 0 0 16px; display: flex; align-items: center; gap: 8px; text-transform: uppercase;">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" style="opacity:0.8;"><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>
           Kategori
         </h4>
         <nav style="display: flex; flex-direction: column; gap: 4px;">
-          <a href="/pages/katalog" style="padding: 10px 12px; background: rgba(255, 216, 0, 0.1); color: var(--color-accent); font-weight: 600; text-decoration: none; font-size: 0.9rem; border-radius: 6px;">Semua Produk</a>
+          <a href="/pages/katalog" style="padding: 10px 12px; background: transparent; color: rgba(18,19,21,0.6); font-weight: 600; text-decoration: none; font-size: 0.9rem; border-radius: 6px; transition: all 0.2s;" onmouseover="this.style.background='#121315'; this.style.color='#FFD800'" onmouseout="this.style.background='transparent'; this.style.color='rgba(18,19,21,0.6)'">Semua Produk</a>
           {%- for type in collections.all.all_types -%}
             {%- if type != blank -%}
-              <a href="{{ routes.search_url }}?type=product&q={{ type | url_encode }}" style="padding: 10px 12px; background: transparent; color: #aaa; font-weight: 500; text-decoration: none; font-size: 0.9rem; border-radius: 6px; transition: all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.05)'; this.style.color='#fff'" onmouseout="this.style.background='transparent'; this.style.color='#aaa'">{{ type }}</a>
+              {%- if search.terms == type -%}
+                <a href="{{ routes.search_url }}?type=product&q={{ type | url_encode }}" style="padding: 10px 12px; background: #121315; color: var(--color-accent); font-weight: 600; text-decoration: none; font-size: 0.9rem; border-radius: 6px;">{{ type }}</a>
+              {%- else -%}
+                <a href="{{ routes.search_url }}?type=product&q={{ type | url_encode }}" style="padding: 10px 12px; background: transparent; color: rgba(18,19,21,0.8); font-weight: 500; text-decoration: none; font-size: 0.9rem; border-radius: 6px; transition: all 0.2s;" onmouseover="this.style.background='#121315'; this.style.color='#FFD800'" onmouseout="this.style.background='transparent'; this.style.color='rgba(18,19,21,0.8)'">{{ type }}</a>
+              {%- endif -%}
             {%- endif -%}
           {%- endfor -%}
         </nav>
@@ -42,40 +46,87 @@
       
       <header style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
         <div>
-          <h1 style="font-family: var(--font-body); font-size: 1.8rem; font-weight: 700; margin: 0 0 4px; text-transform:none;">
+          <h1 style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; margin: 0 0 4px; text-transform:none; color: #121315;">
             {%- if search.terms != blank -%}
-              Hasil Pencarian: "{{ search.terms }}"
+              Kategori: "{{ search.terms }}"
             {%- else -%}
               Cari Produk
             {%- endif -%}
           </h1>
-          <span style="color: #aaa; font-size: 0.9rem;">{{ search.results_count }} produk ditemukan</span>
+          <span style="color: rgba(18,19,21,0.6); font-weight: 500; font-size: 0.95rem;">{{ search.results_count }} produk ditemukan</span>
         </div>
         
-        <div style="position: relative;">
-           <select name="sort_by" id="SearchSortBy" style="appearance: none; background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.2); padding: 10px 40px 10px 16px; border-radius: 8px; font-size: 0.9rem; font-weight: 500; cursor: pointer; outline: none; transition: background 0.2s;">
-             <option value="" disabled selected style="background: #111;">Urutkan Harga</option>
-             <option value="price-ascending" style="background: #111;">Harga Terendah</option>
-             <option value="price-descending" style="background: #111;">Harga Tertinggi</option>
-           </select>
+        <div style="position: relative;" class="custom-sort-wrapper">
+          <div id="SortDropdownSelect" style="background: #121315; color: #FFD800; border: 2px solid #121315; padding: 10px 16px 10px 16px; border-radius: 8px; font-size: 0.9rem; font-weight: 700; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 10px rgba(0,0,0,0.15); display: flex; align-items: center; justify-content: space-between; min-width: 180px;" onmouseover="this.style.boxShadow='0 6px 15px rgba(0,0,0,0.25)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='0 4px 10px rgba(0,0,0,0.15)'; this.style.transform='translateY(0)';">
+            <span id="SortDropdownLabel">Pilih Urutan</span>
+            <svg id="SortDropdownArrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#FFD800" stroke-width="2.5" style="pointer-events: none; transition: transform 0.2s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+          <div id="SortDropdownOptions" style="position: absolute; top: calc(100% + 6px); right: 0; background: #121315; border: 2px solid #121315; border-radius: 8px; width: max-content; min-width: 100%; overflow: hidden; display: none; flex-direction: column; z-index: 100; box-shadow: 0 6px 15px rgba(0,0,0,0.25);">
+            <div class="custom-sort-opt" data-value="price-ascending" style="padding: 12px 16px; color: #fff; cursor: pointer; font-size: 0.9rem; font-weight: 500; transition: all 0.2s;">Harga Terendah</div>
+            <div class="custom-sort-opt" data-value="price-descending" style="padding: 12px 16px; color: #fff; cursor: pointer; font-size: 0.9rem; font-weight: 500; transition: all 0.2s;">Harga Tertinggi</div>
+          </div>
+          <style>
+            .custom-sort-opt:hover { background: #FFD800 !important; color: #121315 !important; font-weight: 700 !important; }
+            .custom-sort-opt.active-sort { color: #FFD800; font-weight: 700; background: rgba(0,0,0,0.2); }
+          </style>
+          
            <script>
              document.addEventListener('DOMContentLoaded', function() {
                const urlParams = new URLSearchParams(window.location.search);
                const currentSort = urlParams.get('sort_by');
-               const sortSelect = document.getElementById('SearchSortBy');
+               const selectTrigger = document.getElementById('SortDropdownSelect');
+               const optionsMenu = document.getElementById('SortDropdownOptions');
+               const label = document.getElementById('SortDropdownLabel');
+               const arrow = document.getElementById('SortDropdownArrow');
+               const opts = document.querySelectorAll('.custom-sort-opt');
                
-               if (currentSort) {
-                 sortSelect.value = currentSort;
+               let isOpen = false;
+               
+               selectTrigger.addEventListener('click', function(e) {
+                 e.stopPropagation();
+                 isOpen = !isOpen;
+                 optionsMenu.style.display = isOpen ? 'flex' : 'none';
+                 arrow.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+               });
+               
+               document.addEventListener('click', function(e) {
+                 if (isOpen && !e.target.closest('.custom-sort-wrapper')) {
+                   isOpen = false;
+                   optionsMenu.style.display = 'none';
+                   arrow.style.transform = 'rotate(0deg)';
+                 }
+               });
+               
+               function applySort(value, text) {
+                 label.textContent = text;
+                 isOpen = false;
+                 optionsMenu.style.display = 'none';
+                 arrow.style.transform = 'rotate(0deg)';
+                 
+                 opts.forEach(o => o.classList.remove('active-sort'));
+                 const activeOpt = Array.from(opts).find(o => o.getAttribute('data-value') === value);
+                 if (activeOpt) activeOpt.classList.add('active-sort');
+                 
+                 let params = new URLSearchParams(window.location.search);
+                 params.set('sort_by', value);
+                 window.location.search = params.toString(); // Search page requires a reload natively based on template
                }
 
-               sortSelect.addEventListener('change', function() {
-                 let params = new URLSearchParams(window.location.search);
-                 params.set('sort_by', this.value);
-                 window.location.search = params.toString();
+               if (currentSort) {
+                 const preOpt = Array.from(opts).find(o => o.getAttribute('data-value') === currentSort);
+                 if (preOpt) {
+                   preOpt.classList.add('active-sort');
+                   label.textContent = preOpt.textContent;
+                 }
+               }
+
+               opts.forEach(opt => {
+                 opt.addEventListener('click', function() {
+                   applySort(this.getAttribute('data-value'), this.textContent);
+                 });
                });
              });
            </script>
-           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="position: absolute; right: 14px; top: 12px; pointer-events: none;"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </div>
       </header>
 
@@ -98,14 +149,14 @@
               .pagination a, .pagination span.page, .pagination span.next, .pagination span.prev {
                 display: inline-flex; align-items: center; justify-content: center;
                 min-width: 44px; height: 44px; padding: 0 12px;
-                text-decoration: none; color: #fff; border-radius: 8px; transition: all 0.2s;
+                text-decoration: none; color: #121315; border-radius: 8px; transition: all 0.2s; font-weight: 600;
               }
-              .pagination a:hover { background: rgba(255,255,255,0.1); }
+              .pagination a:hover { background: #121315; color: #FFD800; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
               .pagination span.current {
-                background: var(--color-accent); color: #000; font-weight: 700;
-                box-shadow: 0 4px 12px rgba(255, 216, 0, 0.3);
+                background: #121315; color: var(--color-accent); font-weight: 800;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.25);
               }
-              .pagination span.deco { min-width: 24px; color: #888; display: inline-flex; align-items: center; justify-content: center; }
+              .pagination span.deco { min-width: 24px; color: #121315; display: inline-flex; align-items: center; justify-content: center; opacity: 0.5; }
             </style>
             <div class="pagination" style="grid-column: 1 / -1; display:flex; justify-content:center; gap:8px; margin-top:48px; margin-bottom: 32px; flex-wrap:wrap;">
               {{ paginate | default_pagination }}
