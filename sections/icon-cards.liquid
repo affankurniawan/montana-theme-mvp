@@ -6,6 +6,10 @@
       background: rgba(0, 0, 0, 0.2); 
       border-color: rgba(230, 197, 51, 0.1); 
     }
+    #icon-cards-{{ section.id }} .icon-card:hover {
+      border-color: var(--color-accent) !important;
+      box-shadow: 0 20px 40px rgba(230, 197, 51, 0.25) !important;
+    }
   </style>
   <div class="page-width">
     {%- render 'section-heading', eyebrow: section.settings.eyebrow, title: section.settings.heading, text: section.settings.text, alignment: 'center' -%}
