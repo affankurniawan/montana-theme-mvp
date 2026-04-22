@@ -26,7 +26,7 @@
           Kategori
         </h4>
         <nav style="display: flex; flex-direction: column; gap: 4px;">
-          <a href="/pages/katalog" style="padding: 10px 12px; background: rgba(0, 178, 255, 0.1); color: var(--color-accent); font-weight: 600; text-decoration: none; font-size: 0.9rem; border-radius: 6px;">Semua Produk</a>
+          <a href="/pages/katalog" style="padding: 10px 12px; background: rgba(255, 216, 0, 0.1); color: var(--color-accent); font-weight: 600; text-decoration: none; font-size: 0.9rem; border-radius: 6px;">Semua Produk</a>
           {%- for type in collections.all.all_types -%}
             {%- if type != blank -%}
               <a href="{{ routes.search_url }}?type=product&q={{ type | url_encode }}" style="padding: 10px 12px; background: transparent; color: #aaa; font-weight: 500; text-decoration: none; font-size: 0.9rem; border-radius: 6px; transition: all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.05)'; this.style.color='#fff'" onmouseout="this.style.background='transparent'; this.style.color='#aaa'">{{ type }}</a>
@@ -103,7 +103,7 @@
               .pagination a:hover { background: rgba(255,255,255,0.1); }
               .pagination span.current {
                 background: var(--color-accent); color: #000; font-weight: 700;
-                box-shadow: 0 4px 12px rgba(0, 178, 255, 0.3);
+                box-shadow: 0 4px 12px rgba(255, 216, 0, 0.3);
               }
               .pagination span.deco { min-width: 24px; color: #888; display: inline-flex; align-items: center; justify-content: center; }
             </style>

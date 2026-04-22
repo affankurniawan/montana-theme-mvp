@@ -93,7 +93,7 @@
         <!-- Pill Buttons -->
         <div class="gsap-hero-buttons" style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-top: 10px;">
           {%- if section.settings.primary_label != blank -%}
-            <a href="{{ section.settings.primary_link }}" class="button button--accent" style="display:inline-flex; align-items:center; justify-content:center; font-size:0.85rem; padding: 12px 28px; font-weight:800; border-radius: 999px; background: var(--color-accent); color: #000; text-decoration: none; border: 2px solid var(--color-accent); box-shadow: 0 4px 14px rgba(0, 178, 255, 0.25); transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(0, 178, 255, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 14px rgba(0, 178, 255, 0.25)'">
+            <a href="{{ section.settings.primary_link }}" class="button button--accent" style="display:inline-flex; align-items:center; justify-content:center; font-size:0.85rem; padding: 12px 28px; font-weight:800; border-radius: 999px; background: var(--color-accent); color: #000; text-decoration: none; border: 2px solid var(--color-accent); box-shadow: 0 4px 14px rgba(255, 216, 0, 0.25); transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(255, 216, 0, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 14px rgba(255, 216, 0, 0.25)'">
               {{ section.settings.primary_label }}
             </a>
           {%- endif -%}
