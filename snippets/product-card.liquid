@@ -1,4 +1,4 @@
-<article class="card product-card" data-price="{{ product.price }}" style="display:flex; flex-direction:column; height:100%; position: relative; overflow: hidden;">
+<article class="card product-card" data-price="{{ product.price }}" style="display:flex; flex-direction:column; height:100%; position: relative; overflow: hidden; background: #fff; border: 2px solid #121315; border-radius: 12px; transition: transform 0.25s ease, box-shadow 0.25s ease;" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 12px 24px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
   <a href="{{ product.url }}" class="product-card__media quickview-trigger" style="position: relative; display: block;">
     {%- assign downcased_tags = product.tags | join: ',' | downcase -%}
     <div style="position: absolute; top: 10px; left: 10px; z-index: 2; display: flex; flex-direction: column; gap: 4px;">
