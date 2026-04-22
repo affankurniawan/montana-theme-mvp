@@ -15,8 +15,8 @@
   --radius: 12px;
   --radius-small: 8px;
   --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.15);
-  --glass-bg: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-bg: rgba(18, 19, 21, 0.03);
+  --glass-border: rgba(18, 19, 21, 0.2);
 }
 
 * { box-sizing: border-box; }
