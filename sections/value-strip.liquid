@@ -4,7 +4,7 @@
       {%- for block in section.blocks -%}
         <div {{ block.shopify_attributes }} style="flex: 1 1 160px; display: flex; flex-direction: column; align-items: center; text-align: center;">
           
-          <div style="color: var(--color-accent); margin-bottom: 16px; display: flex; justify-content: center; align-items: center; width: 48px; height: 48px;">
+          <div style="color: #121315; margin-bottom: 16px; display: flex; justify-content: center; align-items: center; width: 48px; height: 48px;">
             {%- case block.settings.icon -%}
               {%- when 'shield' -%}
                 <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
@@ -21,12 +21,12 @@
             {%- endcase -%}
           </div>
           
-          <h4 style="margin: 0 0 8px; color: #fff; font-size: 0.95rem; font-weight: 700; font-family: var(--font-body); letter-spacing: 0.02em;">
+          <h4 style="margin: 0 0 8px; color: #121315; font-size: 0.95rem; font-weight: 700; font-family: var(--font-body); letter-spacing: 0.02em;">
             {{ block.settings.title }}
           </h4>
           
           {%- if block.settings.text != blank -%}
-            <p style="margin: 0; color: #888; font-size: 0.85rem; line-height: 1.6;">
+            <p style="margin: 0; color: rgba(18,19,21,0.7); font-size: 0.85rem; line-height: 1.6;">
               {{ block.settings.text }}
             </p>
           {%- endif -%}
