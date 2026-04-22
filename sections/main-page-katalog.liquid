@@ -70,25 +70,59 @@
           <span style="color: rgba(18,19,21,0.6); font-weight: 500; font-size: 0.95rem;">{{ collections.all.all_products_count }} produk ditemukan</span>
         </div>
         
-        <div style="position: relative;">
-           <select name="sort_by" id="CatalogSortBy" style="appearance: none; background: #121315; color: #FFD800; border: 2px solid #121315; padding: 10px 40px 10px 16px; border-radius: 8px; font-size: 0.9rem; font-weight: 700; cursor: pointer; outline: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 10px rgba(0,0,0,0.15);" onmouseover="this.style.boxShadow='0 6px 15px rgba(0,0,0,0.25)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='0 4px 10px rgba(0,0,0,0.15)'; this.style.transform='translateY(0)';">
-             <option value="" disabled selected style="background: #121315; color: #aaa;">Pilih Urutan</option>
-             <option value="price-ascending" style="background: #121315; color: #fff;">Harga Terendah</option>
-             <option value="price-descending" style="background: #121315; color: #fff;">Harga Tertinggi</option>
-           </select>
+        <div style="position: relative;" class="custom-sort-wrapper">
+          <div id="SortDropdownSelect" style="background: #121315; color: #FFD800; border: 2px solid #121315; padding: 10px 16px 10px 16px; border-radius: 8px; font-size: 0.9rem; font-weight: 700; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 10px rgba(0,0,0,0.15); display: flex; align-items: center; justify-content: space-between; min-width: 180px;" onmouseover="this.style.boxShadow='0 6px 15px rgba(0,0,0,0.25)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='0 4px 10px rgba(0,0,0,0.15)'; this.style.transform='translateY(0)';">
+            <span id="SortDropdownLabel">Pilih Urutan</span>
+            <svg id="SortDropdownArrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#FFD800" stroke-width="2.5" style="pointer-events: none; transition: transform 0.2s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+          <div id="SortDropdownOptions" style="position: absolute; top: calc(100% + 6px); right: 0; background: #121315; border: 2px solid #121315; border-radius: 8px; width: max-content; min-width: 100%; overflow: hidden; display: none; flex-direction: column; z-index: 100; box-shadow: 0 6px 15px rgba(0,0,0,0.25);">
+            <div class="custom-sort-opt" data-value="price-ascending" style="padding: 12px 16px; color: #fff; cursor: pointer; font-size: 0.9rem; font-weight: 500; transition: all 0.2s;">Harga Terendah</div>
+            <div class="custom-sort-opt" data-value="price-descending" style="padding: 12px 16px; color: #fff; cursor: pointer; font-size: 0.9rem; font-weight: 500; transition: all 0.2s;">Harga Tertinggi</div>
+          </div>
+          <style>
+            .custom-sort-opt:hover { background: #FFD800 !important; color: #121315 !important; font-weight: 700 !important; }
+            .custom-sort-opt.active-sort { color: #FFD800; font-weight: 700; background: rgba(0,0,0,0.2); }
+          </style>
+          
            <script>
              document.addEventListener('DOMContentLoaded', function() {
                const urlParams = new URLSearchParams(window.location.search);
                const currentSort = urlParams.get('sort_by');
-               const sortSelect = document.getElementById('CatalogSortBy');
+               const selectTrigger = document.getElementById('SortDropdownSelect');
+               const optionsMenu = document.getElementById('SortDropdownOptions');
+               const label = document.getElementById('SortDropdownLabel');
+               const arrow = document.getElementById('SortDropdownArrow');
+               const opts = document.querySelectorAll('.custom-sort-opt');
                
-               if (currentSort) {
-                 sortSelect.value = currentSort;
-               }
-
-               sortSelect.addEventListener('change', function() {
+               let isOpen = false;
+               
+               selectTrigger.addEventListener('click', function(e) {
+                 e.stopPropagation();
+                 isOpen = !isOpen;
+                 optionsMenu.style.display = isOpen ? 'flex' : 'none';
+                 arrow.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+               });
+               
+               document.addEventListener('click', function(e) {
+                 if (isOpen && !e.target.closest('.custom-sort-wrapper')) {
+                   isOpen = false;
+                   optionsMenu.style.display = 'none';
+                   arrow.style.transform = 'rotate(0deg)';
+                 }
+               });
+               
+               function applySort(value, text) {
+                 label.textContent = text;
+                 isOpen = false;
+                 optionsMenu.style.display = 'none';
+                 arrow.style.transform = 'rotate(0deg)';
+                 
+                 opts.forEach(o => o.classList.remove('active-sort'));
+                 const activeOpt = Array.from(opts).find(o => o.getAttribute('data-value') === value);
+                 if (activeOpt) activeOpt.classList.add('active-sort');
+                 
                  let params = new URLSearchParams(window.location.search);
-                 params.set('sort_by', this.value);
+                 params.set('sort_by', value);
                  window.history.replaceState(null, null, '?' + params.toString());
                  
                  const grid = document.querySelector('.product-grid');
@@ -97,31 +131,32 @@
                  cards.sort((a, b) => {
                    const priceA = parseInt(a.getAttribute('data-price')) || 0;
                    const priceB = parseInt(b.getAttribute('data-price')) || 0;
-                   
-                   if (this.value === 'price-ascending') {
-                     return priceA - priceB;
-                   } else if (this.value === 'price-descending') {
-                     return priceB - priceA;
-                   }
+                   if (value === 'price-ascending') return priceA - priceB;
+                   if (value === 'price-descending') return priceB - priceA;
                    return 0;
                  });
                  
                  const pagination = grid.querySelector('.pagination');
                  cards.forEach(card => {
-                   if (pagination) {
-                     grid.insertBefore(card, pagination);
-                   } else {
-                     grid.appendChild(card);
-                   }
+                   if (pagination) { grid.insertBefore(card, pagination); }
+                   else { grid.appendChild(card); }
+                 });
+               }
+
+               if (currentSort) {
+                 const preOpt = Array.from(opts).find(o => o.getAttribute('data-value') === currentSort);
+                 if (preOpt) {
+                   applySort(currentSort, preOpt.textContent);
+                 }
+               }
+
+               opts.forEach(opt => {
+                 opt.addEventListener('click', function() {
+                   applySort(this.getAttribute('data-value'), this.textContent);
                  });
                });
-               
-               if (currentSort === 'price-ascending' || currentSort === 'price-descending') {
-                 sortSelect.dispatchEvent(new Event('change'));
-               }
              });
            </script>
-           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#FFD800" stroke-width="2.5" style="position: absolute; right: 14px; top: 12px; pointer-events: none;"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </div>
       </header>
 
