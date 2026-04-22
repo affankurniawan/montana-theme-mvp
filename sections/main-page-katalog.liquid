@@ -1,11 +1,10 @@
-<div style="background-color: #121315; color: #ffffff; width: 100%; border-top: 1px solid rgba(0,0,0,0.1); padding: 40px 0 80px;">
-<section class="main-collection page-width">
+<section class="main-collection page-width" style="padding: 40px 0 80px;">
   
   <!-- Breadcrumbs -->
-  <div class="breadcrumbs" style="color: #aaa; font-size: 0.85rem; margin-bottom: 24px; font-weight: 500; display:flex; align-items:center; gap: 8px;">
-    <a href="/" style="color: #fff; text-decoration: none;">Beranda</a> 
+  <div class="breadcrumbs" style="color: rgba(18,19,21,0.6); font-size: 0.85rem; margin-bottom: 24px; font-weight: 500; display:flex; align-items:center; gap: 8px;">
+    <a href="/" style="color: #121315; text-decoration: none;">Beranda</a> 
     <span>/</span> 
-    <span style="color: var(--color-accent);">{{ page.title }}</span>
+    <span style="color: #333;">{{ page.title }}</span>
   </div>
 
   <div style="display: flex; gap: 32px; align-items: flex-start;" class="catalog-layout">
@@ -13,26 +12,26 @@
     <!-- Sidebar -->
     <aside class="catalog-sidebar" style="width: 250px; flex-shrink: 0; display: flex; flex-direction: column; gap: 24px; position: sticky; top: 100px; max-height: calc(100vh - 120px);">
       
-      <form action="{{ routes.search_url }}" method="get" role="search" style="display: flex; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden; height: 44px; flex-shrink: 0; transition: border-color 0.2s;" onfocusin="this.style.borderColor='rgba(255,255,255,0.3)'" onfocusout="this.style.borderColor='rgba(255,255,255,0.1)'">
+      <form action="{{ routes.search_url }}" method="get" role="search" style="display: flex; background: #fff; border: 1px solid rgba(18,19,21,0.1); border-radius: 8px; overflow: hidden; height: 44px; flex-shrink: 0; transition: border-color 0.2s;" onfocusin="this.style.borderColor='rgba(18,19,21,0.5)'" onfocusout="this.style.borderColor='rgba(18,19,21,0.1)'">
         <input type="hidden" name="type" value="product">
-        <div style="display: flex; align-items: center; justify-content: center; padding-left: 12px; color: #888;">
+        <div style="display: flex; align-items: center; justify-content: center; padding-left: 12px; color: #121315;">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
         </div>
-        <input type="search" name="q" placeholder="Cari produk..." style="flex-grow: 1; padding: 0 12px; border: none; background: transparent; color: #fff; font-size: 0.9rem; outline: none;">
+        <input type="search" name="q" placeholder="Cari produk..." style="flex-grow: 1; padding: 0 12px; border: none; background: transparent; color: #121315; font-size: 0.9rem; outline: none;">
       </form>
 
       <div style="overflow-y: auto; flex-grow: 1; padding-right: 8px;" class="custom-scrollbar catalog-categories-wrapper">
         <!-- Desktop Category Menu (Persistent) -->
         <div class="sidebar-categories-desktop">
-          <h4 style="font-size: 0.85rem; color: #fff; font-weight: 700; letter-spacing: 1px; margin: 0 0 16px; display: flex; align-items: center; gap: 8px; text-transform: uppercase;">
+          <h4 style="font-size: 0.85rem; color: #121315; font-weight: 700; letter-spacing: 1px; margin: 0 0 16px; display: flex; align-items: center; gap: 8px; text-transform: uppercase;">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" style="opacity:0.8;"><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>
             Kategori
           </h4>
           <nav style="display: flex; flex-direction: column; gap: 4px;">
-            <a href="/pages/katalog" style="padding: 10px 12px; background: rgba(255, 216, 0, 0.1); color: var(--color-accent); font-weight: 600; text-decoration: none; font-size: 0.9rem; border-radius: 6px;">Semua</a>
+            <a href="/pages/katalog" style="padding: 10px 12px; background: #121315; color: var(--color-accent); font-weight: 600; text-decoration: none; font-size: 0.9rem; border-radius: 6px;">Semua</a>
             {%- for type in collections.all.all_types -%}
               {%- if type != blank -%}
-                <a href="{{ routes.search_url }}?type=product&q={{ type | url_encode }}" style="padding: 10px 12px; background: transparent; color: #aaa; font-weight: 500; text-decoration: none; font-size: 0.9rem; border-radius: 6px; transition: all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.05)'; this.style.color='#fff'" onmouseout="this.style.background='transparent'; this.style.color='#aaa'">{{ type }}</a>
+                <a href="{{ routes.search_url }}?type=product&q={{ type | url_encode }}" style="padding: 10px 12px; background: transparent; color: rgba(18,19,21,0.6); font-weight: 600; text-decoration: none; font-size: 0.9rem; border-radius: 6px; transition: all 0.2s;" onmouseover="this.style.background='#121315'; this.style.color='#e6c533'" onmouseout="this.style.background='transparent'; this.style.color='rgba(18,19,21,0.6)'">{{ type }}</a>
               {%- endif -%}
             {%- endfor -%}
           </nav>
@@ -40,7 +39,7 @@
 
         <!-- Mobile Category Menu (Dropdown / Accordion) -->
         <details class="sidebar-categories-mobile">
-          <summary style="font-size: 0.9rem; color: #fff; font-weight: 700; padding: 12px 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; text-transform: uppercase; list-style: none;">
+          <summary style="font-size: 0.9rem; color: #121315; font-weight: 700; padding: 12px 16px; background: #fff; border: 2px solid #121315; border-radius: 8px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; text-transform: uppercase; list-style: none;">
             <div style="display:flex; align-items:center; gap:8px;">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" style="opacity:0.8;"><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>
               Saring Kategori  
@@ -49,10 +48,10 @@
           </summary>
           <div style="padding-top: 16px;">
             <nav style="display: flex; flex-direction: row; flex-wrap: wrap; gap: 8px;">
-              <a href="/pages/katalog" style="padding: 8px 16px; background: rgba(255, 216, 0, 0.1); color: var(--color-accent); font-weight: 600; text-decoration: none; font-size: 0.85rem; border-radius: 6px; border: 1px solid var(--color-accent);">Semua</a>
+              <a href="/pages/katalog" style="padding: 8px 16px; background: #121315; color: var(--color-accent); font-weight: 600; text-decoration: none; font-size: 0.85rem; border-radius: 6px; border: 1px solid #121315;">Semua</a>
               {%- for type in collections.all.all_types -%}
                 {%- if type != blank -%}
-                  <a href="{{ routes.search_url }}?type=product&q={{ type | url_encode }}" style="padding: 8px 16px; background: transparent; color: #aaa; font-weight: 500; text-decoration: none; font-size: 0.85rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); transition: all 0.2s;">{{ type }}</a>
+                  <a href="{{ routes.search_url }}?type=product&q={{ type | url_encode }}" style="padding: 8px 16px; background: transparent; color: #121315; font-weight: 500; text-decoration: none; font-size: 0.85rem; border-radius: 6px; border: 1px solid rgba(18,19,21,0.2); transition: all 0.2s;" onmouseover="this.style.background='#121315'; this.style.color='#e6c533'" onmouseout="this.style.background='transparent'; this.style.color='#121315'">{{ type }}</a>
                 {%- endif -%}
               {%- endfor -%}
             </nav>
@@ -67,15 +66,15 @@
       
       <header style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
         <div>
-          <h1 style="font-family: var(--font-body); font-size: 1.8rem; font-weight: 700; margin: 0 0 4px; text-transform:none; color: #ffffff;">Katalog Produk</h1>
-          <span style="color: #aaa; font-size: 0.9rem;">{{ collections.all.all_products_count }} produk ditemukan</span>
+          <h1 style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; margin: 0 0 4px; text-transform:none; color: #121315;">Katalog Produk</h1>
+          <span style="color: rgba(18,19,21,0.6); font-weight: 500; font-size: 0.95rem;">{{ collections.all.all_products_count }} produk ditemukan</span>
         </div>
         
         <div style="position: relative;">
-           <select name="sort_by" id="CatalogSortBy" style="appearance: none; background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.2); padding: 10px 40px 10px 16px; border-radius: 8px; font-size: 0.9rem; font-weight: 500; cursor: pointer; outline: none; transition: background 0.2s;">
-             <option value="" disabled selected style="background: #111;">Urutkan Harga</option>
-             <option value="price-ascending" style="background: #111;">Harga Terendah</option>
-             <option value="price-descending" style="background: #111;">Harga Tertinggi</option>
+           <select name="sort_by" id="CatalogSortBy" style="appearance: none; background: #fff; color: #121315; border: 2px solid #121315; padding: 10px 40px 10px 16px; border-radius: 8px; font-size: 0.9rem; font-weight: 600; cursor: pointer; outline: none; transition: background 0.2s;">
+             <option value="" disabled selected style="background: #fff; color: #121315;">Urutkan Harga</option>
+             <option value="price-ascending" style="background: #fff; color: #121315;">Harga Terendah</option>
+             <option value="price-descending" style="background: #fff; color: #121315;">Harga Tertinggi</option>
            </select>
            <script>
              document.addEventListener('DOMContentLoaded', function() {
@@ -139,18 +138,17 @@
 
           {%- if paginate.pages > 1 -%}
             <style>
-              .pagination { font-size: 1.1rem; font-weight: 500; }
+              .pagination { font-size: 1.1rem; font-weight: 600; }
               .pagination a, .pagination span.page, .pagination span.next, .pagination span.prev {
                 display: inline-flex; align-items: center; justify-content: center;
                 min-width: 44px; height: 44px; padding: 0 12px;
-                text-decoration: none; color: #fff; border-radius: 8px; transition: all 0.2s;
+                text-decoration: none; color: #121315; border-radius: 8px; transition: all 0.2s;
               }
-              .pagination a:hover { background: rgba(255,255,255,0.1); }
+              .pagination a:hover { background: rgba(18,19,21,0.1); }
               .pagination span.current {
-                background: var(--color-accent); color: #000; font-weight: 700;
-                box-shadow: 0 4px 12px rgba(255, 216, 0, 0.3);
+                background: #121315; color: var(--color-accent); font-weight: 800;
               }
-              .pagination span.deco { min-width: 24px; color: #888; display: inline-flex; align-items: center; justify-content: center; }
+              .pagination span.deco { min-width: 24px; color: rgba(18,19,21,0.5); display: inline-flex; align-items: center; justify-content: center; }
             </style>
             <div class="pagination" style="grid-column: 1 / -1; display:flex; justify-content:center; gap:8px; margin-top:48px; margin-bottom: 32px; flex-wrap:wrap;">
               {{ paginate | default_pagination }}
@@ -178,7 +176,6 @@
     }
   </style>
 </section>
-</div>
 
 {% schema %}
 {
