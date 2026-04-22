@@ -21,8 +21,8 @@
       <span>{{ placeholder_read | default: "5 menit" }}</span>
     </div>
     
-    <h3 style="margin:0 0 12px; font-family: var(--font-heading); font-size:1.5rem; font-weight:400; letter-spacing: 0.05em; line-height:1.4; color:var(--color-primary);">
-      <a href="{{ article.url | default: '#' }}" style="text-decoration:none; color:inherit;">{{ article.title | default: placeholder_title }}</a>
+    <h3 style="margin:0 0 12px; font-family: var(--font-heading); font-size:1.5rem; font-weight:400; letter-spacing: 0.05em; line-height:1.4;">
+      <a href="{{ article.url | default: '#' }}" style="text-decoration:none; color:#ffffff; transition: color 0.2s;" onmouseover="this.style.color='#FFD800'" onmouseout="this.style.color='#ffffff'">{{ article.title | default: placeholder_title }}</a>
     </h3>
     
     <p style="color:#ccc; font-size:0.95rem; line-height:1.6; margin:0 0 24px; flex-grow:1;">
